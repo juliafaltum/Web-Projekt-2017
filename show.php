@@ -1,11 +1,11 @@
-<!DOCTYPE html> <!-- das ist HTML 5 -->
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="mystyle.css" media="screen"/>
 </head>
 
-<?php
+<?php // Anzeigen von einzelnem Tweet
 include_once("userdata.php");
 
 $contentID = (int)$_GET["contentID"];
@@ -30,5 +30,5 @@ $db = null;
 ?>
 
 <br>
-<a href="alletexte.php">zurück</a>
+<a href="index.php">zurück</a>
 

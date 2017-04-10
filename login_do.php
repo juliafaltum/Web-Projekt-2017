@@ -1,38 +1,26 @@
-<?php
+<?php // Login durchführen
 
-$username = htmlspecialchars($_POST["username"], ENT_QUOTES, "UTF-8");
-
-
-$eingabePassword = htmlspecialchars($_POST["password"], ENT_QUOTES, "UTF-8");
-$eingabepasswordhashed = hash_hmac('sha256', '$eingabePassword', '$saltPasssword');
-
-$passwordausDB = "Muss noch gemacht werden!"; // Todo
+$username = htmlspecialchars($_POST["username"], ENT_QUOTES, "UTF-8"); // Benutzername holen aus Formular
+$eingabePassword = ($_POST["password"]);    //Passwort holen aus Formular
 
 
 
+include_once("userdata.php");
 
-// if a value is given
-if (isset($_POST['username']));
-{
 
-    // connectivity to MySQL server
-    include_once("userdata.php");
-    $db = new PDO($dsn, $dbuser, $dbpass);
+    $db = new PDO($dsn, $dbuser, $dbpass);  // Datenbank initialisieren
+    $sql = "SELECT * FROM user WHERE username = :username"; // DB-Bedingungen, nur Passwort zu angegebenen Username wird gesucht
+    $query = $db->prepare($sql);
+    $query->bindParam(':username', $username);      // Per POST geholter Parameter wird oben an die Stelle von :username gepackt
+    $query->execute();
 
-    // after pressing login, checking if the variables exist in the database
-    $query = $db->prepare("SELECT password FROM user WHERE username=?");
-    $query->execute(array($_POST['username']));
-    if ($query->fetchColumn() === $_POST['eingabepasswordhashed']) //better to hash it
-    {
-        // starts the session created if login info is correct
-        session_start();
-        $_SESSION['username'] = $_POST['username'];
-
-        header("Location: members.php");
-        exit;
+    while ($zeile = $query->fetchObject()) {        // Sehr unsaubere Methode mit while Schleife --> Todo
+        $passwordausDB = $zeile->password;
     }
 
-    else {}
+
+if(password_verify($eingabePassword, $passwordausDB)) {     // Funktion password_verify macht Gegenteil von password_hash --> Nun wird Nutzereingabe ($eingabePassword) mit Datenbank Hash-Wert ($passwordausDB) verglichen
+    echo "Erfolgreich angemeldet!";     // Bei korrekter eingabe kann z.B. Session gesetzt werden --> Todo
+} else {
+    echo "Login fehlgeschlagen";        //Bei falscher Eingabe --> Todo
 }
-
-
