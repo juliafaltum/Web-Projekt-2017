@@ -21,7 +21,6 @@ Bitte einloggen<br/>
     Benutzername: <input type="text" name="username" /> <br/>
     Passwort: <input type="password" name="password" /> <br/>
     <input type="submit" value="Einloggen" /> <br/>
-
 </form>
 </body>
 </html>
