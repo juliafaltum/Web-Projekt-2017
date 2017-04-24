@@ -7,6 +7,10 @@
 <h1>Alle Tweets</h1>
 <body>
 
+<script src="js/instantclick.min.js" data-no-instant></script>
+<script data-no-instant>InstantClick.init();</script>
+
+
 <a href="create_form.html">neuer Tweet</a><br>
 <a href="create_user.html">neuer Benutzer</a><br>
 <a href="login.html">Einloggen</a><br>
