@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="mystyle.css" media="screen"/>
 </head>
-<h1>Alle Tweets für armssse</h1>
+<h1>Alle Tweets fükkr armsssjjje</h1>
 <body>
 
 <script src="js/instantclick.min.js" data-no-instant></script>
