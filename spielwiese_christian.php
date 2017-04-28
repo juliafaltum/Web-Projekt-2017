@@ -29,15 +29,29 @@ $db = null;
 
 include_once("userdata.php");
 
+$festgelegteUserID = 21; // noch manuell, kann aber später aus Follow Liste geholt werden
+
+
+$db = new PDO($dsn, $dbuser, $dbpass);  // Datenbank initialisieren
+$sql = "SELECT * FROM user WHERE userid = :festgelegteUserID"; // DB-Bedingungen, nur Passwort zu angegebenen Username wird gesucht
+$query = $db->prepare($sql);
+$query->bindParam(':festgelegteUserID', $festgelegteUserID);      // Per POST geholter Parameter wird oben an die Stelle von :username gepackt
+$query->execute();
+
+while ($zeile = $query->fetchObject()) {        // Sehr unsaubere Methode mit while Schleife --> Todo
+    $usernameAusDB = $zeile->username;
+}
+
 
 $db = new PDO($dsn, $dbuser, $dbpass);
-$sql = "SELECT * FROM content_txt WHERE userID = 19";         // UserID = 19 zeigt alles von Nutzer 19 an
+$sql = "SELECT * FROM content_txt WHERE userid = :festgelegteUserID";         // UserID = 19 zeigt alles von Nutzer 19 an
 $query = $db->prepare($sql);
+$query->bindParam(':festgelegteUserID', $festgelegteUserID);
 $query->execute();
 
 while ($zeile = $query->fetchObject()) {
     echo "<h1>Tweet Nummer: $zeile->contentID<br></h1>";
-    echo "<h2>Benutzername: $zeile->userID<br></h2>";           // Todo: wie komme ich auf den vollen Benutzernamen nicht nur die ID?
+    echo "<h2>Geschrieben von: ".$usernameAusDB ."<br></h2>";           // Todo: wie komme ich auf den vollen Benutzernamen nicht nur die ID?
     echo "<h3>Geschrieben am: $zeile->contentDate</h3>";
     echo "<h4>$zeile->contentTXT</h4>";
     echo "<img src='$zeile->contentPicture' alt=\"Mountain View\" style=\"width:304px;height:228px;\"> <br>";

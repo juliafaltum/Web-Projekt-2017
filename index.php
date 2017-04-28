@@ -7,8 +7,8 @@
 <h1>Alle Tweets hola</h1>
 <body>
 
-<script src="js/instantclick.min.js" data-no-instant></script>
-<script data-no-instant>InstantClick.init();</script>
+<!-- <script src="js/instantclick.min.js" data-no-instant></script>
+<script data-no-instant>InstantClick.init();</script> Skript wieder auskommentiert für Instantklick -->
 
 
 <a href="create_form.html">neuer Tweet</a><br>
