@@ -39,7 +39,7 @@ Dieser Bereich ist geschützt und nur dann zugänglich, wenn man eingeloggt ist!
 }
 else {
 ?>
-Bitte <a href="login.html">hier</a> einloggen.
+Bitte <a href="login.php">hier</a> einloggen.
 <?php
 }
 ?>

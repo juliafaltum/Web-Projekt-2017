@@ -13,7 +13,7 @@
 
 <a href="create_form.html">neuer Tweet</a><br>
 <a href="create_user.html">neuer Benutzer</a><br>
-<a href="login.html">Einloggen</a><br>
+<a href="login.php">Einloggen</a><br>
     <?php // Anzeigen von allen vorhandenen Tweets aus der Datenbank
 
     include_once("userdata.php");
