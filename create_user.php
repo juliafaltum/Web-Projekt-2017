@@ -5,6 +5,7 @@
  * Date: 30.04.2017
  * Time: 11:17
  */
+if(!isset($_GET["page"])) {
 ?>
 
 <!DOCTYPE html>
@@ -17,18 +18,22 @@
     <h1>Neuer Benutzer</h1>
     <form action="create_user_do.php" method="post">
     Benutzername: <input type="text" name="username" /><br>
-Voller Name: <input type="text" name="fullname" /><br>
-Email Adresse: <input type="text" name="email" /><br>
-Passwort: <input type="password" name="password" /><br>
-        Passwort wiederholen: <input type="password" name=""password2" /><br>
-        <input type="submit" value="Benutzer erstellen" />
+    Voller Name: <input type="text" name="fullname" /><br>
+    Email Adresse: <input type="text" name="email" /><br>
+    Passwort: <input type="password" name="password" /><br>
+    Passwort wiederholen: <input type="password" name="password2" /><br>
+    <input type="submit" value="Benutzer erstellen" />
     </form>
-    <?php
-    $password = "password";
-    $password2 = "password2";
 
-    if ($password != $password2) {
-        echo "Die Passwörter stimmen nicht überein!";
+<?php //Überprüfung funktionert noch nicht! todo
+    }
+    if(isset($_GET["page"])) {
+        $password = "password";
+        $password2 = "password2";
+
+        if ($password != $password2) {
+            echo "Die Passwörter stimmen nicht überein!";
+        }
     }
     ?>
 </body>
