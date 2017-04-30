@@ -24,18 +24,6 @@ if(!isset($_GET["page"])) {
     Passwort wiederholen: <input type="password" name="password2" /><br>
     <input type="submit" value="Benutzer erstellen" />
     </form>
-
-<?php //Überprüfung funktionert noch nicht! todo
-    }
-    if(isset($_GET["page"])) {
-        $password = "password";
-        $password2 = "password2";
-
-        if ($password != $password2) {
-            echo "Die Passwörter stimmen nicht überein!";
-        }
-    }
-    ?>
 </body>
 </html>
 
