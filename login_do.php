@@ -30,3 +30,4 @@ if(password_verify($eingabePassword, $passwordausDB)) {     // Funktion password
     echo "Login fehlgeschlagen. Du wirst in 3 Sekunden zurück zum Login geleitet.";        //Bei falscher Eingabe --> Todo
     header ("refresh:3;url=login.html");
 }
+

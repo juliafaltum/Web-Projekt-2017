@@ -1,6 +1,6 @@
 <?php
 session_start(); //session starten
-if($username == "" and $password == ""); //Überprüfung der Login-Daten mit der DB
+if($username == "" and $password == ""); //Überprüfung der Login-Daten mit der DB todo
 
 $username = $_POST["username"];
 $password = $_POST["password"];
