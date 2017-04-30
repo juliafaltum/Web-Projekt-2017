@@ -20,7 +20,16 @@
 Voller Name: <input type="text" name="fullname" /><br>
 Email Adresse: <input type="text" name="email" /><br>
 Passwort: <input type="password" name="password" /><br>
+        Passwort wiederholen: <input type="password" name=""password2" /><br>
         <input type="submit" value="Benutzer erstellen" />
     </form>
 </body>
 </html>
+
+<?php
+$password = $_POST["password"];
+$password2 = $_POST["password2"];
+if ($password != $password2) {
+    echo "Die Passwörter stimmen nicht überein!";
+}
+?>
