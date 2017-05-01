@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="mystyle.css" media="screen"/>
 </head>
-<h1>Alle Tweets hola</h1>
+<h1>Alle Tweets</h1>
 <body>
 
 <!-- <script src="js/instantclick.min.js" data-no-instant></script>
@@ -31,7 +31,7 @@
         echo "<img src='$zeile->contentPicture' alt=\"Mountain View\" style=\"width:304px;height:228px;\"> <br>";
         echo "Quelle: <a href='$zeile->contentSource'>$zeile->contentSource</a><br><br>";
         echo "<a href='show.php?contentID=$zeile->contentID'>zeige</a><br>";
-        echo "<a href='edit.php?id=$zeile->contentID'>editiere</a><br>";
+        echo "<a href='edit.php?contentID=$zeile->contentID'>editiere</a><br>";
         echo "<a href='delete1.php?id=$zeile->contentID'>l&ouml;sche</a><br>";
         echo "_________________________________________________________";
     }
