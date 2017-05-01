@@ -24,7 +24,13 @@ if ($zeile = $query->fetchObject()) {
         $contentPicture = $zeile->contentPicture;
     }
 
-    echo  '<form action= "uploadFile.php" method = "post" enctype="multipart/form-data"><br>';   //formular von html fängt hier an. Get und post! Bilder mit encriptet data.
+
+
+    echo  '<form action= "" method = "post" enctype="multipart/form-data"><br>';   //formular von html fängt hier an. Get und post! Bilder mit encriptet data.
+
+    if (!empty($zeile->contentID)) {
+        $contentID = $zeile->contentPicture;
+    }
 
     echo '<input type ="text" size="80" maxlength="500" value = "'.$contentText.'" id="contextText" name="contextText"> <br>';
     echo "<img src='$contentPicture' alt=\"Mountain View\" style=\"width:304px;height:228px;\"> <br>";
@@ -45,6 +51,26 @@ if ($zeile = $query->fetchObject()) {
     echo '<input type ="submit" value = "speichern" name="submit" id="submit"> <br>';
     echo  '</form>';
     echo '<input type = "submit" value = "abbrechen" name= "cancel" id="cancel"> <br>';
+
+
+if(isset($_POST["submit"])){
+    // echo $fileToUpload_dir;
+    echo $fileToUpload_name;
+    echo $fileToUpload_extension;
+    echo $contextText;
+    echo $contextSource;
+
+  // $contentID = (int)$_GET["contentID"];
+    $db = new PDO($dsn, $dbuser, $dbpass);
+    $sql = "UPDATE content_txt SET contentDate = '20070523091528' WHERE contentID=1"; // neues datum wird nur angezeigt wenn man züruck geht und wieder den Post sieht! muss noch gemacht werden!
+    $query = $db->prepare($sql);
+    $query->execute();
+
+}
+  // aca es donde se debe poner el code de UPDATE
+
+    /// UPDATE content_txt SET contentDate = '29-04-90'
+
 } else {
     print "Datensatz mit id=$contentID nicht gefunden!";
 }
