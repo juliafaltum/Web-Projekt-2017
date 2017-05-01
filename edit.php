@@ -20,8 +20,10 @@ if ($zeile = $query->fetchObject()) {
         $var = $zeile->contentTXT;
     }
     echo '<input type ="text" size="80" maxlength="500" value = "'.$var.'"> <br>';
-
     echo "<img src='$zeile->contentPicture' alt=\"Mountain View\" style=\"width:304px;height:228px;\"> <br>";
+
+    echo '<input type= "file" name = "fileToUpload" id="fileToUpload"><br>';  // select image to upload
+
     echo "Quelle: <a href='$zeile->contentSource'>$zeile->contentSource</a><br><br>";
     echo "<a href='show.php?id=$zeile->contentID'>zeige</a><br>";
     echo "<a href='update_form.php?id=$zeile->contentID'>editiere</a><br>";
