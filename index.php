@@ -31,7 +31,7 @@
         echo "<img src='$zeile->contentPicture' alt=\"Mountain View\" style=\"width:304px;height:228px;\"> <br>";
         echo "Quelle: <a href='$zeile->contentSource'>$zeile->contentSource</a><br><br>";
         echo "<a href='show.php?contentID=$zeile->contentID'>zeigen</a><br>";
-        echo "<a href='update_form.php?id=$zeile->contentID'>editieren</a><br>";
+        echo "<a href='edit.php?id=$zeile->contentID'>editieren</a><br>";
         echo "<a href='delete1.php?id=$zeile->contentID'>l&ouml;schen</a><br>";
         echo "_________________________________________________________";
     }
