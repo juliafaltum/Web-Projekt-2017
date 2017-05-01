@@ -5,7 +5,7 @@
     <link rel="stylesheet" type="text/css" href="mystyle.css" media="screen"/>
 </head>
 
-<?php // Anzeigen von einzelnem Tweet
+<?php
 include_once("userdata.php");
 
 $contentID = (int)$_GET["contentID"];
@@ -14,6 +14,9 @@ $sql = "SELECT * FROM content_txt WHERE contentID=$contentID";
 $query = $db->prepare($sql);
 $query->execute();
 if ($zeile = $query->fetchObject()) {
+    echo  '<form action= "" method = "post" enctype="multipart/form-data"><br>';   //formular von html fängt hier an. Get und post! Bilder mit encriptet data.
+
+
     echo "<h1>Tweet Nummer: $zeile->contentID<br></h1>";
     echo "<h3>Geschrieben am: $zeile->contentDate</h3>";
     if (!empty($zeile->contentTXT)) { // confirmation of an empty database
@@ -24,9 +27,6 @@ if ($zeile = $query->fetchObject()) {
         $contentPicture = $zeile->contentPicture;
     }
 
-
-
-    echo  '<form action= "" method = "post" enctype="multipart/form-data"><br>';   //formular von html fängt hier an. Get und post! Bilder mit encriptet data.
 
     if (!empty($zeile->contentID)) {
         $contentID = $zeile->contentPicture;
@@ -62,7 +62,7 @@ if(isset($_POST["submit"])){
 
   // $contentID = (int)$_GET["contentID"];
     $db = new PDO($dsn, $dbuser, $dbpass);
-    $sql = "UPDATE content_txt SET contentDate = '20070523091528' WHERE contentID=1"; // neues datum wird nur angezeigt wenn man züruck geht und wieder den Post sieht! muss noch gemacht werden!
+    $sql = "UPDATE content_txt SET contentDate = '20160523091528' WHERE contentID=1"; // neues datum wird nur angezeigt wenn man züruck geht und wieder den Post sieht! muss noch gemacht werden!
     $query = $db->prepare($sql);
     $query->execute();
 
