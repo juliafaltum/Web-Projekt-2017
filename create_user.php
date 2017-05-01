@@ -5,7 +5,7 @@
  * Date: 30.04.2017
  * Time: 11:17
  */
-if(!isset($_GET["page"])) {
+if(!isset($_GET["page"])) {}
 ?>
 
 <!DOCTYPE html>
@@ -26,4 +26,3 @@ if(!isset($_GET["page"])) {
     </form>
 </body>
 </html>
-

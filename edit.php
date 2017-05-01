@@ -16,7 +16,11 @@ $query->execute();
 if ($zeile = $query->fetchObject()) {
     echo "<h1>Tweet Nummer: $zeile->contentID<br></h1>";
     echo "<h3>Geschrieben am: $zeile->contentDate</h3>";
-    echo "<h4>$zeile->contentTXT</h4>";
+    if (!empty($zeile->contentTXT)) {
+        $var = $zeile->contentTXT;
+    }
+    echo '<input type ="text" size="80" maxlength="500" value = "'.$var.'"> <br>';
+
     echo "<img src='$zeile->contentPicture' alt=\"Mountain View\" style=\"width:304px;height:228px;\"> <br>";
     echo "Quelle: <a href='$zeile->contentSource'>$zeile->contentSource</a><br><br>";
     echo "<a href='show.php?id=$zeile->contentID'>zeige</a><br>";
