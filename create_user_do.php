@@ -13,7 +13,7 @@ $password = password_hash($NOHASHpassword, PASSWORD_DEFAULT);
     $Kontrollepassword = $_POST["password"];
     $Kontrollepassword2 = $_POST["password2"];
 
-    if ($Kontrollepassword != $Kontrollepassword2) {
+if ($Kontrollepassword != $Kontrollepassword2) {
         echo "Die Passwörter stimmen nicht überein!";
         die();
         }
