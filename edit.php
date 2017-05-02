@@ -20,7 +20,7 @@ if ($zeile = $query->fetchObject()) {
     echo "<h1>Tweet Nummer: $zeile->contentID<br></h1>";
     echo "<h3>Geschrieben am: $zeile->contentDate</h3>";
 
-    if (!empty($zeile->contentTXT)) { // confirmation of an empty database
+    if (!empty($zeile->contentTXT)) { // confirmation of an empty databasehrhr
         $contentText = $zeile->contentTXT;
     }
 
