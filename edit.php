@@ -14,11 +14,12 @@ $sql = "SELECT * FROM content_txt WHERE contentID=$contentID";
 $query = $db->prepare($sql);
 $query->execute();
 if ($zeile = $query->fetchObject()) {
-    echo  '<form action= "" method = "post" enctype="multipart/form-data"><br>';   //formular von html fängt hier an. Get und post! Bilder mit encriptet data.
-
+    echo  '<form action="edit_do.php" method = "post" enctype="multiformular von html fängt hier an. Get und post! Bilder mit encriptet data.part/form-data"><br>';   //
+    echo "<input type='hidden' name='id' value='$zeile->contentID' />";
 
     echo "<h1>Tweet Nummer: $zeile->contentID<br></h1>";
     echo "<h3>Geschrieben am: $zeile->contentDate</h3>";
+
     if (!empty($zeile->contentTXT)) { // confirmation of an empty database
         $contentText = $zeile->contentTXT;
     }
@@ -49,9 +50,8 @@ if ($zeile = $query->fetchObject()) {
     echo "_________________________________________________________ <br><br>";
 
     echo '<input type ="submit" value = "speichern" name="submit" id="submit"> <br>';
-    echo  '</form>';
     echo '<input type = "submit" value = "abbrechen" name= "cancel" id="cancel"> <br>';
-
+    echo  '</form>';
 
 if(isset($_POST["submit"])){
     // echo $fileToUpload_dir;
