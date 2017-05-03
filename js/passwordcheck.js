@@ -8,9 +8,11 @@ function checkPasswordMatch() {
     var confirmPassword = $("#txtConfirmPassword").val();
 
     if (password != confirmPassword)
-        $("#divCheckPasswordMatch").html("Passwörter stimmen nicht überein!");
+        $("#divCheckPasswordMatch").html("Passwörter stimmen nicht überein!"),
+        $(':input[type="submit"]').prop('disabled', true);
     else
-        $("#divCheckPasswordMatch").html("Passwörter stimmen! Du kannst dich nun registrieren!");
+        $("#divCheckPasswordMatch").html("Passwörter stimmen! Du kannst dich nun registrieren!"),
+        $(':input[type="submit"]').prop('disabled', false);
 }
 
 $(document).ready(function () {

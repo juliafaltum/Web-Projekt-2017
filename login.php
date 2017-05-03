@@ -21,7 +21,6 @@ $_SESSION["userid"] = $userid;
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="mystyle.css" media="screen"/>
-
 </head>
 <body>
     <h1>Einloggen</h1>

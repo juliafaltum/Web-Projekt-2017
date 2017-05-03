@@ -25,7 +25,7 @@
     Passwort wiederholen: <input type="password" id="txtConfirmPassword" onChange="checkPasswordMatch();" name="password2" /><br>
     <br>
     <div class="registrationFormAlert" id="divCheckPasswordMatch">        </div>
-    <input type="submit" value="Benutzer erstellen" />
+    <input disabled type="submit" value="Benutzer erstellen" />  <!-- Disabled macht den Button nicht klickbar, wird später per JS aktiviert -->
     </form>
 </body>
 </html>
