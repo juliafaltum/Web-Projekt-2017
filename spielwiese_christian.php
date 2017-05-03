@@ -60,4 +60,5 @@ while ($zeile = $query->fetchObject()) {
     echo "<a href='update_form.php?id=$zeile->contentID'>editiere</a><br>";
     echo "<a href='delete1.php?id=$zeile->contentID'>l&ouml;sche</a><br>";
     echo "_________________________________________________________";
+
 }

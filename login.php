@@ -5,6 +5,7 @@
  * Date: 30.04.2017
  * Time: 10:49
  */
+
 session_start(); //session starten
 if($username == "" and $password == ""); //Überprüfung der Login-Daten mit der DB todo
 

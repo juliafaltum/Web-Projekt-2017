@@ -20,13 +20,15 @@
 
     try {
     $db = new PDO($dsn, $dbuser, $dbpass);
-    $sql = "SELECT * FROM content_txt";         // Können sortiert werden mit "ORDER BY contentDate DESC" usw.
+    $sql = "SELECT * FROM content_txt INNER JOIN user ON content_txt.userID=user.userid";         // Können sortiert werden mit "ORDER BY contentDate DESC" usw.
     $query = $db->prepare($sql);
     $query->execute();
 
     while ($zeile = $query->fetchObject()) {
+
         echo "<h1>Tweet Nummer: $zeile->contentID<br></h1>";
         echo "<h3>Geschrieben am: $zeile->contentDate</h3>";
+        echo "<h3>Geschrieben von: $zeile->username</h3>";              // Der Wert des "username" kann durch den Inner Join oben ausgelesen werden!
         echo "<h4>$zeile->contentTXT</h4>";
         echo "<img src='$zeile->contentPicture' alt=\"Mountain View\" style=\"width:304px;height:228px;\"> <br>";
         echo "Quelle: <a href='$zeile->contentSource'>$zeile->contentSource</a><br><br>";
