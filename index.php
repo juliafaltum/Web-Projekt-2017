@@ -11,9 +11,9 @@
 <script data-no-instant>InstantClick.init();</script> Skript wieder auskommentiert für Instantklick -->
 
 
-<a href="create_form.html">neuer Tweet</a><br>
+<a href="create_form.php">neuer Tweet</a><br>
 <a href="create_user.php">neuer Benutzer</a><br>
-<a href="login.php">Einloggen</a><br>
+<a href="login.html">Einloggen</a><br>
     <?php // Anzeigen von allen vorhandenen Tweets aus der Datenbank
 
     include_once("userdata.php");

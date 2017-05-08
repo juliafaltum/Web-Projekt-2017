@@ -1,4 +1,5 @@
 <?php
+include_once("session_check.php");
 
 $id = htmlspecialchars($_POST["id"], ENT_QUOTES, "UTF-8");
 $content_txt = htmlspecialchars($_POST["content_txt"], ENT_QUOTES, "UTF-8");

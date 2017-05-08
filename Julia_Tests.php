@@ -31,15 +31,13 @@ session_start();
 if(!isset($_SESSION["username"])) {
 ?>
 
-Hier kann alles rein, was auf der jeweiligen Seite angezeigt werden soll.
-Dieser Bereich ist geschützt und nur dann zugänglich, wenn man eingeloggt ist!
 
 
 <?php
 }
 else {
 ?>
-Bitte <a href="login.php">hier</a> einloggen.
+Bitte <a href="login.html">hier</a> einloggen.
 <?php
 }
 ?>
