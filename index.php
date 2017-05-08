@@ -48,7 +48,7 @@
 <?php
 $db = null;
 } catch (PDOException $e) {
-    echo "Error!: Bitte wenden Sie sich an den Administrator!?...".$e;
+    echo "Error!: Bitte wenden Sie sich an den Administrator!...".$e;
     die();
 }
 ?>
