@@ -1,4 +1,5 @@
 <?php   // neuer Tweet kann hier geschrieben werden
+include_once("session_check.php");
 
 $contentTXT = htmlspecialchars($_POST["contentTXT"], ENT_QUOTES, "UTF-8");
 $contentPicture = htmlspecialchars($_POST["contentPicture"], ENT_QUOTES, "UTF-8");

@@ -5,7 +5,7 @@
  * Date: 08.05.2017
  * Time: 12:32
  */
-session_start();
+include_once("session_check.php");
 
 echo $_SESSION["username"];
 echo $_SESSION["userid"];
