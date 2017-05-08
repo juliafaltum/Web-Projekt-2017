@@ -17,13 +17,17 @@ include_once("userdata.php");
     while ($zeile = $query->fetchObject()) {        // Sehr unsaubere Methode mit while Schleife --> Todo
         $passwordausDB = $zeile->password;
         $userIDausDB = $zeile->userid;
+        $usernameausDB = $zeile->username;
     }
 
 
 if(password_verify($eingabePassword, $passwordausDB)) {     // Funktion password_verify macht Gegenteil von password_hash --> Nun wird Nutzereingabe ($eingabePassword) mit Datenbank Hash-Wert ($passwordausDB) verglichen
-    echo "Erfolgreich angemeldet! <br>";     // Bei korrekter eingabe kann z.B. Session gesetzt werden --> Todo
-    echo "Hallo User, deine ID lautet:  " . $userIDausDB;  // User-ID wird ausgegeben --> Funktioniert, nun kann der Wert $userIDausDB an session_start Funktion übergeben werden
-
+    //echo "Erfolgreich angemeldet! <br>";     // Bei korrekter eingabe kann z.B. Session gesetzt werden --> Todo
+    //echo "Hallo User, deine ID lautet:  " . $userIDausDB;  // User-ID wird ausgegeben --> Funktioniert, nun kann der Wert $userIDausDB an session_start Funktion übergeben werden
+    session_start();
+    $_SESSION["username"] = $usernameausDB;
+    $_SESSION["userid"] = $userIDausDB;
+    header ('Location: login_done.php');
 
 
 } else {
