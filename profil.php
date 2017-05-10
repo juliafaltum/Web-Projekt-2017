@@ -1,28 +1,28 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="mystyle.css" media="screen"/>
-</head>
-<h1>Alle Tweets</h1>
+<?php
+include_once("session_check.php");
+?>
+
+    <html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="mystyle.css" media="screen"/>
+    </head>
+
 <body>
 
-<!-- <script src="js/instantclick.min.js" data-no-instant></script>
-<script data-no-instant>InstantClick.init();</script> Skript wieder auskommentiert für Instantklick -->
+<?php
 
+include_once("userdata.php");
 
-<a href="create_form.php">neuer Tweet</a><br>
-<a href="create_user.php">neuer Benutzer</a><br>
-<a href="login.html">Einloggen</a><br>
-    <?php // Anzeigen von allen vorhandenen Tweets aus der Datenbank
-
-    include_once("userdata.php");
-
-    try {
+try {
     $db = new PDO($dsn, $dbuser, $dbpass);
-    $sql = "SELECT * FROM content_txt INNER JOIN user ON content_txt.userID=user.userid WHERE content_txt.userID in (21, 19)";         // Können sortiert werden mit "ORDER BY contentDate DESC" usw.
+    $sql = "SELECT * FROM content_txt INNER JOIN user ON content_txt.userID=user.userid";
+    $sql = "SELECT * FROM content_txt INNER JOIN user ON content_txt.userID=user.userid WHERE userid=$_SESSION.userid";         // Können sortiert werden mit "ORDER BY contentDate DESC" usw.
     $query = $db->prepare($sql);
     $query->execute();
+
+    $zeile = $query->fetchObject();
+    echo "<h1>Profilseite von $zeile->username</h1>";
 
     while ($zeile = $query->fetchObject()) {
 
@@ -38,15 +38,15 @@
         echo "_________________________________________________________";
     }
     ?>
-<br>
+    <br>
 
 
 
-</body>
-</html>
+    </body>
+    </html>
 
-<?php
-$db = null;
+    <?php
+    $db = null;
 } catch (PDOException $e) {
     echo "Error!: Bitte wenden Sie sich an den Administrator!...".$e;
     die();
