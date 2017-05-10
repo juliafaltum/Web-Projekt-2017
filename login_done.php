@@ -9,3 +9,5 @@ include_once("session_check.php");
 
 echo $_SESSION["username"];
 echo $_SESSION["userid"];
+
+header ("refresh:2;url=index.php");

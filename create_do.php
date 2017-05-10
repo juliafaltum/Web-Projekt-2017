@@ -10,8 +10,8 @@ if (!empty($contentTXT) && !empty($contentPicture) && !empty($contentSource)) {
     try {
         $db = new PDO($dsn, $dbuser, $dbpass);
         $query = $db->prepare(
-            "INSERT INTO content_txt (contentTXT, contentPicture, contentSource, contentDate) VALUES(:contentTXT, :contentPicture, :contentSource, NOW())"); // Aktuelles Datum wird per NOW() Funktion geholt
-        $query->execute(array("contentTXT" => $contentTXT, "contentPicture" => $contentPicture, "contentSource" => $contentSource) );
+            "INSERT INTO content_txt (contentTXT, contentPicture, contentSource, contentDate, userID) VALUES(:contentTXT, :contentPicture, :contentSource, NOW(), :userID)"); // Aktuelles Datum wird per NOW() Funktion geholt
+        $query->execute(array("contentTXT" => $contentTXT, "contentPicture" => $contentPicture, "contentSource" => $contentSource, "userID" => $_SESSION['userid']) );
         $db = null;
     } catch (PDOException $e) {
         echo "Error!: Bitten wenden Sie sich an den Administrator...";

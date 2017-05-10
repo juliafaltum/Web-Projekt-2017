@@ -13,7 +13,17 @@
 
 <a href="create_form.php">neuer Tweet</a><br>
 <a href="create_user.php">neuer Benutzer</a><br>
-<a href="login.html">Einloggen</a><br>
+
+<?php
+session_start();
+if(!isset($_SESSION['userid'])) {
+echo "<a href=\"login.html\">Einloggen</a><br>"; }  // Ausloggen nur anzeigen wenn Nutzer eingeloggt ist, Einloggen nur wenn Nutzer ausgeloggt
+
+else {
+    echo "<a href=\"logout.php\">Ausloggen</a><br>";
+}
+?>
+
     <?php // Anzeigen von allen vorhandenen Tweets aus der Datenbank
 
     include_once("userdata.php");
@@ -39,6 +49,7 @@
     }
     ?>
 <br>
+
 
 
 
