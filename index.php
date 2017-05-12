@@ -36,7 +36,7 @@ else {
 
     while ($zeile = $query->fetchObject()) {
 
-        echo "<h3>Geschrieben von: <a href='profil.php?userid=$zeile->userid'>$zeile->username</a></h3>";              // Der Wert des "username" kann durch den Inner Join oben ausgelesen werden!
+        echo "<h3>Geschrieben von <a href='profil.php?userid=$zeile->userid'>$zeile->username</a></h3>";              // Der Wert des "username" kann durch den Inner Join oben ausgelesen werden!
         echo "<h2>Tweet Nummer: $zeile->contentID<br></h2>";
         echo "<h3>Geschrieben am: $zeile->contentDate</h3>";
         echo "<h4>$zeile->contentTXT</h4>";
