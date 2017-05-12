@@ -28,10 +28,9 @@ try {
     echo "<h1>Profilseite von $zeile->username</h1>";
 
     while ($zeile = $query->fetchObject()) {
-
-        echo "<h2>Tweet Nummer: $zeile->contentID<br></h2>";
+        echo "<h3>Geschrieben von: $zeile->username</h3>";  // Der Wert des "username" kann durch den Inner Join oben ausgelesen werden!
+        echo "<h3>Tweet Nummer: $zeile->contentID<br></h3>";
         echo "<h3>Geschrieben am: $zeile->contentDate</h3>";
-        echo "<h3>Geschrieben von: $zeile->username</h3>";              // Der Wert des "username" kann durch den Inner Join oben ausgelesen werden!
         echo "<h4>$zeile->contentTXT</h4>";
         echo "<img src='$zeile->contentPicture' alt=\"Mountain View\" style=\"width:304px;height:228px;\"> <br>";
         echo "Quelle: <a href='$zeile->contentSource'>$zeile->contentSource</a><br><br>";
