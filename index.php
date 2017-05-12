@@ -30,7 +30,7 @@ else {
 
     try {
     $db = new PDO($dsn, $dbuser, $dbpass);
-    $sql = "SELECT * FROM content_txt INNER JOIN user ON content_txt.userID=user.userid WHERE content_txt.userID in (21, 19)";         // Können sortiert werden mit "ORDER BY contentDate DESC" usw.
+    $sql = "SELECT * FROM content_txt INNER JOIN user ON content_txt.userID=user.userid WHERE content_txt.userID in (21, 19, 27, 0)";         // Können sortiert werden mit "ORDER BY contentDate DESC" usw.
     $query = $db->prepare($sql);
     $query->execute();
 
@@ -38,7 +38,7 @@ else {
 
         echo "<h2>Tweet Nummer: $zeile->contentID<br></h2>";
         echo "<h3>Geschrieben am: $zeile->contentDate</h3>";
-        echo "<h3>Geschrieben von: $zeile->username</h3>";              // Der Wert des "username" kann durch den Inner Join oben ausgelesen werden!
+        echo "<h3>Geschrieben von: <a href='profil.php'>$zeile->username</a></h3>";              // Der Wert des "username" kann durch den Inner Join oben ausgelesen werden!
         echo "<h4>$zeile->contentTXT</h4>";
         echo "<img src='$zeile->contentPicture' alt=\"Mountain View\" style=\"width:304px;height:228px;\"> <br>";
         echo "Quelle: <a href='$zeile->contentSource'>$zeile->contentSource</a><br><br>";
