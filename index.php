@@ -40,7 +40,7 @@ while ($zeile = $query->fetchObject()) {
 
     echo "<h2>Tweet Nummer: $zeile->contentID<br></h2>";
     echo "<h3>Geschrieben am: $zeile->contentDate</h3>";
-    echo "<h3>Geschrieben von: $zeile->username <a href='follower_do.php?user=$zeile->userID'>(Folgen)<a href='unfollow_do.php?entfolgeuser=$zeile->userID'>(Entfolgen)</a></h3>";              // Der Wert des "username" kann aufgrund des Inner Join oben ausgelesen werden!
+    echo "<h3>Geschrieben von: <a href='profil.php?userid=$zeile->userid'>$zeile->username</a> <a href='follower_do.php?user=$zeile->userID'>(Folgen)<a href='unfollow_do.php?entfolgeuser=$zeile->userID'>(Entfolgen)</a></h3>";              // Der Wert des "username" kann aufgrund des Inner Join oben ausgelesen werden!
     echo "<h4>$zeile->contentTXT</h4>";
     echo "<img src='$zeile->contentPicture' alt=\"Mountain View\" style=\"width:304px;height:228px;\"> <br>";
     echo "Quelle: <a href='$zeile->contentSource'>$zeile->contentSource</a><br><br>";
