@@ -6,7 +6,7 @@
 <form action="Upload_do.php" method="post" enctype="multipart/form-data">
     Bild auswählen:
     <input type="file" name="fileToUpload" id="fileToUpload">
-    <input type="submit" value="Bild hochladen" name="submit"
+    <input type="submit" value="Bild hochladen" name="submit">
 
 </form>
 </body>
