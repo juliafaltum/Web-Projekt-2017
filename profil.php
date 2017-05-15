@@ -19,7 +19,7 @@ include_once("userdata.php");
 try {
     $db = new PDO($dsn, $dbuser, $dbpass);
 
-    $sql = "SELECT * FROM content_txt INNER JOIN user ON content_txt.userID=user.userid WHERE user.userid = :userid"; //in $_GET["userid"]";          Können sortiert werden mit "ORDER BY contentDate DESC" usw.
+    $sql = "SELECT * FROM content_txt INNER JOIN user ON content_txt.userID=user.userid WHERE user.userid = :userid"; //Können sortiert werden mit "ORDER BY contentDate DESC" usw.
     $query = $db->prepare($sql);
     $query->bindParam(':userid', $geholteuserID);
     $query->execute();
