@@ -1,6 +1,6 @@
 <?php
 
-$contentIDid = (int)$_GET["contentID"];
+$contentID = (int)$_GET["contentID"];
 
 try {
     include_once("userdata.php");
