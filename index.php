@@ -56,10 +56,6 @@ while ($zeile = $query->fetchObject()) {
 }
 ?>
 <br>
-
-
-
-
 </body>
 </html>
 
