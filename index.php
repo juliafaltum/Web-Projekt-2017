@@ -50,7 +50,7 @@ while ($zeile = $query->fetchObject()) {
     if($_SESSION['userid']==$zeile->userID) {
         echo "Du bist Autor dieses Posts, also kannst du folgendes machen: <br>";
         echo "<a href='edit.php?contentID=$zeile->contentID'>editiere</a><br>";
-        echo "<a href='delete1.php?id=$zeile->contentID'>l&ouml;sche</a><br>";
+        echo "<a href='delete_frage.php?contentID=$zeile->contentID'>l&ouml;sche</a><br>";
     }
     echo "_________________________________________________________";
 }
