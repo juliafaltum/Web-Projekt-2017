@@ -30,7 +30,7 @@ else {
 
     try {
     $db = new PDO($dsn, $dbuser, $dbpass);
-    $sql = "SELECT * FROM content_txt INNER JOIN user ON content_txt.userID=user.userid WHERE content_txt.userID in (21, 19, 27, 0)";         // Können sortiert werden mit "ORDER BY contentDate DESC" usw.
+    $sql = "SELECT * FROM content_txt INNER JOIN user ON content_txt.userID=user.userid";         // Können sortiert werden mit "ORDER BY contentDate DESC" usw.
     $query = $db->prepare($sql);
     $query->execute();
 

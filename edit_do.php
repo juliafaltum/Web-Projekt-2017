@@ -1,18 +1,19 @@
 <?php
 include_once("session_check.php");
 
-$id = htmlspecialchars($_POST["id"], ENT_QUOTES, "UTF-8");
-$content_txt = htmlspecialchars($_POST["content_txt"], ENT_QUOTES, "UTF-8");
+$contentID = htmlspecialchars($_POST["contentID"], ENT_QUOTES, "UTF-8");
+$contentTXT = htmlspecialchars($_POST["contentTXT"], ENT_QUOTES, "UTF-8");
 $contentPicture = htmlspecialchars($_POST["contentPicture"], ENT_QUOTES, "UTF-8");
-$contentDate = htmlspecialchars($_POST["contentDate"], ENT_QUOTES, "UTF-8");
+$contentSource = htmlspecialchars($_POST["contentSource"], ENT_QUOTES, "UTF-8");
 
-if (!empty($id) && !empty($content_txt) && !empty($contentPicture) && !empty($contentDate)) {
+
+if (!empty($contentID) && !empty($contentTXT) && !empty($contentPicture) && !empty($contentSource)) {
     try {
         include_once("userdata.php");
         $db = new PDO($dsn, $dbuser, $dbpass);
         $query = $db->prepare(
-            "UPDATE content_txt SET content_txt = :content_txt, contentPicture= :contentPicture, contentDate= :contentDate WHERE contentID= :id");
-        $query->execute(array("content_txt" => $content_txt, "contentPicture" => $contentPicture, "contentDate" => $contentDate, "id" => $id));
+            "UPDATE content_txt SET contentTXT = :contentTXT, contentPicture= :contentPicture, contentDate = :contentDate WHERE contentID = :contentID");
+        $query->execute(array("contentTXT" => $contentTXT, "contentPicture" => $contentPicture, "contentDate" => date("Y/m/d"), "contentID" => $contentID));
         $db = null;
         header('Location: index.php');
     } catch (PDOException $e) {
