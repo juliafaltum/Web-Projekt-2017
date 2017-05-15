@@ -12,8 +12,8 @@
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="mystyle.css" media="screen"/>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="js/passwordcheck.js"></script> <!-- Passwort überprüfen mit Javascript, dazu braucht man das oben eingebundene JQuery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js" data-no-instant></script>
+    <script src="js/passwordcheck.js" data-no-instant></script> <!-- Passwort überprüfen mit Javascript, dazu braucht man das oben eingebundene JQuery-->
 </head>
 <body>
     <h1>Neuer Benutzer</h1>

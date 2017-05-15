@@ -22,8 +22,7 @@ if ($zeile = $query->fetchObject()) {
     echo "<h4>$zeile->contentTXT</h4>";
     echo "<img src='$zeile->contentPicture' alt=\"Mountain View\" style=\"width:304px;height:228px;\"> <br>";
     echo "Quelle: <a href='$zeile->contentSource'>$zeile->contentSource</a><br><br>";
-    echo "<a href='show.php?id=$zeile->contentID'>zeige</a><br>";
-    echo "<a href='update_form.php?id=$zeile->contentID'>editiere</a><br>";
+    echo "<a href='edit.php?contentID=$zeile->contentID'>editiere</a><br>";
     echo "<a href='delete1.php?id=$zeile->contentID'>l&ouml;sche</a><br>";
     echo "_________________________________________________________";
 } else {
