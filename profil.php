@@ -24,10 +24,13 @@ try {
     $query->bindParam(':userid', $geholteuserID);
     $query->execute();
 
-    $zeile = $query->fetchObject();
-    echo "<h1>Profilseite von $zeile->username</h1>";
+    $i = false;
 
     while ($zeile = $query->fetchObject()) {
+
+        if (!$i) {echo "<h1>Profilseite von $zeile->username</h1>";
+        $i = true;}
+
         echo "<h3>Geschrieben von $zeile->username</h3>";  // Der Wert des "username" kann durch den Inner Join oben ausgelesen werden!
         echo "<h3>Tweet Nummer: $zeile->contentID<br></h3>";
         echo "<h3>Geschrieben am: $zeile->contentDate</h3>";
