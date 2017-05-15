@@ -28,7 +28,7 @@ if (file_exists($target_file)) {
     }
 
 // Size limitation
-if ($_FILES["fileToUpload"]["size"] > 500000) {
+if ($_FILES["fileToUpload"]["size"] > 5000000) {
     echo "sorry, die datei ist zu groß.";
         $uploadOk = 0;
     }
