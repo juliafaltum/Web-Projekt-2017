@@ -24,11 +24,12 @@ else {
     echo "<a href=\"logout.php\">Ausloggen</a><br><br>";
     echo "Hallo Nutzer: " .$_SESSION['userid'];
 }
-?>
 
-<?php // Anzeigen von allen vorhandenen Tweets aus der Datenbank
+
+ // Anzeigen von allen vorhandenen Tweets aus der Datenbank
 
 include_once("userdata.php");
+include_once("functions.php");
 
 try {
 $db = new PDO($dsn, $dbuser, $dbpass);
@@ -40,11 +41,22 @@ while ($zeile = $query->fetchObject()) {
 
     echo "<h2>Tweet Nummer: $zeile->contentID<br></h2>";
     echo "<h3>Geschrieben am: $zeile->contentDate</h3>";
-    echo "<h3>Geschrieben von: <a href='profil.php?userid=$zeile->userid'>$zeile->username</a> <a href='follower_do.php?user=$zeile->userID'>(Folgen)<a href='unfollow_do.php?entfolgeuser=$zeile->userID'>(Entfolgen)</a></h3>";              // Der Wert des "username" kann aufgrund des Inner Join oben ausgelesen werden!
+    echo "Punkte: ";
+    echo contentPoints($zeile->contentID);
+    echo "<h3>Geschrieben von: <a href='profil.php?userid=$zeile->userid'>$zeile->username</a><br>";
+
+
+
+        followButton ($_SESSION['userid'], $zeile->userid);          // FUNKTION: Follow-Button
+
+
+
     echo "<h4>$zeile->contentTXT</h4>";
     echo "<img src='$zeile->contentPicture' alt=\"Mountain View\" style=\"width:304px;height:228px;\"> <br>";
     echo "Quelle: <a href='$zeile->contentSource'>$zeile->contentSource</a><br><br>";
     echo "<a href='show.php?contentID=$zeile->contentID'>zeige</a><br>";
+
+
 
 
     if($_SESSION['userid']==$zeile->userID) {

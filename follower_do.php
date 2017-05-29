@@ -11,10 +11,34 @@ include_once("session_check.php");
 
 $festgelegteUserID = $_SESSION['userid'];
 $GetParameterUserID = $_GET['user'];
-$GetParameterUserIDEntfolgen = $_GET['entfolgeuser'];
+
+if ($festgelegteUserID != $GetParameterUserID) {       // überprüfen ob man selbst Autor des Tweets ist, wenn ja ab zur else unten
+
+    global $dsn, $dbuser, $dbpass;
+    include("userdata.php");
+    $db = new PDO($dsn, $dbuser, $dbpass);
+    $sql = "SELECT * FROM followerlist WHERE user = :user AND follower = :follower";
+    $query = $db->prepare($sql);
+    $query->bindParam(':user', $festgelegteUserID);
+    $query->bindParam(':follower', $GetParameterUserID);
+    $query->execute();
+
+    while ($zeile = $query->fetchObject()) {
+        $folgtschon = 1;
+
+    }}
+
+if ($festgelegteUserID == $GetParameterUserID) {
+    $selbstfolgen = 1;
+    echo "Du kannst dir nicht selbst folgen";
+}
+
+if (!empty($folgtschon)) {
+    echo "Du folgst dieser Person schon";
+}
 
 
-if (!empty($GetParameterUserID)) {
+if ((!empty($GetParameterUserID) && (empty($folgtschon)))&& (empty($selbstfolgen))) {
 try {
     $db = new PDO($dsn, $dbuser, $dbpass);
     $query = $db->prepare(
@@ -26,16 +50,4 @@ try {
     die();
 }
 header('Location: index.php');
-}
-else { // Steht jetzt in unfollow_do.php drin
-    try {
-        $db = new PDO($dsn, $dbuser, $dbpass);
-        $sql= "DELETE FROM followerlist WHERE user=$festgelegteUserID AND follower=$GetParameterUserIDEntfolgen";
-        $db->prepare($sql)->execute();
-        $db = null;
-    } catch (PDOException $e) {
-        echo "Error!: Bitten wenden Sie sich an den Administrator...";
-        die();
-    }
-    header('Location: index.php');
 }

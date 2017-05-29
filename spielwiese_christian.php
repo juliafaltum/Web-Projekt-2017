@@ -29,6 +29,10 @@ $db = null;
 
 include_once("userdata.php");
 
+
+
+
+
 $festgelegteUserID = 21; // noch manuell, kann aber später aus Follow Liste geholt werden
 
 
@@ -62,3 +66,4 @@ while ($zeile = $query->fetchObject()) {
     echo "_________________________________________________________";
 
 }
+

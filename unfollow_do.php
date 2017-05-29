@@ -13,10 +13,12 @@ $festgelegteUserID = $_SESSION['userid'];
 $GetParameterUserID = $_GET['user'];
 $GetParameterUserIDEntfolgen = $_GET['entfolgeuser'];
 
+if (!empty($GetParameterUserIDEntfolgen)) {
+
 
     try {
         $db = new PDO($dsn, $dbuser, $dbpass);
-        $sql= "DELETE FROM followerlist WHERE user=$festgelegteUserID AND follower=$GetParameterUserIDEntfolgen";
+        $sql = "DELETE FROM followerlist WHERE user=$festgelegteUserID AND follower=$GetParameterUserIDEntfolgen";
         $db->prepare($sql)->execute();
         $db = null;
     } catch (PDOException $e) {
@@ -24,3 +26,8 @@ $GetParameterUserIDEntfolgen = $_GET['entfolgeuser'];
         die();
     }
     header('Location: index.php');
+
+}
+else {
+    echo "Du bist dieser Person schon entfolgt";
+}

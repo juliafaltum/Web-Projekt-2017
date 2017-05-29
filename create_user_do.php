@@ -23,7 +23,7 @@ if (!empty($username) && !empty($fullname) && !empty($email)) {
     try {
         $db = new PDO($dsn, $dbuser, $dbpass);
         $query = $db->prepare(
-            "INSERT INTO user (username, fullname, email, password, usercreated) VALUES(:username, :fullname, :email, :password, NOW())");
+            "INSERT INTO user (username, fullname, email, password, usercreated, ) VALUES(:username, :fullname, :email, :password, NOW())");
         $query->execute(array("username" => $username, "fullname" => $fullname, "email" => $email, "password" => $password) );
         $db = null;
     } catch (PDOException $e) {
