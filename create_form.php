@@ -16,11 +16,12 @@ include_once("session_check.php");
 </head>
 <body>
 <h1>Neuer Tweet</h1>
-<form action="create_do.php" method="post">
+<form action="create_do.php" method="post" enctype="multipart/form-data">
     Text des Tweets: <br>
     <input type="text" name="contentTXT" size="80" maxlength="500" /> <br><br>
-    Tweet Bild: <input type="text" name="contentPicture" /><br>
+    Tweet Bild: <input type="file" name="fileToUpload" id="fileToUpload">
     Tweet Quelle: <input type="text" name="contentSource" /><br>
+
     <input type="submit" value="Tweeten" />
 </form>
 </body>
