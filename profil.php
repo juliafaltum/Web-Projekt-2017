@@ -15,33 +15,10 @@ include_once("session_check.php");
 $geholteuserID = $_GET['userid'];
 
 include_once("userdata.php");
+include_once("functions.php");
 
-try {
-    $db = new PDO($dsn, $dbuser, $dbpass);
+showProfile ($geholteuserID);
 
-    $sql = "SELECT * FROM content_txt INNER JOIN user ON content_txt.userID=user.userid WHERE user.userid = :userid"; //Können sortiert werden mit "ORDER BY contentDate DESC" usw.
-    $query = $db->prepare($sql);
-    $query->bindParam(':userid', $geholteuserID);
-    $query->execute();
-
-    $i = false;
-
-    while ($zeile = $query->fetchObject()) {
-
-        if (!$i) {echo "<h1>Profilseite von $zeile->username</h1>";
-        $i = true;}
-
-        echo "<h3>Geschrieben von $zeile->username</h3>";  // Der Wert des "username" kann durch den Inner Join oben ausgelesen werden!
-        echo "<h3>Tweet Nummer: $zeile->contentID<br></h3>";
-        echo "<h3>Geschrieben am: $zeile->contentDate</h3>";
-        echo "<h4>$zeile->contentTXT</h4>";
-        echo "<img src='$zeile->contentPicture' alt=\"Mountain View\" style=\"width:304px;height:228px;\"> <br>";
-        echo "Quelle: <a href='$zeile->contentSource'>$zeile->contentSource</a><br><br>";
-        echo "<a href='show.php?contentID=$zeile->contentID'>zeigen</a><br>";
-        echo "<a href='edit.php?contentID=$zeile->contentID'>editieren</a><br>";
-        echo "<a href='delete1.php?id=$zeile->contentID'>l&ouml;schen</a><br>";
-        echo "_________________________________________________________";
-    }
     ?>
     <br>
 
@@ -49,11 +26,3 @@ try {
 
     </body>
     </html>
-
-    <?php
-    $db = null;
-} catch (PDOException $e) {
-    echo "Error!: Bitte wenden Sie sich an den Administrator!...".$e;
-    die();
-}
-?>
