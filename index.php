@@ -22,7 +22,7 @@ if(!isset($_SESSION['userid'])) {
 
 else {
     echo "<a href=\"logout.php\">Ausloggen</a><br><br>";
-    echo "Hallo Nutzer: " .$_SESSION['userid'];
+    echo "Hallo Nutzer " .$_SESSION['userid'];
 }
 
 
