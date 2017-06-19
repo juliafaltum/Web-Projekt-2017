@@ -1,21 +1,21 @@
+<?php include_once ("header.php");?>
+
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="mystyle.css" media="screen"/>
-    <link rel="stylesheet" type="text/css" href="css/hover-min.css" media="screen"/>
 </head>
 <h1>Alle Tweets</h1>
 <body>
 
 
-<!-- <script src="js/instantclick.min.js" data-no-instant></script>
-<script data-no-instant>InstantClick.init();</script> Skript wieder auskommentiert für Instantklick -->
+
+
 
 
 <a href="create_form.php">neuer Tweet</a><br>
 <a href="create_user.php">neuer Benutzer</a><br>
-<script src="js/jquery.min.js"></script>
+
 
 <?php
 session_start();

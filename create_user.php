@@ -1,11 +1,4 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: Julia
- * Date: 30.04.2017
- * Time: 11:17
- */
-?>
+<?php include_once ("header.php");?>
 
 <!DOCTYPE html>
 <html>

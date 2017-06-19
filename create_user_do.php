@@ -1,3 +1,5 @@
+<?php include_once ("header.php");?>
+
 <?php // Nutzer wird erstellt mit vorhandenen Daten aus Formular, Fehlermeldung bei fehlenden Angaben
 include_once("userdata.php");
 

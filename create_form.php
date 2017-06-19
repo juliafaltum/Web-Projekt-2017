@@ -1,3 +1,4 @@
+<?php include_once ("header.php");?>
 <?php
 /**
  * Created by PhpStorm.
@@ -5,6 +6,7 @@
  * Date: 08.05.2017
  * Time: 13:10
  */
+
 include_once("session_check.php");
 
 ?>

@@ -1,3 +1,5 @@
+<?php include_once ("header.php");?>
+
 <?php // Login durchführen
 
 $username = htmlspecialchars($_POST["username"], ENT_QUOTES, "UTF-8"); // Benutzername holen aus Formular

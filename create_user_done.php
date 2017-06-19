@@ -1,3 +1,5 @@
+<?php include_once ("header.php");?>
+
 <?php // Seite nach erfolgreicher Nutzer erstellung
 
     echo "<h1>Nutzer erfolgreich erstellt!";
