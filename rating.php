@@ -3,7 +3,6 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="mystyle.css" media="screen"/>
 </head>
 <h1>Alle Tweets</h1>
 <body>

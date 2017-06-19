@@ -14,7 +14,6 @@ include_once("session_check.php");
 <html>
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="mystyle.css" media="screen"/>
 </head>
 <body>
 <h1>Neuer Tweet</h1>
