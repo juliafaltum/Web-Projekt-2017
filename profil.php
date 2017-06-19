@@ -47,7 +47,7 @@ include_once("functions.php");
             echo "<h3>Geschrieben von $zeile->username</h3>";
             echo "<h4>Tweet Nummer: $zeile->contentID<br></h4>";
             echo "<h4>Geschrieben am: $zeile->contentDate</h4>";
-            echo "$zeile->contentTXT";
+            echo "$zeile->contentTXT <br>";
             echo "<img src='$zeile->contentPicture' alt=\"Bild nicht vorhanden\" style=\"width:304px;height:228px;\"> <br>";
             echo "Quelle: <a href='$zeile->contentSource'>$zeile->contentSource</a><br><br>";
 
