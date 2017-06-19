@@ -12,7 +12,7 @@ if (!empty($contentID) && !empty($contentTXT) && !empty($contentPicture) && !emp
         include_once("userdata.php");
         $db = new PDO($dsn, $dbuser, $dbpass);
         $query = $db->prepare(
-            "UPDATE content_txt SET contentTXT = :contentTXT, contentPicture= :contentPicture, contentDate = :contentDate WHERE contentID = :contentID");
+            "UPDATE content_txt SET contentTXT = :contentTXT, contentPicture = :contentPicture, contentDate = :contentDate WHERE contentID = :contentID");
         $query->execute(array("contentTXT" => $contentTXT, "contentPicture" => $contentPicture, "contentDate" => date("Y/m/d"), "contentID" => $contentID));
         $db = null;
         header('Location: index.php');

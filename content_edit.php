@@ -21,7 +21,7 @@ try {
     if (($zeile = $query->fetchObject()) && ($_SESSION['userid']==$zeile->userID)) { // Abgleichen der UserID mit der Session --> Kann nur von jeweiliger Person verändert werden
 
         echo "<h1>Tweet ID: $zeile->contentID</h1>";
-        echo "<form action='edit_do.php' method='post'>";
+        echo "<form action='content_edit_do.php' method='post'>";
         echo "<input type='hidden' name='contentID' value='$zeile->contentID' />";
         echo "Tweet Inhalt <input type='text' name='contentTXT' size='400' value='$zeile->contentTXT' /><br>";
         echo "Bild URL: <input type='text' name='contentPicture' value='$zeile->contentPicture' /><br>";
@@ -30,7 +30,7 @@ try {
         echo "</form>";
 
     } else {
-        echo "Datensatz nicht gefunden, oder du bist nicht der Autor!!";
+        echo "Datensatz nicht gefunden oder du bist nicht der Autor!";
     }
     $db = null;
 } catch (PDOException $e) {

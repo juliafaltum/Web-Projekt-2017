@@ -35,16 +35,19 @@ include_once("functions.php");
 
             if (!$i) {
                 echo "<h1>Profilseite von $zeile->username</h1>";
+            }
+
+            if ($_SESSION['userid'] == $zeile->userID and !$i) {
+                echo "<a href=\"profil_edit.php\">Profil bearbeiten</a>";
                 $i = true;
             }
 
-            followButton($_SESSION['userid'], $geholteuserID);
             followButtonAjax ($_SESSION['userid'], $geholteuserID, 1);
 
             echo "<h3>Geschrieben von $zeile->username</h3>";
-            echo "<h3>Tweet Nummer: $zeile->contentID<br></h3>";
-            echo "<h3>Geschrieben am: $zeile->contentDate</h3>";
-            echo "<h4>$zeile->contentTXT</h4>";
+            echo "<h4>Tweet Nummer: $zeile->contentID<br></h4>";
+            echo "<h4>Geschrieben am: $zeile->contentDate</h4>";
+            echo "$zeile->contentTXT";
             echo "<img src='$zeile->contentPicture' alt=\"Bild nicht vorhanden\" style=\"width:304px;height:228px;\"> <br>";
             echo "Quelle: <a href='$zeile->contentSource'>$zeile->contentSource</a><br><br>";
 

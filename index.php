@@ -41,12 +41,12 @@ $query->execute();
 
 while ($zeile = $query->fetchObject()) {
 
-    echo "<h2>Tweet Nummer: $zeile->contentID<br></h2>";
-    echo "<h3>Geschrieben am: $zeile->contentDate</h3>";
+    echo "<h4>Tweet Nummer: $zeile->contentID<br></h4>";
+    echo "<h4>Geschrieben am: $zeile->contentDate</h4>";
     echo "Punkte: ";
     echo contentPoints($zeile->contentID);
     echo voteButton($_SESSION['userid'], $zeile->contentID);
-    echo "<h3>Geschrieben von: <a href='profil.php?userid=$zeile->userid'>$zeile->username</a><br><br>";
+    echo "<h3>Geschrieben von: <a href='profil.php?userid=$zeile->userid'>$zeile->username</a></h3><br><br>";
     $followerID = $zeile->userid;
     $contentID = $zeile->contentID;
 
