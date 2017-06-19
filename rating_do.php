@@ -27,7 +27,7 @@ if ($wertung == positiv) {
         echo "Error!: Bitten wenden Sie sich an den Administrator...";
         die();
     }
-    header('Location: rating.php');
+    header('Location: index.php');
 
 }
 
@@ -74,7 +74,7 @@ if (($WertinDBsoll == $WertinDB) && $WertinDBsoll == 1) {        // Nutzer drüc
             echo "Error!: Bitten wenden Sie sich an den Administrator...";
             die();
         }
-        header('Location: rating.php');
+        header('Location: index.php');
     }
     else {
         echo "Error: Bitte alle Felder ausfüllen!<br/>";
@@ -88,7 +88,7 @@ if (($WertinDBsoll == $WertinDB) && $WertinDBsoll == 1) {        // Nutzer drüc
                 "UPDATE rating SET ratingValue = :ratingValue WHERE contentID = :contentID AND userID = :userID ");
             $query->execute(array("ratingValue" => $WertinDBsoll, "contentID" => $contentID, "userID" => $userID));
             $db = null;
-            header('Location: rating.php');
+            header('Location: index.php');
         } catch (PDOException $e) {
             echo "Error: Bitten wenden Sie sich an den Administrator!";
             die();

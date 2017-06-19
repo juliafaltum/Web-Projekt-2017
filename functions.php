@@ -103,6 +103,8 @@ if (($user != $follower) && (!empty($user))) {       // überprüfen ob man selb
 
     if ($folgt == 1) {
         echo "<a href='unfollow_do.php?entfolgeuser=$follower'>(Entfolgen)</a>";
+
+
     } else {
         echo "<a href='follower_do.php?user=$follower'>(Folgen)</a>";
     }
@@ -111,4 +113,76 @@ if (($user != $follower) && (!empty($user))) {       // überprüfen ob man selb
 else {
     // Es wird kein Follow Knopf angezeigt
 }
+}
+
+function voteButton ($userID, $contentID) {     // Vote-Button
+
+    if (!empty($userID)) {
+
+
+        // Überprüfen ob schon gevotet
+
+    global $dsn, $dbuser, $dbpass;
+$db = new PDO($dsn, $dbuser, $dbpass);
+$sql = "SELECT * FROM rating WHERE contentID=$contentID AND userID=$userID";
+$query = $db->prepare($sql);
+$query->execute();
+if ($zeile = $query->fetchObject()) {
+    $WertinDB = $zeile->ratingValue;
+    $userIDinDB = $zeile->userID;
+    $schonBewertet = 1;
+}
+else {
+    $schonBewertet = 0;
+}
+$db = null;
+
+
+    if (($WertinDB == -1) && ($schonBewertet == 1)) {
+        echo "<a href='rating_do.php?contentID=$contentID&wertung=positiv'>Positiv</a> oder <a href='rating_do.php?contentID=$contentID&wertung=delete'>Bewertung löschen</a>";
+    }
+    elseif (($WertinDB == 1) && ($schonBewertet == 1)) {
+        echo "<a href='rating_do.php?contentID=$contentID&wertung=negativ'>Negativ</a> oder <a href='rating_do.php?contentID=$contentID&wertung=delete'>Bewertung löschen</a>";
+    }
+    elseif ($schonBewertet == 0) {
+        echo "<a href='rating_do.php?contentID=$contentID&wertung=positiv'>Positiv</a> oder <a href='rating_do.php?contentID=$contentID&wertung=negativ'>Negativ</a> bewerten";
+    }
+
+    }
+
+    else {
+        // Es wird kein Follow Knopf angezeigt
+    }
+}
+
+function followButtonAjax ($userID, $followerID, $contentID) {
+?>
+    <div id="followButton<?php echo $contentID;?>"></div>
+    <script type="text/javascript">
+        $(document).ready(function() {
+
+
+            $(function () {
+                $('#followButton<?php echo $contentID;?>').load("follow_Button.php?user=<?php echo $userID;?>&follower=<?php echo $followerID;?>&contentID=<?php echo $contentID;?>", function(response) {
+                    $("#followButton<?php echo $contentID;?>").html(response).hide().fadeIn(350);
+                });
+            });
+        });
+
+    </script>
+
+
+<?php
+}
+
+function followButtonAjaxOld ($userID, $followerID, $contentID){
+?>
+    <script type="text/javascript">
+    setTimeout(function() {
+        $('#followButton<?php echo $contentID;?>').click(function () {
+            $('#followButton<?php echo $contentID;?>').load("follow_Button.php?user=<?php echo $userID;?>&follower=<?php echo $followerID;?>&contentID=<?php echo $contentID;?>");
+            })
+        }, 10);
+    </script>
+<?php
 }

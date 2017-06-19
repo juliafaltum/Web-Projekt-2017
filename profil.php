@@ -10,6 +10,8 @@ include_once("session_check.php");
 
 <body>
 
+<script src="js/jquery.min.js"></script>
+
 <?php
 
 $geholteuserID = $_GET['userid'];
@@ -37,6 +39,7 @@ include_once("functions.php");
             }
 
             followButton($_SESSION['userid'], $geholteuserID);
+            followButtonAjax ($_SESSION['userid'], $geholteuserID, 1);
 
             echo "<h3>Geschrieben von $zeile->username</h3>";
             echo "<h3>Tweet Nummer: $zeile->contentID<br></h3>";

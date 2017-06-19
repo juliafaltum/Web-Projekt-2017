@@ -5,7 +5,7 @@ $temp_file = basename($_FILES ["fileToUpload"]["tmp_name"]);
 $upload_file = basename($_FILES ["fileToUpload"]["name"]);
 $uploadOk = 1;
 $imageFileType = pathinfo($upload_file, PATHINFO_EXTENSION);
-$random_name = rand();
+$random_name = rand().uniqid();
 $uploadfile = $target_dir.$random_name.'.'.$imageFileType;
 $upload_only_filename = $random_name.'.'.$imageFileType;
 
