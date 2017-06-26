@@ -44,16 +44,15 @@ include_once("functions.php");
 
             followButtonAjax ($_SESSION['userid'], $geholteuserID, 1);
 
-            echo "<h3>Geschrieben von $zeile->username</h3>";
-            echo "<h4>Tweet Nummer: $zeile->contentID<br></h4>";
-            echo "<h4>Geschrieben am: $zeile->contentDate</h4>";
+            echo "<h3>Welle von $zeile->username</h3>";
+            echo "<h5>$zeile->contentDate</h5>";
             echo "$zeile->contentTXT <br>";
-            echo "<img src='$zeile->contentPicture' alt=\"Bild nicht vorhanden\" style=\"width:304px;height:228px;\"> <br>";
+            echo "<img src='$zeile->contentPicture' alt=\"Bild nicht verfügbar\" style=\"width:304px;height:228px;\"> <br>";
             echo "Quelle: <a href='$zeile->contentSource'>$zeile->contentSource</a><br><br>";
+            echo "<a href='show.php?contentID=$zeile->contentID'>anzeigen</a><br>";
 
             if ($_SESSION['userid'] == $zeile->userID) {
-                echo "Du bist Autor dieses Posts, also kannst du folgendes machen: <br>";
-                echo "<a href='edit.php?contentID=$zeile->contentID'>editieren</a><br>";
+                echo "<a href='edit.php?contentID=$zeile->contentID'>bearbeiten</a><br>";
                 echo "<a href='delete_frage.php?contentID=$zeile->contentID'>l&ouml;schen</a><br>";
                 echo "_________________________________________________________";
             }
