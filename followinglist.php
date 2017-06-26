@@ -21,7 +21,7 @@ $geholteuserID = $_GET["userid"];
 try {
     global $dsn, $dbuser, $dbpass;
     $db = new PDO($dsn, $dbuser, $dbpass);
-    $sql = "SELECT * FROM followerlist INNER JOIN user ON followerlist.follower=user.userid WHERE followerlist.user = :userid";
+    $sql = "SELECT * FROM followerlist INNER JOIN user ON followerlist.user=user.userid WHERE followerlist.user = :userid";
     $query = $db->prepare($sql);
     $query->bindParam(':userid', $geholteuserID);
     $query->execute();
@@ -32,10 +32,12 @@ try {
 
         if (!$i ) {
             echo "<h1>$zeile->username folgt folgenden Nutzern:</h1>";
+            echo "<a href='profil.php?userid=$geholteuserID'>Zurück zum Profil</a>";
+            echo "<br><br>";
             $i = true;
         }
 
-            echo "<a href='profil.php?userid=$zeile->userid'>$zeile->username</a></h3>";
+            echo "<a href='profil.php?userid=$zeile->follower'>$zeile->username</a></h3>";
             echo "<br>";
 
     }
