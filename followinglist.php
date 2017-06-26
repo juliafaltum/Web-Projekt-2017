@@ -16,12 +16,12 @@ include_once("functions.php");
 
 <?php
 
-$geholteuserID = $_GET['userid'];
+$geholteuserID = $_GET["userid"];
 
 try {
     global $dsn, $dbuser, $dbpass;
     $db = new PDO($dsn, $dbuser, $dbpass);
-    $sql = "SELECT * FROM followerlist INNER JOIN user ON followerlist.follower=user.userid WHERE user.userid = :userid";
+    $sql = "SELECT * FROM followerlist INNER JOIN user ON followerlist.follower=user.userid WHERE followerlist.user = :userid";
     $query = $db->prepare($sql);
     $query->bindParam(':userid', $geholteuserID);
     $query->execute();

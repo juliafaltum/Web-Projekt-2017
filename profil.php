@@ -35,9 +35,9 @@ include_once("functions.php");
 
             if (!$i) {
                 echo "<h1>Profilseite von $zeile->username</h1>";
-                echo "<a href=\"followinglist.php\">Abonnements anzeigen</a>";
+                echo "<a href=\"followinglist.php?userid=$zeile->userid'\">Abonnements anzeigen</a>";
                 echo" <br>";
-                echo "<a href=\"followerlist.php\">Abonnenten anzeigen</a>";
+                echo "<a href=\"followerlist.php?userid=$zeile->userid'\">Abonnenten anzeigen</a>";
                 echo" <br>";
             }
 
