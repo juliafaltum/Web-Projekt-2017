@@ -35,6 +35,10 @@ include_once("functions.php");
 
             if (!$i) {
                 echo "<h1>Profilseite von $zeile->username</h1>";
+                echo "<a href=\"followinglist.php\">Abonnements anzeigen</a>";
+                echo" <br>";
+                echo "<a href=\"followerlist.php\">Abonnenten anzeigen</a>";
+                echo" <br>";
             }
 
             if ($_SESSION['userid'] == $zeile->userID and !$i) {

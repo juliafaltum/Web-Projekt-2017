@@ -22,6 +22,9 @@ else {
     echo "<a href=\"create_form.php\">Neue Welle</a><br>";
     echo "<a href=\"logout.php\">Ausloggen</a><br><br>";
     echo "Hallo " .$_SESSION['username'];
+    echo "<br>";
+    $userid = $_SESSION['userid'];
+    echo "<a href=\"profil.php?userid=$userid\">Mein Profil anzeigen</a>";
 }
 
 
