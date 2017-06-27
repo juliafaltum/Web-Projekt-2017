@@ -9,7 +9,7 @@
 <body>
 
 
-
+    <script type="text/javascript" src="js/ajax.js"></script>
 
 <?php
 session_start();
@@ -41,11 +41,17 @@ $query->execute();
 
 while ($zeile = $query->fetchObject()) {
 
+    $followerID = $zeile->userid;
+    $contentID = $zeile->contentID;
+
     echo "<h3>Welle von <a href='profil.php?userid=$zeile->userid'>$zeile->username</a></h3>";
     echo "<h5>$zeile->contentDate</h5";
     echo "<br>";
-    followButtonAjax ($_SESSION['userid'], $followerID, $contentID);
-    // followButton ($_SESSION['userid'], $zeile->userid);          // FUNKTION: Follow-Button
+    // followButtonAjax ($_SESSION['userid'], $followerID, $contentID);
+    // followButton ($_SESSION['userid'], $followerID);     // FUNKTION: Follow-Button
+
+    followButtonNeu($_SESSION['userid'], $followerID, $contentID);
+
     echo "<br>";
     echo "<h4>Punkte: ";
     echo contentPoints($zeile->contentID);
@@ -53,8 +59,7 @@ while ($zeile = $query->fetchObject()) {
     echo "</h4>";
 
 
-    $followerID = $zeile->userid;
-    $contentID = $zeile->contentID;
+
 
 
     echo "<h5>$zeile->contentTXT</h5>";

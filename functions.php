@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Christian
- * Date: 26.05.2017
- * Time: 15:37
- */
 
 function showContent () {               //TODO: Wird noch nicht verwendet, ermöglicht anzeigen der Tweets! --> Später verwende, damit es einheitlich ist.
 try {
@@ -175,14 +169,33 @@ function followButtonAjax ($userID, $followerID, $contentID) {
 <?php
 }
 
-function followButtonAjaxOld ($userID, $followerID, $contentID){
-?>
-    <script type="text/javascript">
-    setTimeout(function() {
-        $('#followButton<?php echo $contentID;?>').click(function () {
-            $('#followButton<?php echo $contentID;?>').load("follow_Button.php?user=<?php echo $userID;?>&follower=<?php echo $followerID;?>&contentID=<?php echo $contentID;?>");
-            })
-        }, 10);
-    </script>
-<?php
+function followButtonNeu ($user, $follower, $contentID) {       // Follow-Button
+
+    if (($user != $follower) && (!empty($user))) {       // überprüfen ob man selbst Autor des Tweets ist & eingeloggt ist, wenn ja ab zur else unten
+
+        global $dsn, $dbuser, $dbpass;
+        $db = new PDO($dsn, $dbuser, $dbpass);
+        $sql = "SELECT * FROM followerlist WHERE user = :user AND follower = :follower";
+        $query = $db->prepare($sql);
+        $query->bindParam(':user', $user);
+        $query->bindParam(':follower', $follower);
+        $query->execute();
+
+        while ($zeile = $query->fetchObject()) {
+            $folgt = 1;
+
+        }
+
+        if ($folgt == 1) {
+            echo "<div class='Folgenbutton$follower'><a href='#!Folgen$follower' onclick='entfolgenJS($user, $follower, $contentID)'><img height='50px' src='img/unfollowbutton.jpg'></a></div>";
+
+
+        } else {
+            echo "<div class='Folgenbutton$follower'><a href='#!Entfolgen$follower' onclick='folgenJS($user, $follower, $contentID)'><img height='50px' src='img/followbutton.jpg'></a></div>";
+        }
+
+    }
+    else {
+        // Es wird kein Follow Knopf angezeigt
+    }
 }
