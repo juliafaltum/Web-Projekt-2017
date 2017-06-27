@@ -9,7 +9,7 @@
 <body>
 
 
-    <script type="text/javascript" src="js/ajax.js"></script>
+
 
 <?php
 session_start();
@@ -50,7 +50,7 @@ while ($zeile = $query->fetchObject()) {
     // followButtonAjax ($_SESSION['userid'], $followerID, $contentID);
     // followButton ($_SESSION['userid'], $followerID);     // FUNKTION: Follow-Button
 
-    followButtonNeu($_SESSION['userid'], $followerID, $contentID);
+    followButtonAjaxNeu($_SESSION['userid'], $followerID, $contentID);
 
     echo "<br>";
     echo "<h4>Punkte: ";

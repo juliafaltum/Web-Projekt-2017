@@ -46,7 +46,7 @@ include_once("functions.php");
                 $i = true;
             }
 
-            followButtonAjax ($_SESSION['userid'], $geholteuserID, 1);
+            followButtonAjaxNeu ($_SESSION['userid'], $geholteuserID, 1);
 
             echo "<h3>Welle von $zeile->username</h3>";
             echo "<h5>$zeile->contentDate</h5>";

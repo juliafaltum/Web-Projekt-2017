@@ -7,4 +7,4 @@ $user = $_GET['userID'];
 $follower = $_GET['followerID'];
 $contentID = $_GET['contentID'];
 
-followButtonNeu ($user, $follower, $contentID);
+followButtonAjaxNeu ($user, $follower, $contentID);

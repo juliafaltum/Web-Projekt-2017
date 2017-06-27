@@ -169,7 +169,7 @@ function followButtonAjax ($userID, $followerID, $contentID) {
 <?php
 }
 
-function followButtonNeu ($user, $follower, $contentID) {       // Follow-Button
+function followButtonAjaxNeu ($user, $follower, $contentID) {       // Follow-Button
 
     if (($user != $follower) && (!empty($user))) {       // überprüfen ob man selbst Autor des Tweets ist & eingeloggt ist, wenn ja ab zur else unten
 

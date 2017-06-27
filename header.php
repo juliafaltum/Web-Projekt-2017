@@ -1,5 +1,7 @@
 <script src="js/jquery.min.js"></script>
 
+<script type="text/javascript" src="js/ajax.js"></script>
+
 <!-- Das neueste kompilierte und minimierte CSS -->
 <link rel="stylesheet" href="css/bootstrap.min.css">
 
