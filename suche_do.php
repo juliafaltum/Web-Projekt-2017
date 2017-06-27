@@ -6,7 +6,6 @@
     echo "Deine Suchergebnisse für: ". $suchbegriff?>
 </h1>
 
-
 <?php
 
 
