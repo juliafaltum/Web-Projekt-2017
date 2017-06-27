@@ -14,7 +14,7 @@ include_once("userdata.php");
 
 try {
     $db = new PDO($dsn, $dbuser, $dbpass);
-    $sql = "SELECT * FROM user WHERE username=$suchbegriff";
+    $sql = "SELECT * FROM user WHERE username LIKE '%$suchbegriff%'";
     $query = $db->prepare($sql);
     $query->execute();
 
