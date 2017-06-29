@@ -1,4 +1,6 @@
-<?php include_once ("header.php");?>
+<?php include_once ("header.php");
+include_once("userdata.php");
+include_once("functions.php");?>
 
 <!DOCTYPE html>
 <html>
@@ -7,6 +9,7 @@
 </head>
 <h1>Alle Wellen</h1><br>
 <body>
+
 
 
 
@@ -24,14 +27,12 @@ else {
     echo "Hallo " .$_SESSION['username'];
     echo "<br>";
     $userid = $_SESSION['userid'];
-    echo "<a href=\"profil.php?userid=$userid\">Mein Profil anzeigen</a>";
+    echo "<a href=\"profil.php?userid=$userid\">Mein Profil anzeigen</a><br>";
 }
-
+tweetFormulartoggle(); // Button und einblenden von Neuen Tweet verfassen
 
  // Anzeigen von allen vorhandenen Tweets aus der Datenbank
 
-include_once("userdata.php");
-include_once("functions.php");
 
 try {
 $db = new PDO($dsn, $dbuser, $dbpass);
