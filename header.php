@@ -3,13 +3,13 @@
 <script type="text/javascript" src="js/ajax.js"></script>
 
 <!-- Das neueste kompilierte und minimierte CSS -->
-<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/bootstrap.css">
 
 <!-- Optionales Theme -->
-<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="css/bootstrap-theme.css">
 
 <!-- Das neueste kompilierte und minimierte JavaScript -->
-<script src="js/bootstrap.min.js"></script>
+<script src="js/bootstrap.js"></script>
 
 
 <link rel="stylesheet" type="text/css" href="css/hover-min.css" media="screen"/>
