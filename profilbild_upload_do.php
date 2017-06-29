@@ -1,5 +1,6 @@
 <?php
 
+include_once("session_check.php");
 $target_dir = 'profilbildupload/';
 $temp_file = basename($_FILES ["fileToUpload"]["tmp_name"]);
 $upload_file = basename($_FILES ["fileToUpload"]["name"]);
@@ -8,6 +9,8 @@ $imageFileType = pathinfo($upload_file, PATHINFO_EXTENSION);
 $random_name = rand().uniqid();
 $uploadfile = $target_dir.$random_name.'.'.$imageFileType;
 $upload_only_filename = $random_name.'.'.$imageFileType;
+$userid =$_SESSION ['userid'];
+
 
 //Fakes oder echtes Bild
 
@@ -55,30 +58,21 @@ if ($uploadOk == 0) {
 } else {
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $uploadfile)) {
         echo "Die Datei " . $uploadfile . " wurde hochgeladen.";
-    //    try {
-    //        include_once("userdata.php");
-    //     $db = new PDO($dsn, $dbuser, $dbpass);
-    //        $sql = "UPDATE user SET profilePicture= " + $uploadfile + " WHERE userid=27";
-    //        echo $sql;
-     //       $query = $db->prepare($sql);
-     //       $query->execute(); //(array("profilePicture" => $uploadfile));
-    //        $db = null;
-          //  header('Location: index.php');
-    //    } catch (PDOException $e) {
-    //        echo "Error: Bitten wenden Sie sich an den Administrator!";
-    //        die();
-    //    }
+        try {
+            include_once("userdata.php");
+            $db = new PDO($dsn, $dbuser, $dbpass);
+            $query = $db->prepare(
+                "UPDATE user SET profilePicture = :profilePicture WHERE userid = :userid");
+            $query->execute(array("profilePicture" => $uploadfile, "userid" => $userid));
+            $db = null;
+
+        } catch (PDOException $e) {
+            echo "Error: Bitten wenden Sie sich an den Administrator!";
+            die();
+       }
     } else {
         echo "sorry, Fehler beim hochladen.";
     }
-        // $contentID = (int)$_GET["contentID"];
-        //  $db = new PDO($dsn, $dbuser, $dbpass);
-        // $sql = "UPDATE set profilePicture =  FROM user WHERE userID=$userID";
-        //  $query = $db->prepare($sql);
-        // $query->execute();
-
-
-
 }
 
 echo $imageFileType;
