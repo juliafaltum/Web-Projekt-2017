@@ -17,3 +17,12 @@
 
 <!-- <script src="js/instantclick.min.js" data-no-instant></script>
 <script data-no-instant>InstantClick.init();</script> Skript wieder auskommentiert für Instantklick -->
+
+<link rel="stylesheet" href="css/custom_css.css">
+
+<?php include_once ("navigation.php");
+
+
+session_start();
+
+?>

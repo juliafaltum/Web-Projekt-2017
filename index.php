@@ -1,7 +1,6 @@
 <?php include_once ("header.php");
 include_once("userdata.php");
 include_once("functions.php");?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,7 +13,9 @@ include_once("functions.php");?>
 
 
 
+
 <?php
+
 session_start();
 if(!isset($_SESSION['userid'])) {
     echo "<a href=\"login.html\">Einloggen</a><br>";

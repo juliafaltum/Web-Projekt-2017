@@ -33,13 +33,13 @@ include_once ("header.php")
                 <li class="dropdown navbar-right">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Profil<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="profil.php?userid=">Profil anzeigen</a></li>
+                        <li><a href="profil.php?userid=<?php echo "$userid";?>">Profil anzeigen</a></li>
                         <li><a href="profil_edit.php">Profil bearbeiten</a></li>
                         <li role="separator" class="divider"></li>
                         <li><a href="logout.php">Abmelden</a></li>
                     </ul>
                 </li>
-            </form>
+                    </ul>
             </div>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
