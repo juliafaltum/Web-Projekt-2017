@@ -14,7 +14,6 @@
 
 <link rel="stylesheet" type="text/css" href="css/hover-min.css" media="screen"/>
 
-
 <!-- <script src="js/instantclick.min.js" data-no-instant></script>
 <script data-no-instant>InstantClick.init();</script> Skript wieder auskommentiert für Instantklick -->
 

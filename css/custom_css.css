@@ -1,4 +1,30 @@
 .nav {
-    background-color: #2aabd2;
-
+    background-color: #23527c;
 }
+
+.navbar-default {
+    background-color: #23527c;
+}
+
+.navbar-collapse {
+    background-color: #23527c;
+}
+
+.navbar-brand {
+    background-color: #23527c;
+}
+
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+    color: lightgrey;
+    background-color: #23527c;
+}
+
+.navbar-nav > li > a {
+    margin-right: 15px;
+}
+
+.btn-default {
+    color: black;
+}
+

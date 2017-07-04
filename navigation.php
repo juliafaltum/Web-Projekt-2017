@@ -13,7 +13,7 @@ include_once ("header.php")
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="index.php">
-                <img alt="ola" src="...">
+                <img src="/img/Logo_navbar.png" alt="ola" >
             </a>
         </div>
 
