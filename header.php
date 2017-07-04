@@ -19,6 +19,19 @@
 
 <link rel="stylesheet" href="css/custom_css.css">
 
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<script type="text/javascript">
+    $(document).ready(function() {
+
+// Markiert aktuellen Menüpunkt per jQuery, Quelle: https://stackoverflow.com/a/12950620/7391622
+        var url = window.location;
+        $('ul.nav a').filter(function() {
+            return this.href == url;
+        }).parent().addClass('active');
+    });
+</script>
+
 <?php
 session_start();
 
