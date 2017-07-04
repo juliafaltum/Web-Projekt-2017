@@ -1,5 +1,6 @@
 <?php
-include_once ("header.php");
+include_once('header.php');
+
 ?>
 
 <nav class="navbar navbar-default navbar-static-top">
@@ -29,6 +30,7 @@ include_once ("header.php");
                 <button type="submit" class="btn btn-default">Suchen</button>
             </form>
 <?php
+
 if(isset($_SESSION['userid'])) {
 ?>
             <div class="navbar-right" id="bs-example-navbar-collapse-1">
@@ -36,18 +38,19 @@ if(isset($_SESSION['userid'])) {
                     <li class="dropdown navbar-right">
                         <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                            aria-expanded="false">Profil<span class="caret"></span></a>
-                        <ul class="dropdown-menu">";
+                        <ul class="dropdown-menu">
                             <?php
                             $userid = $_SESSION['userid'];
                             echo "<li><a href=\"profil.php?userid=$userid\">Profil anzeigen</a></li>";
                             echo "<li><a href=\"profil_edit.php\">Profil bearbeiten</a></li>";
                             echo "<li><a href=\"logout.php\">Abmelden</a></li>";
-                            }
-?>
+                            ?>
                     </ul>
                 </li>
                     </ul>
             </div>
+<?php                             } ?>
         </div><!-- /.navbar-collapse -->
+
     </div><!-- /.container-fluid -->
 </nav>

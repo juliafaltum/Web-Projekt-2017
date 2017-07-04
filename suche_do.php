@@ -19,7 +19,7 @@ try {
 
     while ($zeile = $query->fetchObject()) {
         echo "<tr>";
-        echo "<td>$zeile->username</td>";
+        echo "<a href=\"profil.php?userid=$zeile->userid\"><td>$zeile->username</td></a><br>";
 
     }
 

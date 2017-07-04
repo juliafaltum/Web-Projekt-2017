@@ -19,9 +19,12 @@
 
 <link rel="stylesheet" href="css/custom_css.css">
 
-<?php include_once ("navigation.php");
-
-
+<?php
 session_start();
+
+include_once ("navigation.php");
+
+
+
 
 ?>

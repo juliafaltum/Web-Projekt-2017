@@ -33,16 +33,26 @@ include_once("functions.php");
 
         while ($zeile = $query->fetchObject()) {
 
+
+
             if (!$i) {
                 echo "<h1>Profilseite von $zeile->username</h1>";
                 echo "<a href=\"followinglist.php?userid=$zeile->userid'\">Abonnements anzeigen</a>";
                 echo" <br>";
                 echo "<a href=\"followerlist.php?userid=$zeile->userid'\">Abonnenten anzeigen</a>";
                 echo" <br>";
+
             }
 
             if ($_SESSION['userid'] == $zeile->userID and !$i) {
-                echo "<a href=\"profil_edit.php\">Profil bearbeiten</a>";
+                echo "<a href=\"profil_edit.php\">Profil bearbeiten</a><br>";
+
+
+
+                if (!empty($zeile->profilePicture)) {
+                    echo "<img src=\"$zeile->profilePicture\" width=\"400px\" height=\"400px\"";
+
+                }
                 $i = true;
             }
 
