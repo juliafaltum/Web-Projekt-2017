@@ -13,16 +13,20 @@
 .navbar-brand {
     background-color: #23527c;
     padding-top: 8px;
-    padding-left: 25px;
-}
-
-.navbar-default .navbar-brand:hover,
-.navbar-default .navbar-brand:focus {
-    background-color: #23527c;
+    padding-left: 50px;
 }
 
 .navbar-nav > li > a {
     margin-right: 15px;
+    margin-left: 15px;
+}
+
+.navbar-right {
+    margin-right: 5px;
+}
+
+.navbar-form.navbar-left {
+    margin-left: 15px;
 }
 
 .btn-default {

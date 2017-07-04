@@ -1,16 +1,4 @@
-
-<?php
-// include_once ("header.php");
-/**
- * Created by PhpStorm.
- * User: Julia
- * Date: 08.05.2017
- * Time: 13:10
- */
-
-include_once("session_check.php");
-
-?>
+<?php include_once("session_check.php"); ?>
 
 <html>
 <head>

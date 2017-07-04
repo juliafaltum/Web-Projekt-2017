@@ -11,6 +11,7 @@ include_once("session_check.php");
 </head>
 
 <?php // Anzeigen von einzelnem Tweet
+include_once ("header.php");
 include_once("userdata.php");
 
 $contentID = (int)$_GET["contentID"];
