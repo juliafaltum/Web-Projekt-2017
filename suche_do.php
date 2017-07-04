@@ -1,4 +1,8 @@
-<link rel="stylesheet" type="text/css" href="mystyle.css" media="screen"/>
+<?php include_once ("header.php");?>
+<?php
+include_once("session_check.php");
+?>
+
 
 <h1>
     <?php

@@ -23,12 +23,8 @@ if(!isset($_SESSION['userid'])) {
 }  // Ausloggen nur anzeigen wenn Nutzer eingeloggt ist, Einloggen und Registrieren nur wenn Nutzer ausgeloggt
 
 else {
-    echo "<a href=\"create_form.php\">Neue Welle</a><br>";
-    echo "<a href=\"logout.php\">Ausloggen</a><br><br>";
     echo "Hallo " .$_SESSION['username'];
     echo "<br>";
-    $userid = $_SESSION['userid'];
-    echo "<a href=\"profil.php?userid=$userid\">Mein Profil anzeigen</a><br>";
 }
 tweetFormulartoggle(); // Button und einblenden von Neuen Tweet verfassen
 

@@ -14,7 +14,7 @@ include_once('header.php');
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="index.php">
-                <img src="/img/Logo_navbar.png" alt="ola" >
+                <img src="img/Logo_navbar.png" alt="ola" >
             </a>
         </div>
 
@@ -23,15 +23,27 @@ include_once('header.php');
             <ul class="nav navbar-nav">
                 <li><a href="hoechstewellen.php">Höchste Wellen<span class="sr-only">(current)</span></a></li>
             </ul>
-            <form class="navbar-form navbar-left">
+            <form method= "post" action="suche_do.php" class="navbar-form navbar-left">
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Benutzer suchen">
+                    <input style="width: 300px"name="suchbegriff" type="text" class="form-control" placeholder="Benutzer suchen">
                 </div>
                 <button type="submit" class="btn btn-default">Suchen</button>
             </form>
 <?php
 
-if(isset($_SESSION['userid'])) {
+if(!isset($_SESSION['userid'])) {
+    ?>
+    <form method="post" action="login_do.php" class="navbar-form navbar-right">
+        <div class="input-group">
+         <input style="width: 150px" type="text" name = username class="form-control" placeholder="Benutzername" aria-describedby="basic-addon1">
+         <input style="width: 150px" type="password" name = password class="form-control" placeholder="Passwort" aria-describedby="basic-addon1">
+      </div>
+         <button type="submit" class="btn btn-default">Anmelden</button>
+    </form>
+
+
+<?php       }
+    if(isset($_SESSION['userid'])) {
 ?>
             <div class="navbar-right" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
@@ -49,7 +61,8 @@ if(isset($_SESSION['userid'])) {
                 </li>
                     </ul>
             </div>
-<?php                             } ?>
+<?php                             }
+?>
         </div><!-- /.navbar-collapse -->
 
     </div><!-- /.container-fluid -->
