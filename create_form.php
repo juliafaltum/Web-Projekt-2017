@@ -17,14 +17,14 @@ include_once("session_check.php");
     <meta charset="utf-8">
 </head>
 <body>
-<h1>Neuer Tweet</h1>
+<h1>Neue Welle</h1>
 <form action="create_do.php" method="post" enctype="multipart/form-data">
-    Text des Tweets: <br>
+    Text der Welle: <br>
     <input type="text" name="contentTXT" size="80" maxlength="500" /> <br><br>
-    Tweet Bild: <input type="file" name="fileToUpload" id="fileToUpload">
-    Tweet Quelle: <input type="text" name="contentSource" /><br>
+    Welle Bild: <input type="file" name="fileToUpload" id="fileToUpload">
+    Welle Quelle: <input type="text" name="contentSource" /><br>
 
-    <input type="submit" value="Tweeten" />
+    <input type="submit" value="absenden" />
 </form>
 </body>
 </html>

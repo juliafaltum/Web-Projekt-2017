@@ -23,7 +23,7 @@ include_once('header.php');
             <ul class="nav navbar-nav">
                 <li><a href="hoechstewellen.php">Höchste Wellen<span class="sr-only">(current)</span></a></li>
             </ul>
-            <form method= "post" action="suche_do.php" class="navbar-form navbar-left">
+            <form method= "post" action="suche_do.php" class="navbar-form navbar-left hidden-sm-down">
                 <div class="form-group">
                     <input style="width: 300px"name="suchbegriff" type="text" class="form-control" placeholder="Benutzer suchen">
                 </div>

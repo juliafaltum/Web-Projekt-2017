@@ -204,7 +204,7 @@ function followButtonAjaxNeu ($user, $follower, $contentID) {       // Follow-Bu
 function tweetFormulartoggle () {
 ?>
 
-    <input class="btn btn-primary" id="tweetVerfassenButton" type="button" value="Neuen Tweet verfassen"/>
+    <input class="btn btn-primary" id="tweetVerfassenButton" type="button" value="Neue Welle verfassen"/>
 
     <script>
     $(document).ready(function(){

@@ -6,7 +6,6 @@ include_once("functions.php");?>
 <head>
     <meta charset="utf-8">
 </head>
-<h1>Alle Wellen</h1><br>
 <body>
 
 
@@ -18,12 +17,12 @@ include_once("functions.php");?>
 
 session_start();
 if(!isset($_SESSION['userid'])) {
-    echo "<a href=\"login.html\">Einloggen</a><br>";
     echo "<a href=\"create_user.php\">Registrieren</a><br><br>";
 }  // Ausloggen nur anzeigen wenn Nutzer eingeloggt ist, Einloggen und Registrieren nur wenn Nutzer ausgeloggt
 
 else {
-    echo "Hallo " .$_SESSION['username'];
+    $username = $_SESSION['username'];
+    echo "<h1>Hallo $username</h1>";
     echo "<br>";
 }
 tweetFormulartoggle(); // Button und einblenden von Neuen Tweet verfassen
