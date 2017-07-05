@@ -25,6 +25,12 @@
 <script type="text/javascript">
     $(document).ready(function() {
 
+        $("#tweetformular").load("create_form.php").hide();
+        $("#tweetVerfassenButton").click(function(){
+            $("#tweetformular").slideToggle(200);
+        });
+
+
 // Markiert aktuellen Menüpunkt per jQuery, Quelle: https://stackoverflow.com/a/12950620/7391622
         var url = window.location;
         $('ul.nav a').filter(function() {

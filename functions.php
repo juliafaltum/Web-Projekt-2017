@@ -389,29 +389,6 @@ function followButtonAjaxNeu ($user, $follower, $contentID) {       // Follow-Bu
     }
 }
 
-function tweetFormulartoggle () {
-?>
-
-    <input class="btn btn-primary" id="tweetVerfassenButton" type="button" value="Neue Welle verfassen"/>
-
-    <script>
-    $(document).ready(function(){
-        $("#tweetformular").load("create_form.php").hide();
-        $("#tweetVerfassenButton").click(function(){
-            $("#tweetformular").toggle(200);
-        });
-    });
-    </script>
-
-
-
-    <div id="tweetformular" style="display: none;">Hier steht Inhalt</div>
-
-
-<?php
-}
-
-
 function profilePicture ($userid)
 {
     try {
