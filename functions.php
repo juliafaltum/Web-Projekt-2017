@@ -87,12 +87,11 @@ function showContentAll ()
                         <div class="spacer"></div>
                         <h5><?=$contentDate?></h5>
                         <div class="spacer"></div>
-                        <i class="fa fa-arrow-up fa-3x" aria-hidden="true"></i>
-                        <i class="fa fa-arrow-down fa-3x" aria-hidden="true"></i>
+                        <?php echo voteButton($_SESSION['userid'], $zeile->contentID); ?>
                         <div class="spacer"></div>
                         Punkte: <?php echo contentPoints($zeile->contentID);?>
-                        <br>
-                        <?php echo voteButton($_SESSION['userid'], $zeile->contentID); ?>
+
+
 
 
                     </div>
@@ -323,13 +322,13 @@ $db = null;
 
 
     if (($WertinDB == -1) && ($schonBewertet == 1)) {
-        echo "<a href='rating_do.php?contentID=$contentID&wertung=positiv'>Positiv</a> oder <a href='rating_do.php?contentID=$contentID&wertung=delete'>Bewertung löschen</a>";
+        echo "<a href='rating_do.php?contentID=$contentID&wertung=positiv'><i class=\"fa fa-arrow-up fa-3x\" aria-hidden=\"true\"style='color: black'></i></a><a href='rating_do.php?contentID=$contentID&wertung=delete'><i class=\"fa fa-arrow-down fa-3x\" aria-hidden=\"true\" style='color: red'></i></a>";
     }
     elseif (($WertinDB == 1) && ($schonBewertet == 1)) {
-        echo "<a href='rating_do.php?contentID=$contentID&wertung=negativ'>Negativ</a> oder <a href='rating_do.php?contentID=$contentID&wertung=delete'>Bewertung löschen</a>";
+        echo "<a href='rating_do.php?contentID=$contentID&wertung=delete'><i class=\"fa fa-arrow-up fa-3x\" aria-hidden=\"true\" style='color: green'></i></a><a href='rating_do.php?contentID=$contentID&wertung=negativ'><i class=\"fa fa-arrow-down fa-3x\" aria-hidden=\"true\" style='color: black'></i></a>";
     }
     elseif ($schonBewertet == 0) {
-        echo "<a href='rating_do.php?contentID=$contentID&wertung=positiv'>Positiv</a> oder <a href='rating_do.php?contentID=$contentID&wertung=negativ'>Negativ</a> bewerten";
+        echo "<a href='rating_do.php?contentID=$contentID&wertung=positiv'><i class=\"fa fa-arrow-up fa-3x\" aria-hidden=\"true\" style='color: black'></i></a><a href='rating_do.php?contentID=$contentID&wertung=negativ'><i class=\"fa fa-arrow-down fa-3x\" aria-hidden=\"true\" style='color: black'></i></a>";
     }
 
     }
