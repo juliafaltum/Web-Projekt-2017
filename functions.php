@@ -46,7 +46,196 @@ function showContent ($userid)
         echo "Error!: Bitte wenden Sie sich an den Administrator!..." . $e;
         die();
     }
-}
+}           // Für Profilseite, generiert Inhalte aus FollowerID
+
+function showContentAll ()
+{
+    try {
+        global $dsn, $dbuser, $dbpass;
+        $db = new PDO($dsn, $dbuser, $dbpass);
+        $sql = "SELECT * FROM content_txt INNER JOIN user ON content_txt.userID=user.userid";         // Können sow.rtiert werden mit "ORDER BY contentDate DESC" usw. WHERE content_txt.userID in (21, 19)
+        $query = $db->prepare($sql);
+        $query->execute();
+
+        while ($zeile = $query->fetchObject()) {
+
+            $followerID = $zeile->userid;
+            $contentID = $zeile->contentID;
+            $username = $zeile->username;
+            $userID = $zeile->userid;
+            $profilePicture = profilePicture($userID);
+
+            $contentDate = $zeile->contentDate;
+            $contentTXT = $zeile->contentTXT;
+            $contentPicture = $zeile->contentPicture;
+            $contentSource = $zeile->contentSource;
+
+
+            ?>
+
+            <div class="well-own col-md-12">
+                <div class="row">
+                    <div class="col-md-5 col-xs-5">
+
+                        <img src="<?=$profilePicture?>" class="img-responsive img-circle">
+
+                        <h3>Welle von <a href='profil.php?userid=<?=$userID?>'><?=$username?></a></h3>
+
+                    </div>
+                    <div class="col-md-7 text-right">
+                        <?php followButtonAjaxNeu($_SESSION['userid'], $followerID, $contentID);?>
+                        <div class="spacer"></div>
+                        <h5><?=$contentDate?></h5>
+                        <div class="spacer"></div>
+                        <i class="fa fa-arrow-up fa-3x" aria-hidden="true"></i>
+                        <i class="fa fa-arrow-down fa-3x" aria-hidden="true"></i>
+                        <div class="spacer"></div>
+                        Punkte: <?php echo contentPoints($zeile->contentID);?>
+                        <br>
+                        <?php echo voteButton($_SESSION['userid'], $zeile->contentID); ?>
+
+
+                    </div>
+
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-md-12">
+
+                        <?=$contentTXT?>
+
+
+                    </div>
+
+
+                </div>
+
+                <div class="row col-md-8 center-element">
+
+
+                    <img src="<?=$contentPicture?>" class="img-responsive">
+
+
+                </div>
+                <div class="col-md-5">
+
+                    <?php
+
+                    echo "Quelle: <a href='$zeile->contentSource'>$zeile->contentSource</a><br><br>";
+                    echo "<a href='show.php?contentID=$zeile->contentID'>anzeigen</a><br>";
+
+
+                    if ($_SESSION['userid'] == $zeile->userID) {
+                        echo "<a href='edit.php?contentID=$zeile->contentID'>bearbeiten</a><br>";
+                        echo "<a href='delete_frage.php?contentID=$zeile->contentID'>l&ouml;schen</a><br>";
+                    }
+
+                    ?>
+                </div>
+            </div>
+
+            <?php
+        }
+    } catch (PDOException $e) {
+        echo "Error!: Bitte wenden Sie sich an den Administrator!..." . $e;
+        die();
+    }
+}           // Zeigt alle Tweets an
+
+function showContentFollower ($userid)
+{
+    try {
+        global $dsn, $dbuser, $dbpass;
+        $db = new PDO($dsn, $dbuser, $dbpass);
+        $sql = "SELECT * FROM content_txt INNER JOIN user ON content_txt.userID=user.userid WHERE content_txt.userID = $userid";         // Können sow.rtiert werden mit "ORDER BY contentDate DESC" usw. WHERE content_txt.userID in (21, 19)
+        $query = $db->prepare($sql);
+        $query->execute();
+
+        while ($zeile = $query->fetchObject()) {
+
+            $followerID = $zeile->userid;
+            $contentID = $zeile->contentID;
+            $username = $zeile->username;
+            $userID = $zeile->userid;
+            $profilePicture = profilePicture($userid);
+
+
+            $contentDate = $zeile->contentDate;
+            $contentTXT = $zeile->contentTXT;
+            $contentPicture = $zeile->contentPicture;
+            $contentSource = $zeile->contentSource;
+
+
+            ?>
+
+            <div class="well-own col-md-12">
+        <div class="row">
+                <div class="col-md-5 col-xs-5">
+
+                    <img src="<?=$profilePicture?>" class="img-responsive img-circle">
+
+                    <h3>Welle von <a href='profil.php?userid=<?=$userID?>'><?=$username?></a></h3>
+
+                </div>
+                <div class="col-md-7 text-right">
+                    <?php followButtonAjaxNeu($_SESSION['userid'], $followerID, $contentID);?>
+            <div class="spacer"></div>
+                    <h5><?=$contentDate?></h5>
+            <div class="spacer"></div>
+            <i class="fa fa-arrow-up fa-3x" aria-hidden="true"></i>
+            <i class="fa fa-arrow-down fa-3x" aria-hidden="true"></i>
+            <div class="spacer"></div>
+            Punkte: <?php echo contentPoints($zeile->contentID);?>
+                    <br>
+                    <?php echo voteButton($_SESSION['userid'], $zeile->contentID); ?>
+
+
+            </div>
+
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-md-12">
+
+                    <?=$contentTXT?>
+
+
+                </div>
+
+
+            </div>
+
+            <div class="row col-md-8 center-element">
+
+
+                <img src="<?=$contentPicture?>" class="img-responsive">
+
+
+            </div>
+                <div class="col-md-5">
+
+                <?php
+
+                echo "Quelle: <a href='$zeile->contentSource'>$zeile->contentSource</a><br><br>";
+                echo "<a href='show.php?contentID=$zeile->contentID'>anzeigen</a><br>";
+
+
+                if ($_SESSION['userid'] == $zeile->userID) {
+                    echo "<a href='edit.php?contentID=$zeile->contentID'>bearbeiten</a><br>";
+                    echo "<a href='delete_frage.php?contentID=$zeile->contentID'>l&ouml;schen</a><br>";
+                }
+
+                ?>
+                </div>
+            </div>
+
+            <?php
+        }
+    } catch (PDOException $e) {
+        echo "Error!: Bitte wenden Sie sich an den Administrator!..." . $e;
+        die();
+    }
+}           // Für Followerliste, generiert Inhalte aus FollowerID
 
 function contentPoints ($contentID) {           // Punkte berechnen von Einträgen
 
@@ -222,3 +411,35 @@ function tweetFormulartoggle () {
 
 <?php
 }
+
+
+function profilePicture ($userid)
+{
+    try {
+        global $dsn, $dbuser, $dbpass;
+        $db = new PDO($dsn, $dbuser, $dbpass);
+        $sql = "SELECT * FROM user WHERE userid = $userid";         // Können sow.rtiert werden mit "ORDER BY contentDate DESC" usw. WHERE content_txt.userID in (21, 19)
+        $query = $db->prepare($sql);
+        $query->execute();
+
+        while ($zeile = $query->fetchObject()) {
+
+            $profilePictureURL = $zeile->profilePicture;
+
+
+        }
+
+        if (!empty($profilePictureURL))        {
+            return $profilePictureURL;
+        }
+
+        else {
+            $profilePictureURL = "img/kein_Profilbild.png";
+            return $profilePictureURL;
+        }
+
+    } catch (PDOException $e) {
+        echo "Error!: Bitte wenden Sie sich an den Administrator!..." . $e;
+        die();
+    }
+}           // Für Profilseite, generiert ProfilbildURL

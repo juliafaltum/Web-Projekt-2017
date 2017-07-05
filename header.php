@@ -17,7 +17,8 @@
 <!-- <script src="js/instantclick.min.js" data-no-instant></script>
 <script data-no-instant>InstantClick.init();</script> Skript wieder auskommentiert für Instantklick -->
 
-<link rel="stylesheet" href="css/custom_css.css">
+<link rel="stylesheet"  href="css/custom_css.css">
+<link rel="stylesheet"  href="css/font_awesome/font-awesome.min.css">
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 

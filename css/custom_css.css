@@ -37,25 +37,36 @@
     background-color: #23527c;
 }
 
-.dropdown-menu > .active > a {
-    color: black;
-    background-color: white;
-}
-.dropdown-menu > .active > a:hover,
-.dropdown-menu > .active > a:focus {
-    background-image: linear-gradient(to bottom, #f5f5f5 0%, #e8e8e8 100%);
+.center-element {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    float:none
 }
 
-.equalheight {
-    display: inherit;
-    display: -webkit-box;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
+.vertical-align {
     display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
 }
 
-.equal {
-    flex: 0 0 1;
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
 }
 
+.well-own {         /* Quelle: http://fezvrasta.github.io/bootstrap-material-design/bootstrap-elements.html*/
+    background-color: #fff;
+    padding: 19px;
+    margin-bottom: 20px;
+    -webkit-box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 2px;
+    border: 0;
+}
+
+.spacer {
+    margin-top: 10px; /* define margin as you see fit */
+}

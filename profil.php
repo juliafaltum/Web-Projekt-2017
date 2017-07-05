@@ -30,6 +30,8 @@ include_once("functions.php");
 
         $i = false;
 
+        $profilePictureURL = profilePicture($zeile->userid);
+
         while ($zeile = $query->fetchObject()) {
 
             if (!$i) { ?>
@@ -37,7 +39,7 @@ include_once("functions.php");
                 <div class="row equalheight">
                 <div class="col-md-4 equal">
                     <?php
-                    echo "<img src=\"$zeile->profilePicture\" alt=\"Profilbild\" width=\"200px\" height=\"200px\"";
+                    echo "<img src='$profilePictureURL' alt='Profilbild' width='200px' height='200px' class='img-responsive'>";
                     ?>
                 </div>
                 <div class="col-md-8 equal">
