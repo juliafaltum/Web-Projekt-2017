@@ -22,7 +22,7 @@ while ($zeile = $query->fetchObject()) {
     echo "<a href='profil.php?userid=$zeile->userid'>$zeile->username</a></h1><br>";
 }
 tweetFormulartoggle();
-echo "<h1>Tweets deiner Freunde</h1><br>";
+echo "<h1>Wellen deiner Freunde</h1><br>";
 
 $db = new PDO($dsn, $dbuser, $dbpass);
 $sql = "SELECT * FROM followerlist INNER JOIN user ON followerlist.follower=user.userid WHERE followerlist.user = :festgelegteUserID";       // UserID = 19 zeigt alles von Nutzer 19 an
