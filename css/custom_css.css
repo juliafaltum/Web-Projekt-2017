@@ -36,3 +36,26 @@
 .container-fluid {
     background-color: #23527c;
 }
+
+.dropdown-menu > .active > a {
+    color: black;
+    background-color: white;
+}
+.dropdown-menu > .active > a:hover,
+.dropdown-menu > .active > a:focus {
+    background-image: linear-gradient(to bottom, #f5f5f5 0%, #e8e8e8 100%);
+}
+
+.equalheight {
+    display: inherit;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}
+
+.equal {
+    flex: 0 0 1;
+}
+

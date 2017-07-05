@@ -12,9 +12,8 @@ include_once("session_check.php");
 
 <script src="js/jquery.min.js"></script>
 
-<?php
 
-$geholteuserID = $_GET['userid'];
+<?php
 
 include_once("userdata.php");
 include_once("functions.php");
@@ -33,48 +32,64 @@ include_once("functions.php");
 
         while ($zeile = $query->fetchObject()) {
 
+            if (!$i) { ?>
+                <div class="container">
+                <div class="row equalheight">
+                <div class="col-md-4 equal">
+                    <?php
+                    echo "<img src=\"$zeile->profilePicture\" alt=\"Profilbild\" width=\"200px\" height=\"200px\"";
+                    ?>
+                </div>
+                <div class="col-md-8 equal">
+
+                    <div class="page-header">
+                        <?php
+                        echo "<div class=\"panel-title\"><h2>Profilseite von $zeile->username</h2></div>";
+                        ?>
+                    </div>
+
+                    <?php
+                    echo "<br>";
+                    echo "<a href=\"followinglist.php?userid=$zeile->userid'\">Abonnements anzeigen</a>";
+                    echo " <br>";
+                    echo "<a href=\"followerlist.php?userid=$zeile->userid'\">Abonnenten anzeigen</a>";
+                    echo " <br>";
 
 
-            if (!$i) {
-                echo "<h1>Profilseite von $zeile->username</h1>";
-                echo "<a href=\"followinglist.php?userid=$zeile->userid'\">Abonnements anzeigen</a>";
-                echo" <br>";
-                echo "<a href=\"followerlist.php?userid=$zeile->userid'\">Abonnenten anzeigen</a>";
-                echo" <br>";
+                    if ($_SESSION['userid'] == $zeile->userID and !$i) {
+                        echo "<a href=\"profil_edit.php\">Profil bearbeiten</a><br>";
+                        $i = true;
+                    }
+                ?>
+                </div>
+                </div>
+                </div>
+
+            <?php
 
             }
 
-            if ($_SESSION['userid'] == $zeile->userID and !$i) {
-                echo "<a href=\"profil_edit.php\">Profil bearbeiten</a><br>";
+            if ($i) {
 
+                followButtonAjaxNeu($_SESSION['userid'], $geholteuserID, 1);
 
+                echo "<h3>Welle von $zeile->username</h3>";
+                echo "<h5>$zeile->contentDate</h5>";
+                echo "$zeile->contentTXT <br>";
+                echo "<img src='$zeile->contentPicture' alt=\"Bild nicht verfügbar\" style=\"width:304px;height:228px;\"> <br>";
+                echo "Quelle: <a href='$zeile->contentSource'>$zeile->contentSource</a><br><br>";
+                echo "<a href='show.php?contentID=$zeile->contentID'>anzeigen</a><br>";
 
-                if (!empty($zeile->profilePicture)) {
-                    echo "<img src=\"$zeile->profilePicture\" width=\"400px\" height=\"400px\"";
-
+                if ($_SESSION['userid'] == $zeile->userID) {
+                    echo "<a href='edit.php?contentID=$zeile->contentID'>bearbeiten</a><br>";
+                    echo "<a href='delete_frage.php?contentID=$zeile->contentID'>l&ouml;schen</a><br>";
+                    echo "_________________________________________________________";
                 }
-                $i = true;
+
+                $db = null;
             }
-
-            followButtonAjaxNeu ($_SESSION['userid'], $geholteuserID, 1);
-
-            echo "<h3>Welle von $zeile->username</h3>";
-            echo "<h5>$zeile->contentDate</h5>";
-            echo "$zeile->contentTXT <br>";
-            echo "<img src='$zeile->contentPicture' alt=\"Bild nicht verfügbar\" style=\"width:304px;height:228px;\"> <br>";
-            echo "Quelle: <a href='$zeile->contentSource'>$zeile->contentSource</a><br><br>";
-            echo "<a href='show.php?contentID=$zeile->contentID'>anzeigen</a><br>";
-
-            if ($_SESSION['userid'] == $zeile->userID) {
-                echo "<a href='edit.php?contentID=$zeile->contentID'>bearbeiten</a><br>";
-                echo "<a href='delete_frage.php?contentID=$zeile->contentID'>l&ouml;schen</a><br>";
-                echo "_________________________________________________________";
-            }
-
-            $db = null;
         }
-    }
-    catch
+    } catch
     (PDOException $e) {
         echo "Error!: Bitte wenden Sie sich an den Administrator!..." . $e;
         die();

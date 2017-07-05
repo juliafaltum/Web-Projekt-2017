@@ -55,6 +55,7 @@ if(!isset($_SESSION['userid'])) {
                             $userid = $_SESSION['userid'];
                             echo "<li><a href=\"profil.php?userid=$userid\">Profil anzeigen</a></li>";
                             echo "<li><a href=\"profil_edit.php\">Profil bearbeiten</a></li>";
+                            echo "<li role=\"separator\" class=\"divider\"></li>";
                             echo "<li><a href=\"logout.php\">Abmelden</a></li>";
                             ?>
                     </ul>
