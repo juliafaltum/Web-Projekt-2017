@@ -65,6 +65,8 @@ include_once("functions.php");
                         echo "<a href=\"profil_edit.php\">Profil bearbeiten</a><br>";
                     }
                     $i = true;
+
+                    showContentProfile($geholteuserID);
                 ?>
                 </div>
                 </div>

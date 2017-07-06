@@ -178,7 +178,7 @@ function showContentAll ()
         echo "Error!: Bitte wenden Sie sich an den Administrator!..." . $e;
         die();
     }
-}           // Zeigt alle Tweets an
+}           // Zeigt alle Tweets an aus der DB
 
 function showContentFollower ($userid)
 {
@@ -273,7 +273,7 @@ function showContentFollower ($userid)
         echo "Error!: Bitte wenden Sie sich an den Administrator!..." . $e;
         die();
     }
-}           // Für Followerliste, generiert Inhalte aus FollowerID
+}           // Zeigt nur die Tweets der Leute an, denen gefolgt wird (TODO)
 
 function contentPoints ($contentID) {           // Punkte berechnen von Einträgen
 
@@ -301,41 +301,7 @@ catch (PDOException $e) {
     die();
 }
 
-}
-
-
-
-
-function followButton ($user, $follower) {       // Follow-Button
-
-if (($user != $follower) && (!empty($user))) {       // überprüfen ob man selbst Autor des Tweets ist & eingeloggt ist, wenn ja ab zur else unten
-
-    global $dsn, $dbuser, $dbpass;
-    $db = new PDO($dsn, $dbuser, $dbpass);
-    $sql = "SELECT * FROM followerlist WHERE user = :user AND follower = :follower";
-    $query = $db->prepare($sql);
-    $query->bindParam(':user', $user);
-    $query->bindParam(':follower', $follower);
-    $query->execute();
-
-    while ($zeile = $query->fetchObject()) {
-        $folgt = 1;
-
-    }
-
-    if ($folgt == 1) {
-        echo "<a href='unfollow_do.php?entfolgeuser=$follower'>(Entfolgen)</a>";
-
-
-    } else {
-        echo "<a href='follower_do.php?user=$follower'>(Folgen)</a>";
-    }
-
-}
-else {
-    // Es wird kein Follow Knopf angezeigt
-}
-}
+}           // Gibt die Summe der Punkte für einen Post aus
 
 function voteButton ($userID, $contentID) {     // Vote-Button
 
@@ -375,27 +341,7 @@ $db = null;
     else {
         // Es wird kein Follow Knopf angezeigt
     }
-}
-
-function followButtonAjax ($userID, $followerID, $contentID) {
-?>
-    <div id="followButton<?php echo $contentID;?>"></div>
-    <script type="text/javascript">
-        $(document).ready(function() {
-
-
-            $(function () {
-                $('#followButton<?php echo $contentID;?>').load("follow_Button.php?user=<?php echo $userID;?>&follower=<?php echo $followerID;?>&contentID=<?php echo $contentID;?>", function(response) {
-                    $("#followButton<?php echo $contentID;?>").html(response).hide().fadeIn(350);
-                });
-            });
-        });
-
-    </script>
-
-
-<?php
-}
+}           // Up-Downvote Button
 
 function followButtonAjaxNeu ($user, $follower, $contentID) {       // Follow-Button
 
@@ -426,7 +372,7 @@ function followButtonAjaxNeu ($user, $follower, $contentID) {       // Follow-Bu
     else {
         // Es wird kein Follow Knopf angezeigt
     }
-}
+}           // Follow-Button wird damit angezeigt
 
 function profilePicture ($userid)
 {
