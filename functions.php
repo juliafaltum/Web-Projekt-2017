@@ -116,7 +116,7 @@ function showContentAll ()
                 <div class="row">
                     <div class="col-md-3 col-sm-3 col-xs-4">
 
-                        <img src="<?=$profilePicture?>" class="img-responsive img-circle">
+                        <a href="profil.php?userid=<?=$userID?>"><img src="<?=$profilePicture?>" class="img-responsive img-circle"></a>
 
                         <h3>Welle von <a href='profil.php?userid=<?=$userID?>'><?=$username?></a></h3>
 
@@ -210,7 +210,7 @@ function showContentFollower ($userid)
         <div class="row">
                 <div class="col-md-5 col-xs-5">
 
-                    <img src="<?=$profilePicture?>" class="img-responsive img-circle">
+                    <a href="profil.php?userid=<?=$userID?>"><img src="<?=$profilePicture?>" class="img-responsive img-circle"></a>
 
                     <h3>Welle von <a href='profil.php?userid=<?=$userID?>'><?=$username?></a></h3>
 
