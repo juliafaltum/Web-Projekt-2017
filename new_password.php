@@ -28,6 +28,8 @@ try {
     <script src="js/passwordcheck.js" data-no-instant></script> <!-- Passwort überprüfen mit Javascript, dazu braucht man das oben eingebundene JQuery-->
 </head>
 <body>
+<div class="col-md-3 left-element"></div>
+<div class="col-md-6 center-element">
 <h1>Neues Passwort</h1>
 <form action="new_password_do.php" method="post">
     <input type="hidden" name="passwordResetKey" value="<?php echo $passwordResetKey;?>"/>
@@ -37,6 +39,8 @@ try {
     <div class="registrationFormAlert" id="divCheckPasswordMatch">        </div>
     <input disabled type="submit" value="Password ändern!" />  <!-- Disabled macht den Button nicht klickbar, wird später per JS aktiviert -->
 </form>
+</div>
+<div class="col-md-3 right-element"></div>
 </body>
 </html>
         <?php

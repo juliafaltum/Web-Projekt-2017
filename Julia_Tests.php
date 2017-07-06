@@ -37,7 +37,7 @@ if(!isset($_SESSION["username"])) {
 }
 else {
 ?>
-Bitte <a href="login.html">hier</a> einloggen.
+Bitte <a href="login.php">hier</a> einloggen.
 <?php
 }
 ?>
