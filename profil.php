@@ -39,6 +39,8 @@ include_once("functions.php");
                 <div class="row equalheight">
                 <div class="col-md-4 equal">
                     <?php
+                    echo "<br>";
+                    echo "<br>";
                     echo "<img src='$profilePictureURL' alt='Profilbild' width='200px' height='200px' class='img-responsive'>";
                     ?>
                 </div>
