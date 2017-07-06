@@ -305,7 +305,7 @@ catch (PDOException $e) {
 
 function voteButton ($contentID) {     // Vote-Button
 
-    include_once ('session_check.php');
+
 
     $userID = $_SESSION['userid'];
     $negativ = "negativ";
