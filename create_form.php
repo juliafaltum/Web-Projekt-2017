@@ -17,7 +17,7 @@
     <input id="wellebild" type="file" name="fileToUpload" id="fileToUpload">
     <br>
     <label for="wellequelle">Quelle:</label><br>
-    <input style="width: 400px" id="wellequelle" type="text" name="contentSource" /><br><br>
+    <input style="width: 300px" id="wellequelle" type="text" name="contentSource" /><br><br>
 
     <input type="submit" value="absenden" />
 </form>
