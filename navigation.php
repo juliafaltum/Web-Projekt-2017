@@ -14,14 +14,15 @@ include_once('header.php');
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="index.php">
-                <img src="img/Logo_navbar.png" alt="ola" >
+                <img data-toggle="tooltip" title="Persönliche Startseite" data-placement="bottom" src="img/Logo_navbar.png" alt="ola" >
             </a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li><a href="hoechstewellen.php">Höchste Wellen<span class="sr-only">(current)</span></a></li>
+                <li><a href="index.php" data-toggle="tooltip" title="Alle Wellen ansehen" data-placement="bottom" >Entdecken</a></li>
+                <li><a data-toggle="tooltip" title="Besten Wellen ansehen" data-placement="bottom" href="hoechstewellen.php">Höchste Wellen</a></li>
             </ul>
             <form method= "post" action="suche_do.php" class="navbar-form navbar-left hidden-sm-down">
                 <div class="form-group">
@@ -57,6 +58,7 @@ if(!isset($_SESSION['userid'])) {
                             <?php
                             $userid = $_SESSION['userid'];
                             echo "<li><a href=\"profil.php?userid=$userid\">Profil anzeigen <i class=\"fa fa-user\" aria-hidden=\"true\"></i></a></li>";
+                            echo "<li><a href=\"photoGallery.php\">Privates Fotoalbum <i class=\"fa fa-picture-o\" aria-hidden=\"true\"></i></a></li>";
                             echo "<li><a href=\"profil_edit.php\">Profil bearbeiten <i class=\"fa fa-pencil-square-o\" aria-hidden=\"true\"></i></a></li>";
                             echo "<li role=\"separator\" class=\"divider\"></li>";
                             echo "<li><a href=\"logout.php\">Abmelden <i class=\"fa fa-sign-out\" aria-hidden=\"true\"></i></a></li>";

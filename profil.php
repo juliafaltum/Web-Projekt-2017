@@ -1,6 +1,7 @@
 <?php include_once ("header.php");?>
 <?php
 include_once("session_check.php");
+
 ?>
 
     <html>
@@ -10,13 +11,11 @@ include_once("session_check.php");
 
 <body>
 
-<script src="js/jquery.min.js"></script>
 
 
 <?php
 
 include_once("userdata.php");
-include_once("functions.php");
 
     $geholteuserID = $_GET['userid'];
 

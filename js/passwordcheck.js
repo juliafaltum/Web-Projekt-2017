@@ -1,6 +1,6 @@
 /**
  * Created by Christian on 03.05.2017.
- * Siehe: http://jsfiddle.net/rpP4K/
+ * Quelle: http://jsfiddle.net/rpP4K/
  */
 
 

@@ -1,6 +1,5 @@
-<?php include_once ("header.php");
-include_once("userdata.php");
-include_once("functions.php");?>
+<?php include_once ("header.php");?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,7 +30,8 @@ include_once("functions.php");?>
                 $username = $_SESSION['username'];
                 echo "<h1>Hallo $username</h1>";
                 echo "<br>";
-                echo "<input class=\"btn btn-primary\" id=\"tweetVerfassenButton\" type=\"button\" value=\"Neue Welle verfassen\"/><div class=\"spacer\"></div>"; // Button und einblenden von Neuen Tweet verfassen
+                echo "<input class=\"btn btn-primary\" id=\"tweetVerfassenButton\"  type=\"button\" value=\"Neue Welle verfassen\"/><div class=\"spacer\"></div>"; // Button und einblenden von Neuen Tweet verfassen
+                echo "<a href='photoGallery.php'<button class=\"btn btn-info\" type=\"button\"/>Zur privaten Fotogalerie</button></a><div class=\"spacer\"></div>";
             }
 
 

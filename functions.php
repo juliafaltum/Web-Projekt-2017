@@ -116,7 +116,7 @@ function showContentAll ()
                 <div class="row">
                     <div class="col-md-3 col-sm-3 col-xs-4">
 
-                        <a href="profil.php?userid=<?=$userID?>"><img src="<?=$profilePicture?>" class="img-responsive img-circle"></a>
+                        <a data-toggle='tooltip' title='Profil von <?=$username?> aufrufen' data-placement='top' href="profil.php?userid=<?=$userID?>"><img src="<?=$profilePicture?>" class="img-responsive img-circle"></a>
 
                         <h3>Welle von <a href='profil.php?userid=<?=$userID?>'><?=$username?></a></h3>
 
@@ -333,13 +333,13 @@ $db = null;
 
 
     if (($WertinDB == -1) && ($schonBewertet == 1)) {
-        echo "<div class='Votebutton$contentID'><a href='#!' onclick='voteJS($contentID, 1)'><i class=\"fa fa-arrow-up fa-3x\" aria-hidden=\"true\"style='color: black'></i></a><a onclick='voteJS($contentID, 3)' href='#!'><i class=\"fa fa-arrow-down fa-3x\" aria-hidden=\"true\" style='color: red'></i></a></div>";
+        echo "<div class='Votebutton$contentID'><a data-toggle='tooltip' title='Positiv bewerten' data-placement='bottom' href='#!' onclick='voteJS($contentID, 1)'><i class=\"fa fa-arrow-up fa-3x\" aria-hidden=\"true\"style='color: black'></i></a><a data-toggle='tooltip' title='Bewertung löschen' data-placement='bottom' onclick='voteJS($contentID, 3)' href='#!'><i class=\"fa fa-arrow-down fa-3x\" aria-hidden=\"true\" style='color: red'></i></a></div>";
     }
     elseif (($WertinDB == 1) && ($schonBewertet == 1)) {
-        echo "<div class='Votebutton$contentID'><a href='#!' onclick='voteJS($contentID, 3)'><i class=\"fa fa-arrow-up fa-3x\" aria-hidden=\"true\" style='color: green'></i></a><a onclick='voteJS($contentID, 2)' href='#!'><i class=\"fa fa-arrow-down fa-3x\" aria-hidden=\"true\" style='color: black'></i></a></div>";
+        echo "<div class='Votebutton$contentID'><a data-toggle='tooltip' title='Bewertung löschen' data-placement='bottom' href='#!' onclick='voteJS($contentID, 3)'><i class=\"fa fa-arrow-up fa-3x\" aria-hidden=\"true\" style='color: green'></i></a><a data-toggle='tooltip' title='Negativ bewerten' data-placement='bottom' onclick='voteJS($contentID, 2)' href='#!'><i class=\"fa fa-arrow-down fa-3x\" aria-hidden=\"true\" style='color: black'></i></a></div>";
     }
     elseif ($schonBewertet == 0) {
-        echo "<div class='Votebutton$contentID'><a href='#!' onclick='voteJS($contentID, 1)'><i class=\"fa fa-arrow-up fa-3x\" aria-hidden=\"true\" style='color: black'></i></a><a onclick='voteJS($contentID, 2)' href='#!'><i class=\"fa fa-arrow-down fa-3x\" aria-hidden=\"true\" style='color: black'></i></a></div>";
+        echo "<div class='Votebutton$contentID'><a data-toggle='tooltip' title='Positiv bewerten' data-placement='bottom' href='#!' onclick='voteJS($contentID, 1)'><i class=\"fa fa-arrow-up fa-3x\" aria-hidden=\"true\" style='color: black'></i></a><a data-toggle='tooltip' title='Negativ bewerten' data-placement='bottom' onclick='voteJS($contentID, 2)' href='#!'><i class=\"fa fa-arrow-down fa-3x\" aria-hidden=\"true\" style='color: black'></i></a></div>";
     }
 
     }
@@ -367,11 +367,11 @@ function followButtonAjaxNeu ($user, $follower, $contentID) {       // Follow-Bu
         }
 
         if ($folgt == 1) {
-            echo "<div class='Folgenbutton$follower'><a href='#!Folgen$follower' onclick='entfolgenJS($user, $follower, $contentID)'><img height='50px' src='img/unfollowbutton.jpg'></a></div>";
+            echo "<div class='Folgenbutton$follower'><a data-toggle='tooltip' title='Entfolgen' data-placement='bottom' href='#!Folgen$follower' onclick='entfolgenJS($user, $follower, $contentID)'><img height='50px' src='img/unfollowbutton.jpg'></a></div>";
 
 
         } else {
-            echo "<div class='Folgenbutton$follower'><a href='#!Entfolgen$follower' onclick='folgenJS($user, $follower, $contentID)'><img height='50px' src='img/followbutton.jpg'></a></div>";
+            echo "<div class='Folgenbutton$follower'><a data-toggle='tooltip' title='Folgen' data-placement='bottom' href='#!Entfolgen$follower' onclick='folgenJS($user, $follower, $contentID)'><img height='50px' src='img/followbutton.jpg'></a></div>";
         }
 
     }
@@ -445,3 +445,9 @@ function deleteTweetPicturefromServer ($contentID)
         die();
     }
 }// Tweet-Bild löschen wenn
+
+
+function showTooltipp($tooltipText){
+    echo "data-toggle='tooltip' title='$tooltipText' data-placement='bottom'";
+
+}

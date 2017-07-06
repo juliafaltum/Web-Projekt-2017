@@ -324,6 +324,7 @@ fieldset[disabled] .btn-danger.active {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff5f5f5', endColorstr='#ffe8e8e8', GradientType=0);
   background-repeat: repeat-x;
 }
+/* Macht aktiven Menüpunkt kaputt und wurde auskommentiert
 .dropdown-menu > .active > a,
 .dropdown-menu > .active > a:hover,
 .dropdown-menu > .active > a:focus {
@@ -332,6 +333,7 @@ fieldset[disabled] .btn-danger.active {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff337ab7', endColorstr='#ff2e6da4', GradientType=0);
   background-repeat: repeat-x;
 }
+*/
 .navbar-default {
   background-image: -webkit-linear-gradient(top, #fff 0%, #f8f8f8 100%);
   background-image:      -o-linear-gradient(top, #fff 0%, #f8f8f8 100%);
