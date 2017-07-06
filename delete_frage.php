@@ -9,6 +9,8 @@
 
 <body>
 <?php
+
+
 $contentID = (int)$_GET["contentID"];
 echo "Willst du deinen Tweet mit der ID: $contentID wirklich löschen?<br>";
 echo "<a href='delete.php?contentID=$contentID'>Ja</a><br>";

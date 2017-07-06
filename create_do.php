@@ -6,7 +6,7 @@ $contentTXT = htmlspecialchars($_POST["contentTXT"], ENT_QUOTES, "UTF-8");
 // $contentPicture = htmlspecialchars($_POST["contentPicture"], ENT_QUOTES, "UTF-8"); durch Fileupload ersetzt, daher nun $upload_only_filename (siehe upload.php)
 $contentSource = htmlspecialchars($_POST["contentSource"], ENT_QUOTES, "UTF-8");
 
-if (!empty($contentTXT) && !empty($contentSource)) {
+if (!empty($contentTXT)) {
     include_once("userdata.php");
     try {
         $db = new PDO($dsn, $dbuser, $dbpass);

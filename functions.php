@@ -33,7 +33,7 @@ function showContentProfile ($userid)
                     <div class="col-md-7 text-right">
                         <h5><?=$contentDate?></h5>
                         <div class="spacer"></div>
-                        <?php echo voteButton($_SESSION['userid'], $zeile->contentID); ?>
+                        <?php echo voteButton($zeile->contentID); ?>
                         <div class="spacer"></div>
                         Punkte: <?php echo contentPoints($zeile->contentID);?>
 
@@ -114,19 +114,19 @@ function showContentAll ()
 
             <div class="well-own col-md-12">
                 <div class="row">
-                    <div class="col-md-5 col-xs-5">
+                    <div class="col-md-3 col-sm-3 col-xs-4">
 
                         <img src="<?=$profilePicture?>" class="img-responsive img-circle">
 
                         <h3>Welle von <a href='profil.php?userid=<?=$userID?>'><?=$username?></a></h3>
 
                     </div>
-                    <div class="col-md-7 text-right">
+                    <div class="col-md-9 text-right">
                         <?php followButtonAjaxNeu($_SESSION['userid'], $followerID, $contentID);?>
                         <div class="spacer"></div>
                         <h5><?=$contentDate?></h5>
                         <div class="spacer"></div>
-                        <?php echo voteButton($_SESSION['userid'], $zeile->contentID); ?>
+                        <?php echo voteButton($zeile->contentID); ?>
                         <div class="spacer"></div>
                         Punkte: <?php echo contentPoints($zeile->contentID);?>
 
@@ -289,9 +289,9 @@ function contentPoints ($contentID) {           // Punkte berechnen von Einträg
             $summe = $zeile->contentPoints;
 
             if ($summe == 0) {
-                echo "0";
+                echo "<points class='Punkte$contentID'>0</points>";
             } else {
-                echo $summe;
+                echo "<points class='Punkte$contentID'>$summe</points>";
             }
         }
     }
@@ -303,8 +303,14 @@ catch (PDOException $e) {
 
 }           // Gibt die Summe der Punkte für einen Post aus
 
-function voteButton ($userID, $contentID) {     // Vote-Button
+function voteButton ($contentID) {     // Vote-Button
 
+    include_once ('session_check.php');
+
+    $userID = $_SESSION['userid'];
+    $negativ = "negativ";
+    $positiv = "positiv";
+    $delete = "delete";
     if (!empty($userID)) {
 
 
@@ -327,13 +333,13 @@ $db = null;
 
 
     if (($WertinDB == -1) && ($schonBewertet == 1)) {
-        echo "<a href='rating_do.php?contentID=$contentID&wertung=positiv'><i class=\"fa fa-arrow-up fa-3x\" aria-hidden=\"true\"style='color: black'></i></a><a href='rating_do.php?contentID=$contentID&wertung=delete'><i class=\"fa fa-arrow-down fa-3x\" aria-hidden=\"true\" style='color: red'></i></a>";
+        echo "<div class='Votebutton$contentID'><a href='#!' onclick='voteJS($contentID, 1)'><i class=\"fa fa-arrow-up fa-3x\" aria-hidden=\"true\"style='color: black'></i></a><a onclick='voteJS($contentID, 3)' href='#!'><i class=\"fa fa-arrow-down fa-3x\" aria-hidden=\"true\" style='color: red'></i></a></div>";
     }
     elseif (($WertinDB == 1) && ($schonBewertet == 1)) {
-        echo "<a href='rating_do.php?contentID=$contentID&wertung=delete'><i class=\"fa fa-arrow-up fa-3x\" aria-hidden=\"true\" style='color: green'></i></a><a href='rating_do.php?contentID=$contentID&wertung=negativ'><i class=\"fa fa-arrow-down fa-3x\" aria-hidden=\"true\" style='color: black'></i></a>";
+        echo "<div class='Votebutton$contentID'><a href='#!' onclick='voteJS($contentID, 3)'><i class=\"fa fa-arrow-up fa-3x\" aria-hidden=\"true\" style='color: green'></i></a><a onclick='voteJS($contentID, 2)' href='#!'><i class=\"fa fa-arrow-down fa-3x\" aria-hidden=\"true\" style='color: black'></i></a></div>";
     }
     elseif ($schonBewertet == 0) {
-        echo "<a href='rating_do.php?contentID=$contentID&wertung=positiv'><i class=\"fa fa-arrow-up fa-3x\" aria-hidden=\"true\" style='color: black'></i></a><a href='rating_do.php?contentID=$contentID&wertung=negativ'><i class=\"fa fa-arrow-down fa-3x\" aria-hidden=\"true\" style='color: black'></i></a>";
+        echo "<div class='Votebutton$contentID'><a href='#!' onclick='voteJS($contentID, 1)'><i class=\"fa fa-arrow-up fa-3x\" aria-hidden=\"true\" style='color: black'></i></a><a onclick='voteJS($contentID, 2)' href='#!'><i class=\"fa fa-arrow-down fa-3x\" aria-hidden=\"true\" style='color: black'></i></a></div>";
     }
 
     }

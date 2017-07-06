@@ -7,7 +7,7 @@ $contentPicture = htmlspecialchars($_POST["contentPicture"], ENT_QUOTES, "UTF-8"
 $contentSource = htmlspecialchars($_POST["contentSource"], ENT_QUOTES, "UTF-8");
 
 
-if (!empty($contentID) && !empty($contentTXT) && !empty($contentPicture) && !empty($contentSource)) {
+if (!empty($contentID) && !empty($contentTXT)) {
     try {
         include_once("userdata.php");
         $db = new PDO($dsn, $dbuser, $dbpass);

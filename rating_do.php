@@ -5,35 +5,36 @@
  * Date: 24.05.2017
  * Time: 13:05
  */
+include_once("userdata.php");
 
 include_once("session_check.php");
 
 $userID = $_SESSION['userid'];
-$contentID = $_GET ['contentID'];
-$wertung = $_GET ['wertung'];
+$contentID = $_POST ['contentID'];
+$wertung = $_POST ['wertung'];
 
-if ($wertung == positiv) {
+if ($wertung == 1) {        // positiv->1
     $WertinDBsoll = 1;
-} elseif ($wertung == negativ) {
+} elseif ($wertung == 2) {      // negativ->2
     $WertinDBsoll = -1;
-} elseif ($wertung == delete) {
+} elseif ($wertung == 3) { // delete ->3
     try {
         include_once("userdata.php");
         $db = new PDO($dsn, $dbuser, $dbpass);
         $sql = "DELETE FROM rating WHERE contentID=$contentID AND userID=$userID";
         $db->prepare($sql)->execute();
         $db = null;
+        echo "success";
     } catch (PDOException $e) {
         echo "Error!: Bitten wenden Sie sich an den Administrator...";
         die();
     }
-    header('Location: index.php');
+
 
 }
 
 // Überprüfen ob schon gevotet
 
-include_once("userdata.php");
 
 
 $db = new PDO($dsn, $dbuser, $dbpass);
@@ -46,8 +47,8 @@ if ($zeile = $query->fetchObject()) {
     $schonBewertet = 1;
 }
 else {
-    echo "Datensatz nicht gefunden";
     $schonBewertet = 0;
+
 }
 $db = null;
 
@@ -61,7 +62,6 @@ if (($WertinDBsoll == $WertinDB) && $WertinDBsoll == 1) {        // Nutzer drüc
     echo "Du hast schon negativ bewertet";
 
 } else if  ($schonBewertet == 0) {           // Noch nicht bewertet, also Wert in DB schreiben
-    print "Dieser Nutzer hat noch nicht bewertet, kein Datensatz mit id=$contentID gefunden!";
     if (!empty($contentID) && !empty($WertinDBsoll)) {
         include_once("userdata.php");
         try {
@@ -70,16 +70,16 @@ if (($WertinDBsoll == $WertinDB) && $WertinDBsoll == 1) {        // Nutzer drüc
                 "INSERT INTO rating (contentID, userID, ratingValue) VALUES(:contentID, :userID, :ratingValue)");
             $query->execute(array("contentID" => $contentID, "userID" => $userID, "ratingValue" => $WertinDBsoll));
             $db = null;
+
+            echo "success";
         } catch (PDOException $e) {
             echo "Error!: Bitten wenden Sie sich an den Administrator...";
             die();
         }
-        header('Location: index.php');
+
     }
-    else {
-        echo "Error: Bitte alle Felder ausfüllen!<br/>";
-    }
-} else if ($schonBewertet == 1){        // Aktualisieren wenn schon Bewertung vorhanden
+
+} else if ($schonBewertet == 1){                // Aktualisieren wenn schon Bewertung vorhanden
     if (!empty($contentID) && !empty($WertinDBsoll)) {
         try {
             include_once("userdata.php");
@@ -88,7 +88,8 @@ if (($WertinDBsoll == $WertinDB) && $WertinDBsoll == 1) {        // Nutzer drüc
                 "UPDATE rating SET ratingValue = :ratingValue WHERE contentID = :contentID AND userID = :userID ");
             $query->execute(array("ratingValue" => $WertinDBsoll, "contentID" => $contentID, "userID" => $userID));
             $db = null;
-            header('Location: index.php');
+
+            echo "success";
         } catch (PDOException $e) {
             echo "Error: Bitten wenden Sie sich an den Administrator!";
             die();
