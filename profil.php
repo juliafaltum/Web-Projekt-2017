@@ -65,31 +65,14 @@ include_once("functions.php");
                         echo "<a href=\"profil_edit.php\">Profil bearbeiten</a><br>";
                     }
                     $i = true;
+
+                    showContentProfile($geholteuserID);
                 ?>
                 </div>
                 </div>
                 </div>
 
-            <?php
-
-            }
-
-            if ($i) {
-
-                echo "<h3>Welle von $zeile->username</h3>";
-                echo "<h5>$zeile->contentDate</h5>";
-                echo "$zeile->contentTXT <br>";
-                echo "<img src='$zeile->contentPicture' alt=\"Bild nicht verfügbar\" style=\"width:304px;height:228px;\"> <br>";
-                echo "Quelle: <a href='$zeile->contentSource'>$zeile->contentSource</a><br><br>";
-                echo "<a href='show.php?contentID=$zeile->contentID'>anzeigen</a><br>";
-
-                if ($_SESSION['userid'] == $zeile->userID) {
-                    echo "<a href='edit.php?contentID=$zeile->contentID'>bearbeiten</a><br>";
-                    echo "<a href='delete_frage.php?contentID=$zeile->contentID'>l&ouml;schen</a><br>";
-                    echo "_________________________________________________________";
-                }
-
-                $db = null;
+           <?php      $db = null;
             }
         }
     } catch
