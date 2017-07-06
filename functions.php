@@ -1,6 +1,6 @@
 <?php
 
-function showContent ($userid)
+function showContentProfile ($userid)
 {
     try {
         global $dsn, $dbuser, $dbpass;
@@ -13,40 +13,79 @@ function showContent ($userid)
 
             $followerID = $zeile->userid;
             $contentID = $zeile->contentID;
+            $username = $zeile->username;
+            $userID = $zeile->userid;
+            $profilePicture = profilePicture($userID);
 
-            echo "<h3>Welle von <a href='profil.php?userid=$zeile->userid'>$zeile->username</a></h3>";
-            echo "<h5>$zeile->contentDate</h5";
-            echo "<br>";
-            // followButtonAjax ($_SESSION['userid'], $followerID, $contentID);
-            // followButton ($_SESSION['userid'], $followerID);     // FUNKTION: Follow-Button
-
-            followButtonAjaxNeu($_SESSION['userid'], $followerID, $contentID);
-
-            echo "<br>";
-            echo "<h4>Punkte: ";
-            echo contentPoints($zeile->contentID);
-            echo voteButton($_SESSION['userid'], $zeile->contentID);
-            echo "</h4>";
+            $contentDate = $zeile->contentDate;
+            $contentTXT = $zeile->contentTXT;
+            $contentPicture = $zeile->contentPicture;
+            $contentSource = $zeile->contentSource;
 
 
-            echo "<h5>$zeile->contentTXT</h5>";
-            echo "<img src='$zeile->contentPicture' alt=\"Bild nicht verfügbar\" style=\"width:304px;height:228px;\"> <br>";
-            echo "Quelle: <a href='$zeile->contentSource'>$zeile->contentSource</a><br><br>";
-            echo "<a href='show.php?contentID=$zeile->contentID'>anzeigen</a><br>";
+            ?>
+
+            <div class="well-own col-md-12">
+                <div class="row">
+                    <div class="col-md-5 col-xs-5">
+
+                    </div>
+                    <div class="col-md-7 text-right">
+                        <h5><?=$contentDate?></h5>
+                        <div class="spacer"></div>
+                        <?php echo voteButton($_SESSION['userid'], $zeile->contentID); ?>
+                        <div class="spacer"></div>
+                        Punkte: <?php echo contentPoints($zeile->contentID);?>
 
 
-            if ($_SESSION['userid'] == $zeile->userID) {
-                echo "<a href='edit.php?contentID=$zeile->contentID'>bearbeiten</a><br>";
-                echo "<a href='delete_frage.php?contentID=$zeile->contentID'>l&ouml;schen</a><br>";
-            }
-            echo "_________________________________________________________";
-            echo "<br>";
+
+
+                    </div>
+
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-md-12">
+
+                        <?=$contentTXT?>
+
+
+                    </div>
+
+
+                </div>
+
+                <div class="row col-md-8 center-element">
+
+
+                    <img src="<?=$contentPicture?>" class="img-responsive">
+
+
+                </div>
+                <div class="col-md-5">
+
+                    <?php
+
+                    echo "Quelle: <a href='$zeile->contentSource'>$zeile->contentSource</a><br><br>";
+                    echo "<a href='show.php?contentID=$zeile->contentID'>anzeigen</a><br>";
+
+
+                    if ($_SESSION['userid'] == $zeile->userID) {
+                        echo "<a href='edit.php?contentID=$zeile->contentID'>bearbeiten</a><br>";
+                        echo "<a href='delete_frage.php?contentID=$zeile->contentID'>l&ouml;schen</a><br>";
+                    }
+
+                    ?>
+                </div>
+            </div>
+
+            <?php
         }
     } catch (PDOException $e) {
         echo "Error!: Bitte wenden Sie sich an den Administrator!..." . $e;
         die();
     }
-}           // Für Profilseite, generiert Inhalte aus FollowerID
+}              // Für Profilseite, generiert Inhalte aus FollowerID
 
 function showContentAll ()
 {
