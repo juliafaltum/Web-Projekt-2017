@@ -7,16 +7,36 @@
     <script src="js/passwordcheck.js" data-no-instant></script> <!-- Passwort überprüfen mit Javascript, dazu braucht man das oben eingebundene JQuery-->
 </head>
 <body>
+<div class="col-md-3 left-element"></div>
+<div class="col-md-6 center-element">
     <h1>Neuer Benutzer</h1>
-    <form action="create_user_do.php" method="post">
-    Benutzername: <input type="text" name="username" /><br>
-    Voller Name: <input type="text" name="fullname" /><br>
-    Email Adresse: <input type="text" name="email" /><br>
-    Passwort: <input type="password" name="password" id="txtNewPassword" /><br>
-    Passwort wiederholen: <input type="password" id="txtConfirmPassword" onChange="checkPasswordMatch();" name="password2" /><br>
     <br>
+    <form action="create_user_do.php" method="post">
+        <div class="input-group">
+            <span class="input-group-addon" id="basic-addon1">Benutzername:</span><input type="text" class="form-control" placeholder="Benutzername" name="username" aria-describedby="basic-addon1">
+        </div>
+        <br>
+        <div class="input-group">
+            <span class="input-group-addon" id="basic-addon1">Voller Name:</span><input type="text" class="form-control" placeholder="Voller Name" name="fullname" aria-describedby="basic-addon1">
+        </div>
+        <br>
+        <div class="input-group">
+            <span class="input-group-addon" id="basic-addon1">E-Mail:</span><input type="text" class="form-control" placeholder="E-Mail" name="email" aria-describedby="basic-addon1">
+        </div>
+        <br>
+        <div class="input-group">
+            <span class="input-group-addon" id="txtNewPassword">Passwort:</span><input type="password" class="form-control" placeholder="Passwort" name="password" aria-describedby="basic-addon1">
+        </div>
+        <br>
+        <div class="input-group">
+            <span class="input-group-addon" id="txtConfirmPassword">Passwort wiederholen:</span><input type="password" class="form-control" placeholder="Passwort" onChange="checkPasswordMatch();" name="password2" aria-describedby="basic-addon1">
+        </div>
+        <br>
+
     <div class="registrationFormAlert" id="divCheckPasswordMatch">        </div>
     <input disabled type="submit" value="Benutzer erstellen" />  <!-- Disabled macht den Button nicht klickbar, wird später per JS aktiviert -->
     </form>
+</div>
+<div class="col-md-3 right-element"></div>
 </body>
 </html>
