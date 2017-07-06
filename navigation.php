@@ -25,7 +25,7 @@ include_once('header.php');
             </ul>
             <form method= "post" action="suche_do.php" class="navbar-form navbar-left hidden-sm-down">
                 <div class="form-group">
-                    <input style="width: 300px"name="suchbegriff" type="text" class="form-control" placeholder="Benutzer suchen">
+                    <input name="suchbegriff" type="text" class="form-control" placeholder="Benutzer suchen">
                 </div>
                 <button type="submit" class="btn btn-default">Suchen</button>
             </form>
@@ -33,13 +33,16 @@ include_once('header.php');
 
 if(!isset($_SESSION['userid'])) {
     ?>
-    <form method="post" action="login_do.php" class="navbar-form navbar-right">
-        <div class="input-group">
-         <input style="width: 150px" type="text" name = username class="form-control" placeholder="Benutzername" aria-describedby="basic-addon1">
-         <input style="width: 150px" type="password" name = password class="form-control" placeholder="Passwort" aria-describedby="basic-addon1">
-      </div>
-         <button type="submit" class="btn btn-default">Anmelden</button>
+    <form method="post" action="login_do.php" class="navbar-form navbar-right" role="search">
+        <div class="form-group">
+            <input type="text" class="form-control" name="username" placeholder="Benutzername">
+        </div>
+        <div class="form-group">
+            <input type="password" class="form-control" name="password" placeholder="Passwort">
+        </div>
+        <button type="submit" class="btn btn-default">Anmelden</button>
     </form>
+
 
 
 <?php       }
@@ -49,14 +52,14 @@ if(!isset($_SESSION['userid'])) {
                 <ul class="nav navbar-nav">
                     <li class="dropdown navbar-right">
                         <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                           aria-expanded="false"><i class="fa fa-user" aria-hidden="true"></i> Profil<span class="caret"></span></a>
+                           aria-expanded="false">Profil <i class="fa fa-user" aria-hidden="true"></i><span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <?php
                             $userid = $_SESSION['userid'];
-                            echo "<li><a href=\"profil.php?userid=$userid\">Profil anzeigen</a></li>";
-                            echo "<li><a href=\"profil_edit.php\">Profil bearbeiten</a></li>";
+                            echo "<li><a href=\"profil.php?userid=$userid\">Profil anzeigen <i class=\"fa fa-user\" aria-hidden=\"true\"></i></a></li>";
+                            echo "<li><a href=\"profil_edit.php\">Profil bearbeiten <i class=\"fa fa-pencil-square-o\" aria-hidden=\"true\"></i></a></li>";
                             echo "<li role=\"separator\" class=\"divider\"></li>";
-                            echo "<li><a href=\"logout.php\">Abmelden</a></li>";
+                            echo "<li><a href=\"logout.php\">Abmelden <i class=\"fa fa-sign-out\" aria-hidden=\"true\"></i></a></li>";
                             ?>
                     </ul>
                 </li>

@@ -410,3 +410,38 @@ function profilePicture ($userid)
         die();
     }
 }           // Für Profilseite, generiert ProfilbildURL
+
+
+function deleteTweetPicturefromServer ($contentID)
+{
+
+    try {
+        global $dsn, $dbuser, $dbpass;
+        $db = new PDO($dsn, $dbuser, $dbpass);
+        $sql = "SELECT * FROM content_txt WHERE contentID=$contentID";
+        $query = $db->prepare($sql);
+        $query->execute();
+        if ($zeile = $query->fetchObject()) {
+            $pictureURL = $zeile->contentPicture;
+            $db = null;
+        }
+        echo $pictureURL;
+        if (isset($pictureURL)) {
+
+            echo $pictureURL;
+
+            if (unlink($pictureURL)) {
+
+                echo 'success';
+            } else {
+
+                echo 'fail';
+            }
+
+
+        }
+    } catch (PDOException $e) {
+        echo "Error!: Bitte wenden Sie sich an den Administrator!..." . $e;
+        die();
+    }
+}// Tweet-Bild löschen wenn

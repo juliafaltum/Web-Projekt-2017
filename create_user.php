@@ -25,16 +25,16 @@
         </div>
         <br>
         <div class="input-group">
-            <span class="input-group-addon" id="txtNewPassword">Passwort:</span><input type="password" class="form-control" placeholder="Passwort" name="password" aria-describedby="basic-addon1">
+            <span class="input-group-addon">Passwort:</span><input id="txtNewPassword" type="password" class="form-control" placeholder="Passwort" name="password" onChange="checkPasswordMatch();" aria-describedby="basic-addon1">
         </div>
         <br>
         <div class="input-group">
-            <span class="input-group-addon" id="txtConfirmPassword">Passwort wiederholen:</span><input type="password" class="form-control" placeholder="Passwort" onChange="checkPasswordMatch();" name="password2" aria-describedby="basic-addon1">
+            <span class="input-group-addon" >Passwort wiederholen:</span><input id="txtConfirmPassword" type="password" class="form-control" placeholder="Passwort" onChange="checkPasswordMatch();" name="password2" aria-describedby="basic-addon1">
         </div>
         <br>
 
     <div class="registrationFormAlert" id="divCheckPasswordMatch">        </div>
-    <input disabled type="submit" value="Benutzer erstellen" />  <!-- Disabled macht den Button nicht klickbar, wird später per JS aktiviert -->
+    <input id="absenden" class="btn btn-primary"disabled type="submit" value="Benutzer erstellen" />  <!-- Disabled macht den Button nicht klickbar, wird später per JS aktiviert -->
     </form>
 </div>
 <div class="col-md-3 right-element"></div>
