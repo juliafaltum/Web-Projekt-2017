@@ -70,3 +70,18 @@
 .spacer {
     margin-top: 10px; /* define margin as you see fit */
 }
+
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .active > a {
+    color: white;
+    background-image: -webkit-linear-gradient(top, #23527c 0%, #23527c 100%);
+}
+
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:focus {
+    color: white;
+}
+
+.navbar-default .navbar-nav > .open > a:hover {
+    color: lightgrey;
+}

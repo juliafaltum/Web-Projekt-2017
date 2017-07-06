@@ -49,7 +49,7 @@ if(!isset($_SESSION['userid'])) {
                 <ul class="nav navbar-nav">
                     <li class="dropdown navbar-right">
                         <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                           aria-expanded="false">Profil<span class="caret"></span></a>
+                           aria-expanded="false"><i class="fa fa-user" aria-hidden="true"></i> Profil<span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <?php
                             $userid = $_SESSION['userid'];

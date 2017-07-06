@@ -39,6 +39,8 @@ include_once("functions.php");
                 <div class="row equalheight">
                 <div class="col-md-4 equal">
                     <?php
+                    echo "<br>";
+                    echo "<br>";
                     echo "<img src='$profilePictureURL' alt='Profilbild' width='200px' height='200px' class='img-responsive'>";
                     ?>
                 </div>
@@ -51,6 +53,7 @@ include_once("functions.php");
                     </div>
 
                     <?php
+                    followButtonAjaxNeu($_SESSION['userid'], $geholteuserID, 1);
                     echo "<br>";
                     echo "<a href=\"followinglist.php?userid=$zeile->userid'\">Abonnements anzeigen</a>";
                     echo " <br>";
@@ -60,8 +63,8 @@ include_once("functions.php");
 
                     if ($_SESSION['userid'] == $zeile->userID and !$i) {
                         echo "<a href=\"profil_edit.php\">Profil bearbeiten</a><br>";
-                        $i = true;
                     }
+                    $i = true;
                 ?>
                 </div>
                 </div>
@@ -72,8 +75,6 @@ include_once("functions.php");
             }
 
             if ($i) {
-
-                followButtonAjaxNeu($_SESSION['userid'], $geholteuserID, 1);
 
                 echo "<h3>Welle von $zeile->username</h3>";
                 echo "<h5>$zeile->contentDate</h5>";
