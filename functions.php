@@ -151,7 +151,7 @@ function showContentAll ()
                 <div class="row col-md-8 center-element">
 
 
-                    <img src="<?=$contentPicture?>" class="img-responsive">
+                    <img src="<?=$contentPicture?>" class="img-responsive"><br>
 
 
                 </div>

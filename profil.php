@@ -59,6 +59,7 @@ include_once("functions.php");
                     echo " <br>";
                     echo "<a href=\"followerlist.php?userid=$zeile->userid'\">Abonnenten anzeigen</a>";
                     echo " <br>";
+                    echo " <br>";
 
 
                     if ($_SESSION['userid'] == $zeile->userID and !$i) {
@@ -66,11 +67,15 @@ include_once("functions.php");
                     }
                     $i = true;
 
-                    showContentProfile($geholteuserID);
-                ?>
+                     showContentProfile($geholteuserID);
+
+                            ?>
+
+
                 </div>
                 </div>
                 </div>
+
 
            <?php      $db = null;
             }
