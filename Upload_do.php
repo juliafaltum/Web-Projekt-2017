@@ -61,10 +61,3 @@ if ($uploadOk == 0) {
 }
 
 echo $imageFileType;
-
-/**
- * Created by PhpStorm.
- * User: molin
- * Date: 15.05.2017
- * Time: 13:20
- */

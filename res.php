@@ -39,7 +39,7 @@ include_once("userdata.php");?>
         }).parent().addClass('active');
 
         // Lädt das Verfassen-Modul nach
-        $("#tweetformular").load("create_form.php").hide();
+
         $("#tweetVerfassenButton").click(function(){
             $("#tweetformular").slideToggle(200);
         });

@@ -22,14 +22,14 @@ include_once("userdata.php");
     try {
         global $dsn, $dbuser, $dbpass;
         $db = new PDO($dsn, $dbuser, $dbpass);
-        $sql = "SELECT * FROM content_txt INNER JOIN user ON content_txt.userID=user.userid WHERE user.userid = :userid";
+        $sql = "SELECT * FROM user LEFT JOIN content_txt ON user.userid=content_txt.userID WHERE user.userid = :userid";
         $query = $db->prepare($sql);
         $query->bindParam(':userid', $geholteuserID);
         $query->execute();
 
         $i = false;
 
-        $profilePictureURL = profilePicture($zeile->userid);
+        $profilePictureURL = profilePicture($geholteuserID);
 
         while ($zeile = $query->fetchObject()) {
 

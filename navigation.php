@@ -13,7 +13,7 @@ include_once('header.php');
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.php">
+            <a class="navbar-brand" href="personal_start.php">
                 <img data-toggle="tooltip" title="Persönliche Startseite" data-placement="bottom" src="img/Logo_navbar.png" alt="ola" >
             </a>
         </div>

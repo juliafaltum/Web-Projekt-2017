@@ -11,27 +11,30 @@
 <div class="col-md-6 center-element">
     <h1>Neuer Benutzer</h1>
     <br>
-    <form action="create_user_do.php" method="post">
+    <form action="create_user_do.php" method="post" enctype="multipart/form-data">
         <div class="input-group">
-            <span class="input-group-addon" id="basic-addon1">Benutzername:</span><input type="text" class="form-control" placeholder="Benutzername" name="username" aria-describedby="basic-addon1">
+            <span class="input-group-addon" id="basic-addon1">Benutzername:*</span><input type="text" class="form-control" placeholder="Benutzername" name="username" aria-describedby="basic-addon1">
         </div>
         <br>
         <div class="input-group">
-            <span class="input-group-addon" id="basic-addon1">Voller Name:</span><input type="text" class="form-control" placeholder="Voller Name" name="fullname" aria-describedby="basic-addon1">
+            <span class="input-group-addon" id="basic-addon1">Voller Name:*</span><input type="text" class="form-control" placeholder="Voller Name" name="fullname" aria-describedby="basic-addon1">
         </div>
         <br>
         <div class="input-group">
-            <span class="input-group-addon" id="basic-addon1">E-Mail:</span><input type="text" class="form-control" placeholder="E-Mail" name="email" aria-describedby="basic-addon1">
+            <span class="input-group-addon" id="basic-addon1">E-Mail:*</span><input type="text" class="form-control" placeholder="E-Mail" name="email" aria-describedby="basic-addon1">
         </div>
         <br>
         <div class="input-group">
-            <span class="input-group-addon">Passwort:</span><input id="txtNewPassword" type="password" class="form-control" placeholder="Passwort" name="password" onChange="checkPasswordMatch();" aria-describedby="basic-addon1">
+            <span class="input-group-addon">Passwort:*</span><input id="txtNewPassword" type="password" class="form-control" placeholder="Passwort" name="password" onChange="checkPasswordMatch();" aria-describedby="basic-addon1">
         </div>
         <br>
         <div class="input-group">
-            <span class="input-group-addon" >Passwort wiederholen:</span><input id="txtConfirmPassword" type="password" class="form-control" placeholder="Passwort" onChange="checkPasswordMatch();" name="password2" aria-describedby="basic-addon1">
+            <span class="input-group-addon" >Passwort wiederholen:*</span><input id="txtConfirmPassword" type="password" class="form-control" placeholder="Passwort" onChange="checkPasswordMatch();" name="password2" aria-describedby="basic-addon1">
         </div>
         <br>
+        <div class="input-group">
+                <span class="input-group-addon" >Profilbild hochladen:</span><input type="file" class="form-control" placeholder="Profilbild hochladen" name="fileToUpload" id="fileToUpload" aria-describedby="basic-addon1">
+        </div>
 
     <div class="registrationFormAlert" id="divCheckPasswordMatch">        </div>
     <input id="absenden" class="btn btn-primary"disabled type="submit" value="Benutzer erstellen" />  <!-- Disabled macht den Button nicht klickbar, wird später per JS aktiviert -->

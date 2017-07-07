@@ -9,7 +9,7 @@ $imageFileType = pathinfo($upload_file, PATHINFO_EXTENSION);
 $random_name = rand().uniqid();
 $uploadfile = $target_dir.$random_name.'.'.$imageFileType;
 $upload_only_filename = $random_name.'.'.$imageFileType;
-$userid =$_SESSION ['userid'];
+$userid = $_SESSION ['userid'];
 
 
 //Fakes oder echtes Bild

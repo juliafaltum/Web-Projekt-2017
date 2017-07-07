@@ -20,13 +20,26 @@ if ($Kontrollepassword != $Kontrollepassword2) {
         die();
         }
 
+
+
+// Nur wenn Bild gesetzt ist, Wert in die DB schreiben!
+if (file_exists($_FILES['fileToUpload']['tmp_name'])){
+
+    include_once("Upload_do.php");
+}
+else {
+    $uploadfile = 0;
+}
+
+
+
 if (!empty($username) && !empty($fullname) && !empty($email)) {
 
     try {
         $db = new PDO($dsn, $dbuser, $dbpass);
         $query = $db->prepare(
-            "INSERT INTO user (username, fullname, email, password, usercreated, ) VALUES(:username, :fullname, :email, :password, NOW())");
-        $query->execute(array("username" => $username, "fullname" => $fullname, "email" => $email, "password" => $password) );
+            "INSERT INTO user (username, fullname, email, password, usercreated, profilePicture ) VALUES(:username, :fullname, :email, :password, NOW(), :profilePicture)");
+        $query->execute(array("username" => $username, "fullname" => $fullname, "email" => $email, "password" => $password, "profilePicture" => $uploadfile) );
         $db = null;
     } catch (PDOException $e) {
         echo "Error!: Bitten wenden Sie sich an den Administrator...";
