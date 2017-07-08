@@ -67,20 +67,24 @@ function showContentProfile ($userid)
                     </div>
 
                 <?php } ?>
-                <div class="col-md-5">
+                <div class="col-md-12 left-element">
 
                     <?php
 
                     echo "Quelle: <a href='$zeile->contentSource'>$zeile->contentSource</a><br><br>";
-                    echo "<a href='show.php?contentID=$zeile->contentID'>Anzeigen <i class='fa fa-eye'></i></a>";
+                    ?>
+                    <div class="col-md-8 right-element">
+                        <?php
+                    echo "<a style='text-align: right' href='show.php?contentID=$zeile->contentID'><i class='fa fa-eye'></i> Anzeigen</a>";
 
 
                     if ($_SESSION['userid'] == $zeile->userID) {
-                    echo "<a href='edit.php?contentID=$zeile->contentID'> | Bearbeiten <i class='fa fa-edit'></i></a>";
-                    echo "<a href='delete_frage.php?contentID=$zeile->contentID'> | Löschen <i class='fa fa-remove'></i></a><br>";
+                    echo "<a class='strich'>|</a> <a href='edit.php?contentID=$zeile->contentID'><i class='fa fa-edit'></i> Bearbeiten</a>";
+                    echo "<a class='strich'>|</a> <a href='delete_frage.php?contentID=$zeile->contentID'><i class='fa fa-remove'></i> Löschen</a><br>";
                     }
 
                     ?>
+                </div>
                 </div>
             </div>
 
@@ -123,7 +127,7 @@ function showContentAll ()
 
                         <a data-toggle='tooltip' title='Profil von <?=$username?> aufrufen' data-placement='top' href="profil.php?userid=<?=$userID?>"><img src="<?=$profilePicture?>" class="img-responsive img-circle"></a>
 
-                        <h3>Welle von <a href='profil.php?userid=<?=$userID?>'><?=$username?></a></h3>
+                        <h4>Welle von <a href='profil.php?userid=<?=$userID?>'><?=$username?></a></h4>
 
                     </div>
                     <div class="col-md-9 text-right">
@@ -166,20 +170,24 @@ function showContentAll ()
 
                 <?php } ?>
 
-                <div class="col-md-5">
+                <div class="col-md-12 left-element">
+
 
                     <?php
 
                     echo "Quelle: <a href='$zeile->contentSource'>$zeile->contentSource</a><br><br>";
-                    echo "<a href='show.php?contentID=$zeile->contentID'>Anzeigen <i class='fa fa-eye'></i></a>";
-
+                    ?>
+                    <div class="col-md-8 right-element">
+                        <?php
+                    echo "<a href='show.php?contentID=$zeile->contentID'><i class='fa fa-eye'></i> Anzeigen</a>";
 
                     if ($_SESSION['userid'] == $zeile->userID) {
-                        echo "<a href='edit.php?contentID=$zeile->contentID'> | Bearbeiten <i class='fa fa-edit'></i></a>";
-                        echo "<a href='delete_frage.php?contentID=$zeile->contentID'> | Löschen <i class='fa fa-remove'></i></a><br>";
+                        echo "<a class='strich'>|</a> <a href='edit.php?contentID=$zeile->contentID'><i class='fa fa-edit'></i> Bearbeiten</a>";
+                        echo "<a class='strich'>|</a> <a href='delete_frage.php?contentID=$zeile->contentID'><i class='fa fa-remove'></i> Löschen</a><br>";
                     }
 
                     ?>
+                </div>
                 </div>
             </div>
 
@@ -222,7 +230,7 @@ function showContentFollower ($festgelegteUserID)
 
                         <a data-toggle='tooltip' title='Profil von <?=$username?> aufrufen' data-placement='top' href="profil.php?userid=<?=$userID?>"><img src="<?=$profilePicture?>" class="img-responsive img-circle"></a>
 
-                        <h3>Welle von <a href='profil.php?userid=<?=$userID?>'><?=$username?></a></h3>
+                        <h4>Welle von <a href='profil.php?userid=<?=$userID?>'><?=$username?></a></h4>
 
                     </div>
                     <div class="col-md-9 text-right">
@@ -259,20 +267,24 @@ function showContentFollower ($festgelegteUserID)
 
 
                 </div>
-                <div class="col-md-5">
+                <div class="col-md-12 left-element">
 
                     <?php
 
                     echo "Quelle: <a href='$zeile->contentSource'>$zeile->contentSource</a><br><br>";
-                    echo "<a href='show.php?contentID=$zeile->contentID'>Anzeigen <i class='fa fa-eye'></i></a>";
+                    ?>
+                    <div class="col-md-8 right-element">
+                        <?php
+                    echo "<a href='show.php?contentID=$zeile->contentID'><i class='fa fa-eye'></i> Anzeigen</a>";
 
 
                     if ($_SESSION['userid'] == $zeile->userID) {
-                        echo "<a href='edit.php?contentID=$zeile->contentID'> | Bearbeiten <i class='fa fa-edit'></i></a>";
-                        echo "<a href='delete_frage.php?contentID=$zeile->contentID'> | Löschen <i class='fa fa-remove'></i></a><br>";
+                        echo "<a class='strich'>|</a> <a href='edit.php?contentID=$zeile->contentID'><i class='fa fa-edit'></i> Bearbeiten</a>";
+                        echo "<a class='strich'>|</a> <a right' href='delete_frage.php?contentID=$zeile->contentID'><i class='fa fa-remove'></i> Löschen </a><br>";
                     }
 
                     ?>
+                </div>
                 </div>
             </div>
 

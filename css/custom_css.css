@@ -1,3 +1,7 @@
+body {
+    margin-top: 70px;
+}
+
 .nav {
     background-color: #23527c;
 }
@@ -86,7 +90,43 @@
     color: lightgrey;
 }
 
+.fa-user {
+    margin-right: 8px;
+}
 
+.fa-picture-o {
+    margin-right: 4px;
+}
+
+.fa-pencil-square-o {
+    margin-right: 4px;
+}
+
+.fa-sign-out {
+    margin-right: 6px;
+}
+
+.fa-eye {
+    margin-right: 4px;
+}
+
+.fa-edit {
+    margin-left: 5px;
+    margin-right: 2px;
+}
+
+.fa-remove {
+    margin-left: 5px;
+    margin-right: 2px;
+}
+
+.strich {
+    margin-left: 4px;
+}
+
+.Schriftzug {
+    text-align: center;
+}
 
 @media (max-width: 767px) {
     .navbar-default .navbar-nav .open .dropdown-menu > li > a {

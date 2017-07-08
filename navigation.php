@@ -3,7 +3,7 @@ include_once('header.php');
 
 ?>
 
-<nav class="navbar navbar-default navbar-static-top">
+<nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -53,15 +53,15 @@ if(!isset($_SESSION['userid'])) {
                 <ul class="nav navbar-nav">
                     <li class="dropdown navbar-right">
                         <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                           aria-expanded="false">Profil <i class="fa fa-user" aria-hidden="true"></i><span class="caret"></span></a>
+                           aria-expanded="false"><i class="fa fa-user" aria-hidden="true"></i> Profil<span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <?php
                             $userid = $_SESSION['userid'];
-                            echo "<li><a href=\"profil.php?userid=$userid\">Profil anzeigen <i class=\"fa fa-user\" aria-hidden=\"true\"></i></a></li>";
-                            echo "<li><a href=\"photoGallery.php\">Privates Fotoalbum <i class=\"fa fa-picture-o\" aria-hidden=\"true\"></i></a></li>";
-                            echo "<li><a href=\"profil_edit.php\">Profil bearbeiten <i class=\"fa fa-pencil-square-o\" aria-hidden=\"true\"></i></a></li>";
+                            echo "<li><a href=\"profil.php?userid=$userid\"><i class=\"fa fa-user\" aria-hidden=\"true\"></i> Profil anzeigen</a></li>";
+                            echo "<li><a href=\"photoGallery.php\"><i class=\"fa fa-picture-o\" aria-hidden=\"true\"></i> Privates Fotoalbum</a></li>";
+                            echo "<li><a href=\"profil_edit.php\"><i class=\"fa fa-pencil-square-o\" aria-hidden=\"true\"></i> Profil bearbeiten</a></li>";
                             echo "<li role=\"separator\" class=\"divider\"></li>";
-                            echo "<li><a href=\"logout.php\">Abmelden <i class=\"fa fa-sign-out\" aria-hidden=\"true\"></i></a></li>";
+                            echo "<li><a href=\"logout.php\"><i class=\"fa fa-sign-out\" aria-hidden=\"true\"></i> Abmelden</a></li>";
                             ?>
                     </ul>
                 </li>

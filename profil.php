@@ -62,7 +62,7 @@ include_once("userdata.php");
 
 
                     if ($_SESSION['userid'] == $zeile->userID and !$i) {
-                        echo "<a href=\"profil_edit.php\">Profil bearbeiten</a><br>";
+                        echo "<a href=\"profil_edit.php\">Profil bearbeiten</a><br><br>";
                     }
                     $i = true;
 

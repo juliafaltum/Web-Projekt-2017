@@ -35,9 +35,11 @@
         <div class="input-group">
                 <span class="input-group-addon" >Profilbild hochladen:</span><input type="file" class="form-control" placeholder="Profilbild hochladen" name="fileToUpload" id="fileToUpload" aria-describedby="basic-addon1">
         </div>
+        <br>
 
     <div class="registrationFormAlert" id="divCheckPasswordMatch">        </div>
-    <input id="absenden" class="btn btn-primary"disabled type="submit" value="Benutzer erstellen" />  <!-- Disabled macht den Button nicht klickbar, wird später per JS aktiviert -->
+    <div style="text-align: right"><input id="absenden" class="btn btn-primary"disabled type="submit" value="Benutzer erstellen" />  <!-- Disabled macht den Button nicht klickbar, wird später per JS aktiviert -->
+    </div>
     </form>
 </div>
 <div class="col-md-3 right-element"></div>

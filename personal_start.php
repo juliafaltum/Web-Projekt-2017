@@ -2,7 +2,6 @@
 
 $festgelegteUserID = $_SESSION['userid'];
 
-echo "<h1>Deine Persönliche Startseite</h1>";
 ?>
 
 
@@ -16,6 +15,7 @@ echo "<h1>Deine Persönliche Startseite</h1>";
 
             session_start();
             if(!isset($_SESSION['userid'])) {
+                header('Location: index.php');
                 echo "<a href=\"create_user.php\">Registrieren</a><br><br>";
             }  // Ausloggen nur anzeigen wenn Nutzer eingeloggt ist, Einloggen und Registrieren nur wenn Nutzer ausgeloggt
 
