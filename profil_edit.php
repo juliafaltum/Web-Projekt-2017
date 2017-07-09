@@ -34,10 +34,10 @@ try {
         echo "<div class='input-group''>";
             echo "<span class='input-group-addon' id='basic-addon1'>E-Mail:</span><input type='text' class='form-control' name='email' value='$zeile->email' aria-describedby='basic-addon1''>";
         echo "</div><br>";
-        echo "<div class='input-group'>";
-                echo "<span class='input-group-addon'>Profilbild:</span><input type='file' class='form-control' placeholder='Profilbild hochladen' name='fileToUpload' id='fileToUpload' aria-describedby='basic-addon1''>";
-        echo "</div>";
-        echo "<br>";
+       // echo "<div class='input-group'>";
+       //         echo "<span class='input-group-addon'>Profilbild:</span><input type='file' class='form-control' placeholder='Profilbild hochladen' name='fileToUpload' id='fileToUpload' aria-describedby='basic-addon1''>";
+       // echo "</div>";
+       // echo "<br>";
         echo "<div style=\"text-align: right\"><a href='profil.php?userid=$zeile->userid' class='btn btn-danger' type='submit'>Abbrechen</a>&emsp;<input class='btn btn-primary' type='submit' value='Profil bearbeiten'></div>";
         echo "</form>";
         echo "</form>";
