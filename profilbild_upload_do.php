@@ -65,7 +65,7 @@ if ($uploadOk == 0) {
                 "UPDATE user SET profilePicture = :profilePicture WHERE userid = :userid");
             $query->execute(array("profilePicture" => $uploadfile, "userid" => $userid));
             $db = null;
-
+            header('Location: profil.php');
         } catch (PDOException $e) {
             echo "Error: Bitten wenden Sie sich an den Administrator!";
             die();
