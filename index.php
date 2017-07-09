@@ -1,4 +1,6 @@
 <?php include_once ("header.php");?>
+<script src="js/passwordcheck.js" data-no-instant></script> <!-- Passwort überprüfen mit Javascript, dazu braucht man das oben eingebundene JQuery-->
+
 
 <!DOCTYPE html>
 <html>
