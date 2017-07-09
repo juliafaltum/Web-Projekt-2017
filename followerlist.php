@@ -35,7 +35,7 @@ $profilePictureURL = profilePicture($festgelegteUserID);
 
 <?php
 while ($zeile = $query->fetchObject()) {
-    echo "<tr><td scope='row'> <a href='profil.php?userid=$zeile->userid'><img class= 'img-circle' src= " . profilePicture($zeile->userid) . " height= '100px' width= '100px'  /></a>&emsp;<a href='profil.php?userid=$zeile->userid'>$zeile->username</a></td>";
+    echo "<tr><td scope='row'> <a href='profil.php?userid=$zeile->userid'><img class= 'img-circle' src= " . profilePicture($zeile->userid) . " height= '50px' width= '50px'  /></a>&emsp;<a href='profil.php?userid=$zeile->userid'>$zeile->username</a></td>";
     echo '</tr>';
 }
 ?>
