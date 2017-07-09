@@ -41,6 +41,7 @@ include_once("userdata.php");
                     echo "<img src='$profilePictureURL' alt='Profilbild' width='200px' height='200px' class='img-responsive'>";
 
                     ?>
+
                     <!-- Trigger the modal with a button -->
                     <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Bild hochladen</button>
 
