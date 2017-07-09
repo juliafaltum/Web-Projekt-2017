@@ -34,11 +34,17 @@ include_once("userdata.php");
                 <div class="container">
                 <div class="row equalheight">
                 <div class="col-md-3 equal">
+
                     <?php
                     echo "<br>";
                     echo "<br>";
                     echo "<img src='$profilePictureURL' alt='Profilbild' width='200px' height='200px' class='img-responsive'>";
+
                     ?>
+
+                    <!-- Trigger the modal with a button -->
+                    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Bild hochladen</button>
+
                 </div>
                 <div class="col-md-8 equal">
 
@@ -67,8 +73,28 @@ include_once("userdata.php");
 
                             ?>
 
+                    <!-- Modal -->
+                    <div id="myModal" class="modal fade" role="dialog">
+                        <div class="modal-dialog">
 
-                </div>
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header"></div>
+                                <div class="modal-body">
+                                    <p><form action="profilbild_upload_do.php" method="post" enctype="multipart/form-data">
+                                        Bild auswählen:
+                                        <input type="file" name="fileToUpload" id="fileToUpload">
+                                        <input type="submit" value="Bild hochladen" name="submit">
+                                    </p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+
+
+
+                        </div>
                     <div class="col-md-1 equal"></div>
                 </div>
                 </div>
