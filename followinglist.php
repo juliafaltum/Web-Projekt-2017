@@ -25,8 +25,8 @@ $query->bindParam(':festgelegteUserID', $festgelegteUserID);
 $query->execute();
 
 ?>
-
- <table class="table">
+<link rel="stylesheet"  href="css/custom_css.css">
+ <table class="table table-borderless">
 
     <tbody>
 
