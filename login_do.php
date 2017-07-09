@@ -29,7 +29,7 @@ if(password_verify($eingabePassword, $passwordausDB)) {     // Funktion password
     session_start();
     $_SESSION["username"] = $usernameausDB;
     $_SESSION["userid"] = $userIDausDB;
-    header ('Location: index.php');
+    header ('Location: personal_start.php');
 
 } else {
     echo "Login fehlgeschlagen. Du wirst in 3 Sekunden zurück zum Login geleitet.";        //Bei falscher Eingabe --> Todo

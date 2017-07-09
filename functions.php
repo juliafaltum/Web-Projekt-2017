@@ -71,7 +71,9 @@ function showContentProfile ($userid)
 
                     <?php
 
-                    echo "Quelle: <a href='$zeile->contentSource'>$zeile->contentSource</a><br><br>";
+                    if ($zeile->contentSource) {
+                        echo "Quelle: <a href='$zeile->contentSource'>$zeile->contentSource</a><br><br>";
+                    }
                     ?>
                     <div class="col-md-8 right-element">
                         <?php
@@ -79,7 +81,7 @@ function showContentProfile ($userid)
 
 
                     if ($_SESSION['userid'] == $zeile->userID) {
-                    echo "<a class='strich'>|</a> <a href='edit.php?contentID=$zeile->contentID'><i class='fa fa-edit'></i> Bearbeiten</a>";
+                    echo "<a class='strich'>|</a> <a href='content_edit.php?contentID=$zeile->contentID'><i class='fa fa-edit'></i> Bearbeiten</a>";
                     echo "<a class='strich'>|</a> <a href='delete_frage.php?contentID=$zeile->contentID'><i class='fa fa-remove'></i> Löschen</a><br>";
                     }
 
@@ -175,14 +177,16 @@ function showContentAll ()
 
                     <?php
 
-                    echo "Quelle: <a href='$zeile->contentSource'>$zeile->contentSource</a><br><br>";
+                    if ($zeile->contentSource) {
+                        echo "Quelle: <a href='$zeile->contentSource'>$zeile->contentSource</a><br><br>";
+                    }
                     ?>
                     <div class="col-md-8 right-element">
                         <?php
                     echo "<a href='show.php?contentID=$zeile->contentID'><i class='fa fa-eye'></i> Anzeigen</a>";
 
                     if ($_SESSION['userid'] == $zeile->userID) {
-                        echo "<a class='strich'>|</a> <a href='edit.php?contentID=$zeile->contentID'><i class='fa fa-edit'></i> Bearbeiten</a>";
+                        echo "<a class='strich'>|</a> <a href='content_edit.php?contentID=$zeile->contentID'><i class='fa fa-edit'></i> Bearbeiten</a>";
                         echo "<a class='strich'>|</a> <a href='delete_frage.php?contentID=$zeile->contentID'><i class='fa fa-remove'></i> Löschen</a><br>";
                     }
 
@@ -271,7 +275,10 @@ function showContentFollower ($festgelegteUserID)
 
                     <?php
 
-                    echo "Quelle: <a href='$zeile->contentSource'>$zeile->contentSource</a><br><br>";
+
+                    if ($zeile->contentSource) {
+                        echo "Quelle: <a href='$zeile->contentSource'>$zeile->contentSource</a><br><br>";
+                    }
                     ?>
                     <div class="col-md-8 right-element">
                         <?php
@@ -279,7 +286,7 @@ function showContentFollower ($festgelegteUserID)
 
 
                     if ($_SESSION['userid'] == $zeile->userID) {
-                        echo "<a class='strich'>|</a> <a href='edit.php?contentID=$zeile->contentID'><i class='fa fa-edit'></i> Bearbeiten</a>";
+                        echo "<a class='strich'>|</a> <a href='content_edit.php?contentID=$zeile->contentID'><i class='fa fa-edit'></i> Bearbeiten</a>";
                         echo "<a class='strich'>|</a> <a right' href='delete_frage.php?contentID=$zeile->contentID'><i class='fa fa-remove'></i> Löschen </a><br>";
                     }
 

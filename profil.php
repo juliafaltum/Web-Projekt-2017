@@ -36,7 +36,7 @@ include_once("userdata.php");
             if (!$i) { ?>
                 <div class="container">
                 <div class="row equalheight">
-                <div class="col-md-4 equal">
+                <div class="col-md-3 equal">
                     <?php
                     echo "<br>";
                     echo "<br>";
@@ -72,6 +72,7 @@ include_once("userdata.php");
 
 
                 </div>
+                    <div class="col-md-1 equal"></div>
                 </div>
                 </div>
 
