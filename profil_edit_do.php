@@ -5,6 +5,7 @@ $userid = htmlspecialchars($_POST["userid"], ENT_QUOTES, "UTF-8");
 $fullname = htmlspecialchars($_POST["fullname"], ENT_QUOTES, "UTF-8");
 $email = htmlspecialchars($_POST["email"], ENT_QUOTES, "UTF-8");
 
+
 if (!empty($fullname) && !empty($email)) {
     try {
         include_once("userdata.php");

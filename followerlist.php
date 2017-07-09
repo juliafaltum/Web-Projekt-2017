@@ -3,6 +3,10 @@ include_once ("header.php");
 include_once ("userdata.php");
 include_once ("session_check.php");
 
+
+
+
+
 $festgelegteUserID = $_GET["userid"];
 
 $db = new PDO($dsn, $dbuser, $dbpass);
@@ -24,6 +28,8 @@ while ($zeile = $query->fetchObject()) {
     echo "<p><a href='profil.php?userid=$zeile->userid'>Zurück zum Profil</a></p>";
     ?>
   </div>
+
+
 <?php
 }
 $db = new PDO($dsn, $dbuser, $dbpass);
@@ -33,12 +39,23 @@ $query->bindParam(':festgelegteUserID', $festgelegteUserID);
 $query->execute();
 ?>
 
-<!-- Table -->
-<table class="table">
+
+        <table class="table table-borderless>
+
+    <tbody>
+
 <?php
+
         while ($zeile = $query->fetchObject()) {
-    echo "<a href='profil.php?userid=$zeile->userid'>$zeile->username</a><br>";
+    echo '<tr><td scope="row"> <img class= "img-circle" src= ' . profilePicture($zeile->userid) . ' height= "100px" width= "100px"  />' . $zeile->username . '</td>;
+   
+    </tr>';
+
+    //echo "<a href='profil.php?userid=$zeile->userid'>$zeile->username</a><br>";
 }
 ?>
+
+    </tbody>
 </table>
-    </div>
+</div>
+

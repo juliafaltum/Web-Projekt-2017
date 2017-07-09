@@ -23,23 +23,14 @@ try {
     $query->execute();
     if (($zeile = $query->fetchObject()) && ($_SESSION['userid']==$zeile->userid)) { // Abgleichen der UserID mit der Session --> Kann nur von jeweiliger Person verändert werden
 
-        echo "<div class='col-md-3 left-element'></div>";
-        echo "<div class='col-md-6 center-element'>";
-        echo "<form action='profil_edit_do.php' method='post'>";
+        echo "<form action='profil_edit_do.php' method='post' enctype='multipart/form-data'>";
         echo "<input type='hidden' name='userid' value='$zeile->userid' />";
-
-        echo "<h2>Bearbeite dein Profil:</h2><br>";
-        echo "<div class='input-group''>";
-            echo "<span class='input-group-addon' id='basic-addon1'>Name:</span><input type='text' class='form-control' name='fullname' value='$zeile->fullname' aria-describedby='basic-addon1'>";
-        echo "</div><br>";
-        echo "<div class='input-group''>";
-            echo "<span class='input-group-addon' id='basic-addon1'>E-Mail:</span><input type='text' class='form-control' name='email' value='$zeile->email' aria-describedby='basic-addon1''>";
-        echo "</div><br>";
-        echo "<div style=\"text-align: right\"><input class='btn btn-danger' type='submit' value='Abbrechen'>&emsp;<input class='btn btn-primary' type='submit' value='Profil bearbeiten'></div>";
+        echo "Name: <input type='text' name='fullname' size='30' value='$zeile->fullname' /><br>";
+        echo "E-Mail: <input type='text' name='email' size='30' value='$zeile->email' /><br>";
+        echo "Bild auswählen:<input type='file' name='fileToUpload' id='fileToUpload'>";
+        echo "<input type='submit' value='Abbrechen' />";
+        echo "<input type='submit' value='Profil bearbeiten' />";
         echo "</form>";
-        echo "</form>";
-        echo "</div>";
-        echo "<div class='col-md-3 right-element'></div>";
 
     } else {
         echo "Datensatz nicht gefunden oder das ist nicht dein Profil!";

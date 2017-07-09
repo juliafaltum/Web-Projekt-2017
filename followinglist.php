@@ -24,6 +24,23 @@ $query = $db->prepare($sql);
 $query->bindParam(':festgelegteUserID', $festgelegteUserID);
 $query->execute();
 
+?>
+
+ <table class="table">
+
+    <tbody>
+
+<?php
 while ($zeile = $query->fetchObject()) {
-    echo "<a href='profil.php?userid=$zeile->userid'>$zeile->username</a></h1><br>";
+   // echo "<a href='profil.php?userid=$zeile->userid'>$zeile->username</a></h1><br>";
+    echo '<tr><td scope="row"> <img class= "img-circle" src= ' . profilePicture($zeile->userid) . ' height= "100px" width= "100px"  />' . $zeile->username . '</td>;
+   
+    </tr>';
+
+    //echo "<a href='profil.php?userid=$zeile->userid'>$zeile->username</a><br>";
+}
+?>
+
+</tbody>
+</table>
 }
