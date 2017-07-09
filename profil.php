@@ -74,7 +74,7 @@ include_once("userdata.php");
 
                             ?>
 
-                    <!-- Modal -->
+                    <!-- Modal, function for the button "upload picture "-->
                     <div id="myModal" class="modal fade" role="dialog">
                         <div class="modal-dialog">
 
