@@ -19,7 +19,7 @@
     <label for="wellequelle">Quelle:</label><br>
     <input style="width: 300px" id="wellequelle" type="text" name="contentSource" /><br><br>
 
-    <div style="text-align: right"><input class='btn btn-primary' type="submit" value="absenden" /></div>
+    <div style="text-align: right"><input class='btn btn-primary'type="submit" value="absenden" /></div>
 </form>
 </body>
 </html>
