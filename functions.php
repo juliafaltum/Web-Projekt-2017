@@ -15,7 +15,7 @@ function showContentProfile ($userid)
             $contentID = $zeile->contentID;
             $username = $zeile->username;
             $userID = $zeile->userid;
-            $profilePicture = profilePicture($userID);
+            $profilePicture = $zeile->profilePicture;
 
             $contentDate = $zeile->contentDate;
             $contentTXT = $zeile->contentTXT;
@@ -113,7 +113,7 @@ function showContentAll ()
             $contentID = $zeile->contentID;
             $username = $zeile->username;
             $userID = $zeile->userid;
-            $profilePicture = profilePicture($userID);
+            $profilePicture = $zeile->profilePicture;
 
             $contentDate = $zeile->contentDate;
             $contentTXT = $zeile->contentTXT;
@@ -218,7 +218,7 @@ function showContentFollower ($festgelegteUserID)
             $contentID = $zeile->contentID;
             $username = $zeile->username;
             $userID = $zeile->userid;
-            $profilePicture = profilePicture($userID);
+            $profilePicture = $zeile->profilePicture;
 
             $contentDate = $zeile->contentDate;
             $contentTXT = $zeile->contentTXT;
@@ -232,7 +232,7 @@ function showContentFollower ($festgelegteUserID)
                 <div class="row">
                     <div class="col-md-3 col-sm-3 col-xs-4">
 
-                        <a data-toggle='tooltip' title='Profil von <?=$username?> aufrufen' data-placement='top' href="profil.php?userid=<?=$userID?>"><img src="<?=$profilePicture?>" class="img-responsive img-circle"></a>
+                        <a data-toggle='tooltip' title='Profil von <?=$username?> aufrufen' data-placement='top' href="profil.php?userid=<?=$userID?>"><img class="img-responsive img-circle" src="<?=$profilePicture?>"></a>
 
                         <h4>Welle von <a href='profil.php?userid=<?=$userID?>'><?=$username?></a></h4>
 

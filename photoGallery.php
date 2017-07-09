@@ -23,7 +23,7 @@ $userID = $_SESSION['userid']
 
     <div class="col-md-8 text-right">
 
-        <a href="photoActions.php?action=manage"><button class="btn btn-danger" />Fotos verwalten</button></a>
+        <a href="photoActions.php?action=manage"><button class="btn btn-primary" />Fotos verwalten</button></a>
         <div class="spacer"></div>
 
     </div>
@@ -76,7 +76,7 @@ include_once ('userdata.php');
         else {
 ?>
             <div class="item">
-                <img src="<?=$photoURL?>" alt="Chania">
+                <img src="<?=$photoURL?>" alt="Foto">
                 <div class="carousel-caption">
                     <a style="color: lightskyblue" class="btn-link" href="<?=$photoURL?>"><h3>Foto teilen!</h3></a>
                 </div>

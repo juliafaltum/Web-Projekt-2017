@@ -22,8 +22,8 @@
         if(!isset($_SESSION['userid'])) {
             ?>
 
-        <div class="col-md-1 left-element"></div>
-        <div class="col-md-10 center-element">
+        <div class="col-md-3 left-element"></div>
+        <div class="col-md-6 center-element">
 
             <div class="col-md-6 left-element">
                 <br>
@@ -73,8 +73,9 @@
             <?php
         }
         ?>
+        <div class="col-md-3 left-element"></div>
         <div class="col-md-12">
-        <div class="col-md-2">
+        <div class="col-md-3">
 
             <?php
 
@@ -99,7 +100,7 @@
             ?>
         </div>
 
-        <div class="col-md-8 center-element">
+        <div class="col-md-6 center-element">
             <div class="well-own" id="tweetformular" style="display: none;"><?php include_once ('create_form.php');?></div>
 
 <?=showContentAll();?>
@@ -109,7 +110,7 @@
         </div>
 
     </div>
-        <div class="col-md-1 right-element"></div>
+        <div class="col-md-3 right-element"></div>
 
 </div>
 </div>

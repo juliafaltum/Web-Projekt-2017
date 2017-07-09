@@ -14,7 +14,7 @@ $query->execute();
 echo "<div class='col-md-3 left-element'></div>";
 echo "<div class='col-md-6 center-element'>";
 while ($zeile = $query->fetchObject()) {
-    echo "<h2>$zeile->username abonniert diese Nutzer:<br></h2>";
+    echo "<h3>$zeile->username abonniert diese Nutzer:<br></h3>";
 }
 
 echo "<br>";
@@ -35,7 +35,7 @@ $profilePictureURL = profilePicture($festgelegteUserID);
 
 <?php
 while ($zeile = $query->fetchObject()) {
-    echo "<tr><td scope='row'> <a href='profil.php?userid=$zeile->userid'><img class= 'img-circle' src='$profilePictureURL' height= '100px' width= '100px'/></a>&emsp;<a href='profil.php?userid=$zeile->userid'>$zeile->username</a></td>";
+    echo "<tr><td scope='row'> <a href='profil.php?userid=$zeile->userid'><img class= 'img-circle' src='$profilePictureURL' height= '50px' width= '50px'/></a>&emsp;<a href='profil.php?userid=$zeile->userid'>$zeile->username</a></td>";
     echo "</tr>";
 }
 ?>
