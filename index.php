@@ -1,5 +1,16 @@
 <?php include_once ("header.php");?>
+
+<!-- datepicker für die geburtsdatum -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.js"></script>
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker.css" />
+
+
+
 <script src="js/passwordcheck.js" data-no-instant></script> <!-- Passwort überprüfen mit Javascript, dazu braucht man das oben eingebundene JQuery-->
+
 
 
 <!DOCTYPE html>
@@ -50,6 +61,20 @@
                     <option>Weiblich</option><option>Männlich</option><option>sonstiges</option>
                     </select>
                 </div>
+                <br>
+                <div class="input-group">
+                    <span class= "input-group-addon" id="basic-addon1">Geburtsdatum:</span>
+                    <div class='input-group date' id='datepicker1' class="form-control">
+                        <input type='text' class="form-control" />
+                        <span class="input-group-addon" class="glyphicon glyphicon-calendar">
+                        <span class="glyphicon glyphicon-calendar"></span></span>
+                    </div>
+                </div>
+                <script type="text/javascript">
+                            $(function () {
+                                $('#datepicker1').datepicker();
+                            });
+                        </script>
                 <br>
                 <div class="input-group">
                     <span class="input-group-addon" id="basic-addon1">E-Mail:</span><input type="text" class="form-control" placeholder="E-Mail" name="email" aria-describedby="basic-addon1">
