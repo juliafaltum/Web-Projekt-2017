@@ -67,7 +67,7 @@
                     <div class='input-group date' id='datepicker1' class="form-control">
                         <input type='text' class="form-control" />
                         <span class="input-group-addon"><a href="#">
-                        <span class="glyphicon glyphicon-calendar"></span>
+                        <span class="glyphicon glyphicon-plus"></span>
 
                     </div>
                 </div>
