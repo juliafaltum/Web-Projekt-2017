@@ -1,12 +1,9 @@
 <?php include_once ("header.php");?>
 
-<!-- datepicker für die geburtsdatum -->
-
-
+<!-- datepicker für die geburtsdatum alte library version, sonst wird die gesamte design verändert -.--->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.1/js/bootstrap-datepicker.js"></script>
 
 
-<script src="js/bootstrap-datepicker.js"></script>  <!-- datepick für geburtsdatum-->
 
 
 <script src="js/passwordcheck.js" data-no-instant></script> <!-- Passwort überprüfen mit Javascript, dazu braucht man das oben eingebundene JQuery-->
