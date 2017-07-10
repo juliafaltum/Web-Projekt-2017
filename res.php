@@ -3,9 +3,6 @@ include_once("userdata.php");?>
 
 <script src="js/jquery.min.js"></script>
 
-
-
-
 <script src="js/bootstrap-datepicker.js"></script>  <!-- datepick für geburtsdatum-->
 
 <!-- Das neueste kompilierte und minimierte CSS -->
@@ -18,12 +15,6 @@ include_once("userdata.php");?>
 
 
 <script type="text/javascript" src="js/ajax.js"></script>
-
-
-
-
-<!--für das datum
-<link rel="stylesheet" href="css/bootstrap.min.css">-->
 
 <!-- Optionales Theme -->
 <link rel="stylesheet" href="css/bootstrap-theme.css">

@@ -1,6 +1,6 @@
 <?php include_once ("header.php");?>
 
-<!-- datepicker für die geburtsdatum alte library version, sonst wird die gesamte design verändert -.--->
+<!-- datepicker für die geburtsdatum alte library version, sonst wird die gesamte design verändert-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.1/js/bootstrap-datepicker.js"></script>
 
 
@@ -65,7 +65,6 @@
                         <input type='text' class="form-control" />
                         <span class="input-group-addon"><a href="#">
                         <span class="glyphicon glyphicon-plus"></span>
-
                     </div>
                 </div>
                 <script type="text/javascript">
