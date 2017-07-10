@@ -62,6 +62,7 @@ include_once("userdata.php");
                     echo " <br>";
                     echo "<a href=\"followerlist.php?userid=$zeile->userid'\">Abonnenten anzeigen</a>";
                     echo " <br>";
+                    echo "<a href= "
                     echo " <br>";
 
 
