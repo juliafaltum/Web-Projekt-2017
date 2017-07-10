@@ -24,7 +24,6 @@
             <span for="sel1" class= "input-group-addon" id="basic-addon1">Geschlecht:</span>
             <select class="form-control" id="sel1"
                     <option>Männlich</option>
-
             <option>Weiblich</option><option>Männlich</option>
             </select>
         </div>
