@@ -4,7 +4,7 @@
 include_once("userdata.php");
 
 
-
+$userid = $_SESSION ['userid'];
 $username = htmlspecialchars($_POST["username"], ENT_QUOTES, "UTF-8");
 $fullname = htmlspecialchars($_POST["fullname"], ENT_QUOTES, "UTF-8");
 $email = htmlspecialchars($_POST["email"], ENT_QUOTES, "UTF-8");
@@ -45,7 +45,9 @@ if (!empty($username) && !empty($fullname) && !empty($email)) {
         echo "Error!: Bitten wenden Sie sich an den Administrator...";
         die();
     }
-    header('Location: create_user_done.php');
+    header('Location: index.php?userid=' . $userid);
+
+
 }
 else {
     echo "Error: Bitte alle Felder ausfüllen!<br/>";

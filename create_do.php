@@ -29,7 +29,7 @@ if (!empty($contentTXT)) {
         echo "Error!: Bitten wenden Sie sich an den Administrator...";
         die();
     }
-    header('Location: index.php');
+    header('Location: create_user_done.php');
 }
 else {
     echo "Error: Bitte alle Felder ausfüllen!<br/>";

@@ -38,12 +38,13 @@ include_once("userdata.php");
                     <?php
                     echo "<br>";
                     echo "<br>";
-                    echo "<img src='$profilePictureURL' alt='Profilbild' width='200px' height='200px' class='img-responsive'>";
+                    echo "<img src='$profilePictureURL' alt='Profilbild' class='img-responsive' width='700px' height='700px'>";
+                    echo "<br>";
 
                     ?>
 
                     <!-- Trigger the modal with a button -->
-                    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Bild hochladen</button>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Bild hochladen</button>
 
                 </div>
                 <div class="col-md-8 equal">
@@ -73,7 +74,7 @@ include_once("userdata.php");
 
                             ?>
 
-                    <!-- Modal -->
+                    <!-- Modal, function for the button "upload picture "-->
                     <div id="myModal" class="modal fade" role="dialog">
                         <div class="modal-dialog">
 
