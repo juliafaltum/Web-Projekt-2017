@@ -44,6 +44,14 @@
                 </div>
                 <br>
                 <div class="input-group">
+                    <span for="sel1" class= "input-group-addon" id="basic-addon1">Geschlecht:</span>
+                    <select class="form-control" id="sel1"
+                    <option>Männlich</option>
+                    <option>Weiblich</option><option>Männlich</option><option>sonstiges</option>
+                    </select>
+                </div>
+                <br>
+                <div class="input-group">
                     <span class="input-group-addon" id="basic-addon1">E-Mail:</span><input type="text" class="form-control" placeholder="E-Mail" name="email" aria-describedby="basic-addon1">
                 </div>
                 <br>
