@@ -2,11 +2,11 @@
 
 <!-- datepicker für die geburtsdatum -->
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.js"></script>
 
-<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.1/js/bootstrap-datepicker.js"></script>
 
+
+<script src="js/bootstrap-datepicker.js"></script>  <!-- datepick für geburtsdatum-->
 
 
 <script src="js/passwordcheck.js" data-no-instant></script> <!-- Passwort überprüfen mit Javascript, dazu braucht man das oben eingebundene JQuery-->
@@ -66,8 +66,9 @@
                     <span class= "input-group-addon" id="basic-addon1">Geburtsdatum:</span>
                     <div class='input-group date' id='datepicker1' class="form-control">
                         <input type='text' class="form-control" />
-                        <span class="input-group-addon" class="glyphicon glyphicon-calendar">
-                        <span class="glyphicon glyphicon-calendar"></span></span>
+                        <span class="input-group-addon"><a href="#">
+                        <span class="glyphicon glyphicon-calendar"></span>
+
                     </div>
                 </div>
                 <script type="text/javascript">

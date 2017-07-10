@@ -3,6 +3,8 @@ include_once("userdata.php");?>
 
 <script src="js/jquery.min.js"></script>
 
+<script src="js/bootstrap-datepicker.js"></script>
+
 <!-- Das neueste kompilierte und minimierte CSS -->
 <link rel="stylesheet" href="css/bootstrap.css">
 
@@ -13,6 +15,8 @@ include_once("userdata.php");?>
 
 
 <script type="text/javascript" src="js/ajax.js"></script>
+
+
 
 
 <!--für das datum
