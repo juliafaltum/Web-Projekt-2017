@@ -3,15 +3,12 @@ include_once("userdata.php");?>
 
 <script src="js/jquery.min.js"></script>
 
-<script src="js/bootstrap-datepicker.js"></script>  <!-- datepick für geburtsdatum-->
+<script src="js/bootstrap-datepicker.js"></script>  <!-- datepick für geburtsdatum -->
 
 <!-- Das neueste kompilierte und minimierte CSS -->
 <link rel="stylesheet" href="css/bootstrap.css">
 
 <link rel="stylesheet" href="css/datepicker.css"
-
-<!-- für das Geburtsdatum
-<script src="js/bootstrap.min.js"></script>-->
 
 
 <script type="text/javascript" src="js/ajax.js"></script>
@@ -41,6 +38,7 @@ include_once("userdata.php");?>
 
 
         // Versieht aktive Seite/aktiven Link mit der Klasse .active
+        // Markiert aktuellen Menüpunkt per jQuery, Quelle: https://stackoverflow.com/a/12950620/7391622
         var url = window.location;
         $('ul.nav a').filter(function() {
             return this.href == url;
@@ -53,7 +51,7 @@ include_once("userdata.php");?>
         });
 
 
-// Markiert aktuellen Menüpunkt per jQuery, Quelle: https://stackoverflow.com/a/12950620/7391622
+
 
     });
 </script>

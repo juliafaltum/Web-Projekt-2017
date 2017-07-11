@@ -28,8 +28,7 @@
         if(!isset($_SESSION['userid'])) {
             ?>
 
-        <div class="col-md-3 left-element"></div>
-        <div class="col-md-6 center-element">
+        <div class="col-md-12 center-element">
 
             <div class="col-md-6 left-element">
                 <br>

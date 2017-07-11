@@ -69,7 +69,7 @@ if(!isset($_SESSION['userid'])) {
             </div>
 <?php                             }
 ?>
-        </div><!-- /.navbar-collapse -->
+        </div>
 
-    </div><!-- /.container-fluid -->
+    </div>
 </nav>
