@@ -3,7 +3,6 @@
 <?php
 include_once("session_check.php");
 
-
 ?>
 <!-- datepicker für die geburtsdatum alte library version, sonst wird die gesamte design verändert-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.1/js/bootstrap-datepicker.js"></script>
@@ -46,7 +45,6 @@ try {
         echo "<option>Weiblich</option><option>sonstiges</option>";
         echo "</select>";
         echo "</div><br>";
-
        // echo "<div class='input-group'>";
        //         echo "<span class='input-group-addon'>Profilbild:</span><input type='file' class='form-control' placeholder='Profilbild hochladen' name='fileToUpload' id='fileToUpload' aria-describedby='basic-addon1''>";
        // echo "</div>";
