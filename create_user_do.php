@@ -8,7 +8,7 @@ $userid = $_SESSION ['userid'];
 $username = htmlspecialchars($_POST["username"], ENT_QUOTES, "UTF-8");
 $fullname = htmlspecialchars($_POST["fullname"], ENT_QUOTES, "UTF-8");
 $email = htmlspecialchars($_POST["email"], ENT_QUOTES, "UTF-8");
-$Birthdate = htmlspecialchars($_POST["Birthdate"], ENT_QUOTES, "UFT-8");
+$Birthdate =$_POST['datepicker1'];
 $gender = htmlspecialchars($_POST["gender"], ENT_QUOTES, "UFT-8");
 
 $NOHASHpassword = htmlspecialchars($_POST["password"], ENT_QUOTES, "UTF-8");
@@ -19,6 +19,7 @@ $password = password_hash($NOHASHpassword, PASSWORD_DEFAULT);
 
 if ($Kontrollepassword != $Kontrollepassword2) {
         echo "Die Passwörter stimmen nicht überein!";
+
         die();
         }
 
@@ -47,7 +48,7 @@ if (!empty($username) && !empty($fullname) && !empty($email)) {
         echo "Error!: Bitten wenden Sie sich an den Administrator...";
         die();
     }
-    header('Location: index.php?userid=' . $userid);
+    header('Location: create_user_done.php');
 
 
 }
