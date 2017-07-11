@@ -40,8 +40,8 @@ if (!empty($username) && !empty($fullname) && !empty($email)) {
     try {
         $db = new PDO($dsn, $dbuser, $dbpass);
         $query = $db->prepare(
-            "INSERT INTO user (username, fullname, email, password, usercreated, profilePicture ) VALUES(:username, :fullname, :email, :password, NOW(), :profilePicture)");
-        $query->execute(array("username" => $username, "fullname" => $fullname, "email" => $email, "password" => $password, "profilePicture" => $uploadfile) );
+            "INSERT INTO user (username, fullname, email, password, usercreated, profilePicture, Birthdate, gender ) VALUES(:username, :fullname, :email, :password, NOW(), :profilePicture, :Birthdate, :gender)");
+        $query->execute(array("username" => $username, "fullname" => $fullname, "email" => $email, "password" => $password, "profilePicture" => $uploadfile, "Birhtdate" => $Birthdate, "gender"=> $gender ) );
         $db = null;
     } catch (PDOException $e) {
         echo "Error!: Bitten wenden Sie sich an den Administrator...";
