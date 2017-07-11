@@ -52,9 +52,10 @@
                 <br>
                 <div class="input-group">
                     <span for="sel1" class= "input-group-addon" id="basic-addon1">Geschlecht:</span>
-                    <select class="form-control" id="sel1" gender="Männlich" value="1" gender="Weiblich" value="2" gender="sonstiges" value="3"<br>
-                    <option>Männlich</option>
-                    <option>Weiblich</option><option>sonstiges</option>
+                    <select class="form-control" id="sel1"<br>
+                    <option value="1">Männlich</option>
+                    <option value="2">Weiblich</option>
+                    <option value="3">sonstiges</option>
                     </select>
                 </div>
                 <br>
