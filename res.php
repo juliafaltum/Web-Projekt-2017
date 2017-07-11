@@ -3,15 +3,14 @@ include_once("userdata.php");?>
 
 <script src="js/jquery.min.js"></script>
 
-<script src="js/bootstrap-datepicker.js"></script>  <!-- datepick für geburtsdatum quelle https://cdnjs.com/libraries/bootstrap-datepicker-->
+<script type="text/javascript" src="js/ajax.js"></script>
+
+
 
 <!-- Das neueste kompilierte und minimierte CSS -->
 <link rel="stylesheet" href="css/bootstrap.css">
 
-<link rel="stylesheet" href="css/datepicker.css"
-
-
-<script type="text/javascript" src="js/ajax.js"></script>
+<link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css">
 
 <!-- Optionales Theme -->
 <link rel="stylesheet" href="css/bootstrap-theme.css">
@@ -22,8 +21,6 @@ include_once("userdata.php");?>
 
 <link rel="stylesheet" type="text/css" href="css/hover-min.css" media="screen"/>
 
-<!-- <script src="js/instantclick.min.js" data-no-instant></script>
-<script data-no-instant>InstantClick.init();</script> Skript wieder auskommentiert für Instantklick -->
 
 <link rel="stylesheet"  href="css/custom_css.css">
 <link rel="stylesheet"  href="css/font_awesome/font-awesome.min.css">
@@ -38,7 +35,6 @@ include_once("userdata.php");?>
 
 
         // Versieht aktive Seite/aktiven Link mit der Klasse .active
-        // Markiert aktuellen Menüpunkt per jQuery, Quelle: https://stackoverflow.com/a/12950620/7391622
         var url = window.location;
         $('ul.nav a').filter(function() {
             return this.href == url;
@@ -51,7 +47,7 @@ include_once("userdata.php");?>
         });
 
 
-
+// Markiert aktuellen Menüpunkt per jQuery, Quelle: https://stackoverflow.com/a/12950620/7391622
 
     });
 </script>

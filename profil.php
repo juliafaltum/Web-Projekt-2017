@@ -32,13 +32,13 @@ include_once("userdata.php");
 
             if (!$i) { ?>
                 <div class="container">
-                <div class="row equalheight">
-                <div class="col-md-3 equal">
+                <div class="row">
+                <div class="col-md-3">
 
                     <?php
                     echo "<br>";
                     echo "<br>";
-                    echo "<img src='$profilePictureURL' alt='Profilbild' class='img-responsive' width='700px' height='700px'>";
+                    echo "<img src='$profilePictureURL' alt='Profilbild' class='img-responsive'>";
                     echo "<br>";
 
                     ?>

@@ -1,4 +1,8 @@
-<?php include_once ("header.php");?>
+<?php include_once ("header.php");
+
+$festgelegteUserID = $_SESSION['userid'];
+
+?>
 
 <!-- datepicker für die geburtsdatum alte library version, sonst wird die gesamte design verändert-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.1/js/bootstrap-datepicker.js"></script>
@@ -63,7 +67,7 @@
                     <span class= "input-group-addon" id="basic-addon1">Geburtsdatum:</span>
                     <div class='input-group date' id='datepicker1' class="form-control">
                         <input type='text' class="form-control" />
-                        <span class="input-group-addon"><a href="#">
+                        <span class="input-group-addon">
                         <span class="fa fa-calendar"></span>
                     </div>
                 </div>
@@ -100,48 +104,58 @@
         </div>
             <?php
         }
+        else {
         ?>
-        <div class="col-md-3 left-element"></div>
-        <div class="col-md-12">
-        <div class="col-md-3">
 
-            <?php
+        <div class="row">
+            <div class="col-md-2">
+                <h1>Persönliche Startseite</h1>
 
-            session_start();
-            if(!isset($_SESSION['userid'])) {
-
-            }  // Ausloggen nur anzeigen wenn Nutzer eingeloggt ist, Einloggen und Registrieren nur wenn Nutzer ausgeloggt
-
-            else {
+                <?php
                 $username = $_SESSION['username'];
-                echo "<h1>Hallo $username</h1>";
-                echo "<br>";
+                $userID = $_SESSION['userid'];
+                $profilePicture = profilePicture($userID);
+                echo "<img src='$profilePicture' alt='Profilbild' class='img-responsive img-circle'>";
+                echo "<h3>Willkommen zurück $username!</h3>";
 
 
+                echo "<a href='profil.php?userid=$userID'<button class=\"btn btn-success\" type=\"button\"/>Mein Profil</button></a><div class=\"spacer\"></div>";
                 echo "<input class=\"btn btn-primary\" id=\"tweetVerfassenButton\"  type=\"button\" value=\"Neue Welle verfassen\"/><div class=\"spacer\"></div>"; // Button und einblenden von Neuen Tweet verfassen
                 echo "<a href='photoGallery.php'<button class=\"btn btn-info\" type=\"button\"/>Zur privaten Fotogalerie</button></a><div class=\"spacer\"></div>";
-            }
 
 
-            // Anzeigen von allen vorhandenen Tweets aus der Datenbank
 
-            ?>
+                // Anzeigen von allen vorhandenen Tweets aus der Datenbank
+
+                ?>
+            </div>
+
+            <div class="col-md-7 center-element">
+                <div class="well-own" id="tweetformular" style="display: none;"><?php include_once ('create_form.php');?></div>
+
+                <?php
+
+                $db = new PDO($dsn, $dbuser, $dbpass);
+                $sql = "SELECT * FROM followerlist INNER JOIN user ON followerlist.follower=user.userid WHERE followerlist.user = :festgelegteUserID";       // UserID = 19 zeigt alles von Nutzer 19 an
+                $query = $db->prepare($sql);
+                $query->bindParam(':festgelegteUserID', $festgelegteUserID);
+                $query->execute();
+
+                while ($zeile = $query->fetchObject()) {
+                    showContentFollower($zeile->userid);
+                }
+
+
+                ?>
+
+
+
+            </div>
+
         </div>
 
-        <div class="col-md-6 center-element">
-            <div class="well-own" id="tweetformular" style="display: none;"><?php include_once ('create_form.php');?></div>
 
-<?=showContentAll();?>
-
-
-
-        </div>
-
-    </div>
-        <div class="col-md-3 right-element"></div>
-
-</div>
-</div>
+<?php }?>
 
 <br>
 </body>
