@@ -143,8 +143,15 @@ $festgelegteUserID = $_SESSION['userid'];
 
                 while ($zeile = $query->fetchObject()) {
                     showContentFollower($zeile->userid);
+                    $folgtPersonen = 1;
+
                 }
 
+                if (empty($folgtPersonen)) {
+
+                    echo "<h2>Du folgst noch keiner Person! <br><br> Entdecke <a href='discover.php'>hier die neusten Wellen!</a>";
+
+                }
 
                 ?>
 

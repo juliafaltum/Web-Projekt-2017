@@ -616,11 +616,11 @@ function followButtonAjaxNeu ($user, $follower, $contentID) {       // Follow-Bu
         }
 
         if ($folgt == 1) {
-            echo "<div class='Folgenbutton$follower'><a data-toggle='tooltip' title='Entfolgen' data-placement='bottom' href='#!Folgen$follower' onclick='entfolgenJS($user, $follower, $contentID)'><img height='50px' src='img/unfollowbutton.jpg'></a></div>";
+            echo "<div class='Folgenbutton$follower'><a data-toggle='tooltip' title='Entfolgen' data-placement='bottom' href='#!Folgen$follower' onclick='entfolgenJS($user, $follower, $contentID)'><img height='46px' src='img/unfollow_Button.png'></a></div>";
 
 
         } else {
-            echo "<div class='Folgenbutton$follower'><a data-toggle='tooltip' title='Folgen' data-placement='bottom' href='#!Entfolgen$follower' onclick='folgenJS($user, $follower, $contentID)'><img height='50px' src='img/followbutton.jpg'></a></div>";
+            echo "<div class='Folgenbutton$follower'><a data-toggle='tooltip' title='Folgen' data-placement='bottom' href='#!Entfolgen$follower' onclick='folgenJS($user, $follower, $contentID)'><img height='46px' src='img/follow_Button.png'></a></div>";
         }
 
     }

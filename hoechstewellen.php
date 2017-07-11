@@ -4,7 +4,7 @@
 <?php
 
 echo "<div class='col-md-3 left-element'></div>";
-echo "<div class='col-md-6 center-element'>";
+echo "<div class=\"col-md-7 center-element\">";
 
     echo "Die Wellen mit den besten Bewertungen";
 
