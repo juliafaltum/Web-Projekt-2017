@@ -8,6 +8,8 @@ $userid = $_SESSION ['userid'];
 $username = htmlspecialchars($_POST["username"], ENT_QUOTES, "UTF-8");
 $fullname = htmlspecialchars($_POST["fullname"], ENT_QUOTES, "UTF-8");
 $email = htmlspecialchars($_POST["email"], ENT_QUOTES, "UTF-8");
+$Birthdate = htmlspecialchars($_POST["Birthdate"], ENT_QUOTES, "UFT-8");
+$gender = htmlspecialchars($_POST["gender"], ENT_QUOTES, "UFT-8");
 
 $NOHASHpassword = htmlspecialchars($_POST["password"], ENT_QUOTES, "UTF-8");
 $password = password_hash($NOHASHpassword, PASSWORD_DEFAULT);

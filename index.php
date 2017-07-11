@@ -52,9 +52,9 @@
                 <br>
                 <div class="input-group">
                     <span for="sel1" class= "input-group-addon" id="basic-addon1">Geschlecht:</span>
-                    <select class="form-control" id="sel1"
+                    <select class="form-control" id="sel1" gender="Männlich" value="1" gender="Weiblich" value="2" gender="sonstiges" value="3"<br>
                     <option>Männlich</option>
-                    <option>Weiblich</option><option>Männlich</option><option>sonstiges</option>
+                    <option>Weiblich</option><option>sonstiges</option>
                     </select>
                 </div>
                 <br>
@@ -63,7 +63,7 @@
                     <div class='input-group date' id='datepicker1' class="form-control">
                         <input type='text' class="form-control" />
                         <span class="input-group-addon"><a href="#">
-                        <span class="glyphicon glyphicon-plus"></span>
+                        <span class="fa fa-calendar"></span>
                     </div>
                 </div>
                 <script type="text/javascript">
