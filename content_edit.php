@@ -27,11 +27,12 @@ try {
             <textarea  id="input3"  class="form-control" name="contentTXT" size="80" maxlength="500" rows="3" aria-describedby="basic-addon1"><?=$zeile->contentTXT;?></textarea>
         </div>
             <?php if ($zeile->contentPicture != '0') {
-                echo "Aktuelles Bild: <br><img height ='200px' src ='$zeile->contentPicture'><br>";
+                echo "<label for='aktuellesbild'>Aktuelles Bild: </label>
+                <br><img height ='200px' src ='$zeile->contentPicture' id='aktuellesbild'><br>";
                 }?>
 
 
-
+            <br>
             <label for="wellebild">Neues Bild:</label>
             <input type="hidden" name="fileToUploadwennLeer" value="<?=$zeile->contentPicture;?>" />
             <input type="file" name="fileToUpload" id="fileToUpload">
