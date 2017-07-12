@@ -30,7 +30,7 @@ function showContentProfile ($userid)
                 <div class="row">
                     <div class="col-md-3 col-sm-3 col-xs-4">
 
-                        <a data-toggle='tooltip' title='Profil von <?=$username?> aufrufen' data-placement='top' href="profil.php?userid=<?=$userID?>"><img src="<?=profilePicture($userID);?>" class="img-responsive img-circle"></a>
+                        <a data-toggle='tooltip' title='Profil von <?=$username?> aufrufen' data-placement='top' href="profil.php?userid=<?=$userID?>"><img src="<?=profilePicture($userID);?>" class="img-responsive img-circle" style="max-height: 50px"></a>
 
                         <h4>Welle von <a href='profil.php?userid=<?=$userID?>'><?=$username?></a></h4>
 
@@ -139,7 +139,7 @@ function showContentAll ()
                 <div class="row">
                     <div class="col-md-3 col-sm-3 col-xs-4">
 
-                        <a data-toggle='tooltip' title='Profil von <?=$username?> aufrufen' data-placement='top' href="profil.php?userid=<?=$userID?>"><img src="<?=profilePicture($userID);?>" class="img-responsive img-circle"></a>
+                        <a data-toggle='tooltip' title='Profil von <?=$username?> aufrufen' data-placement='top' href="profil.php?userid=<?=$userID?>"><img src="<?=profilePicture($userID);?>" class="img-responsive img-circle" style="max-height: 50px"></a>
 
                         <h4>Welle von <a href='profil.php?userid=<?=$userID?>'><?=$username?></a></h4>
 
@@ -244,7 +244,7 @@ function showContentSpecific ($festgelegteContentID)
                 <div class="row">
                     <div class="col-md-3 col-sm-3 col-xs-4">
 
-                        <a data-toggle='tooltip' title='Profil von <?=$username?> aufrufen' data-placement='top' href="profil.php?userid=<?=$userID?>"><img src="<?=profilePicture($userID);?>" class="img-responsive img-circle"></a>
+                        <a data-toggle='tooltip' title='Profil von <?=$username?> aufrufen' data-placement='top' href="profil.php?userid=<?=$userID?>"><img src="<?=profilePicture($userID);?>" class="img-responsive img-circle" style="max-height: 50px"></a>
 
                         <h4>Welle von <a href='profil.php?userid=<?=$userID?>'><?=$username?></a></h4>
 
@@ -352,7 +352,7 @@ function showContentFollower ($festgelegteUserID)
                 <div class="row">
                     <div class="col-md-3 col-sm-3 col-xs-4">
 
-                        <a data-toggle='tooltip' title='Profil von <?=$username?> aufrufen' data-placement='top' href="profil.php?userid=<?=$userID?>"><img class="img-responsive img-circle" src="<?=profilePicture($userID);?>"></a>
+                        <a data-toggle='tooltip' title='Profil von <?=$username?> aufrufen' data-placement='top' href="profil.php?userid=<?=$userID?>"><img class="img-responsive img-circle" style="max-height: 50px" src="<?=profilePicture($userID);?>"></a>
 
                         <h4>Welle von <a href='profil.php?userid=<?=$userID?>'><?=$username?></a></h4>
 
