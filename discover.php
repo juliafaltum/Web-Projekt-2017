@@ -1,21 +1,18 @@
 <?php include_once ("header.php");
+include_once("session_check.php"); ?>
 
-$festgelegteUserID = $_SESSION['userid'];
 
-?>
 
 
 <div class="container">
 
     <div class="row">
-        <div class="col-md-5 center-element">
+        <div class="col-md-5 center-element text-center">
         <h1>Alle Wellen der Community!</h1><br>
     </div>
 
 
-    </div>
 
-    <div class="col-md-12">
 
 
         <div class="col-md-8 center-element">
@@ -27,8 +24,8 @@ $festgelegteUserID = $_SESSION['userid'];
 
         </div>
 
-    </div>
-    <div class="col-md-3 right-element"></div>
+
+
 
 </div>
 </div>

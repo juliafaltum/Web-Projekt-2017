@@ -1,15 +1,7 @@
-<?php include_once ("header.php");?>
-<html>
-<head>
-    <meta charset="utf-8">
-</head>
-<body>
-<div class="col-md-3 left-element"></div>
-<div class="col-md-6 center-element">
+<?php include_once ("res.php");?>
+
 <h1>Neues Passwort anfordern</h1>
-Hier können Sie ein neues Passwort anfordern.
-    <br>
-    <br>
+<p>Hier können Sie ein neues Passwort anfordern. Geben Sie zur Bestätigung Ihre E-Mail Adresse an.</p>
 
 <form action="reset_password_do.php" method="post" enctype="multipart/form-data">
     <div class="input-group">
@@ -17,9 +9,6 @@ Hier können Sie ein neues Passwort anfordern.
         <input type="text" class="form-control" name="E-Mail"  aria-describedby="basic-addon1">
     </div>
     <br>
-    <input type="submit" value="Neues Passwort anfordern" />
-</div>
-<div class="col-md-3 right-element"></div>
+    <input class='btn btn-success' type="submit" value="Neues Passwort anfordern" />
+
 </form>
-</body>
-</html>

@@ -22,7 +22,6 @@ $festgelegteUserID = $_SESSION['userid'];
 <body>
 
 
-
 <div class="container">
 
 
@@ -45,7 +44,7 @@ $festgelegteUserID = $_SESSION['userid'];
             <div class="col-md-6 right-element">
             <h2>Jetzt registrieren!</h2>
             <br>
-            <form action="create_user_do.php" method="post" enctype="multipart/form-data">
+            <form id="register" action="create_user_do.php" method="post" enctype="multipart/form-data">
                 <div class="input-group">
                     <span class="input-group-addon" id="basic-addon1">Benutzername:</span><input type="text" class="form-control" placeholder="Benutzername" name="username" aria-describedby="basic-addon1">
                 </div>
@@ -55,8 +54,8 @@ $festgelegteUserID = $_SESSION['userid'];
                 </div>
                 <br>
                 <div class="input-group">
-                    <span for="sel1" class= "input-group-addon" id="basic-addon1" >Geschlecht:</span>
-                    <select class="form-control" id="sel1" name="gender"<br>
+                    <span class= "input-group-addon" id="basic-addon1" >Geschlecht:</span>
+                    <select form="register" class="form-control" id="sel1" name="gender"<br>
                     <option value="1">Männlich</option>
                     <option value="2">Weiblich</option>
                     <option value="3">sonstiges</option>
@@ -100,8 +99,7 @@ $festgelegteUserID = $_SESSION['userid'];
                 <br>
             </div>
 
-
-        </div>
+    </div>
             <?php
         }
         else {
@@ -115,7 +113,7 @@ $festgelegteUserID = $_SESSION['userid'];
                 $username = $_SESSION['username'];
                 $userID = $_SESSION['userid'];
                 $profilePicture = profilePicture($userID);
-                echo "<img src='$profilePicture' alt='Profilbild' class='img-responsive img-circle'>";
+                echo "<a href='profil.php?userid=$userID'><img src='$profilePicture' alt='Profilbild' height='130px' class='img-circle'></a>";
                 echo "<h3>Willkommen zurück $username!</h3>";
 
 

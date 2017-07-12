@@ -73,3 +73,71 @@ if(!isset($_SESSION['userid'])) {
 
     </div>
 </nav>
+
+
+
+    <?php if(isset($_GET['notification'])) {
+
+    echo "<div class=\"col-md-4 center-element\">";
+    $notificationType = $_GET['notification'];
+
+
+    switch ($notificationType) {
+
+        case 'profileEdit':
+
+            ?>
+            <div class="alert alert-success alert-dismissable fade in">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Erfolg!</strong> Deine Profildaten wurden editiert!
+            </div>
+            <?php
+            break;
+
+        case 'successLogout':
+
+            ?>
+            <div class="alert alert-success alert-dismissable fade in">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <strong>Erfolg!</strong> Du hast dich ausgeloggt!
+            </div>
+            <?php
+            break;
+
+        case 'profilePictureUpdate':
+
+            ?>
+            <div class="alert alert-success alert-dismissable fade in">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <strong>Erfolg!</strong> Du hast dein Profilbild aktualisiert!
+            </div>
+            <?php
+            break;
+
+        case 'tweetEdited':
+
+            ?>
+            <div class="alert alert-success alert-dismissable fade in">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <strong>Erfolg!</strong> Du hast den Tweet aktualisiert!
+            </div>
+            <?php
+            break;
+
+        case 'tweetDeleted':
+
+            ?>
+            <div class="alert alert-success alert-dismissable fade in">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <strong>Erfolg!</strong> Dein Tweet wurde gelöscht!
+            </div>
+            <?php
+            break;
+
+    }
+
+    echo "</div>";
+}
+
+
+

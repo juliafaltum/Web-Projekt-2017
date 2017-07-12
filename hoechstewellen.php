@@ -1,5 +1,5 @@
-<?php include_once ("header.php");?>
-<?php include_once("session_check.php"); ?>
+<?php include_once ("header.php");
+include_once("session_check.php"); ?>
 
 <div class="container">
 

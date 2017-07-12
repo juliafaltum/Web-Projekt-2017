@@ -53,7 +53,7 @@ function showContentProfile ($userid)
 
 
 
-                <hr>
+                    <hr>
                 <div class="row">
                     <div class="col-md-12">
 
@@ -67,16 +67,18 @@ function showContentProfile ($userid)
 
                 <?php if ($contentPicture != '0') { ?>
 
-
+                    <br>
                     <div class="row col-md-8 center-element">
 
 
-                        <img src="<?=$contentPicture?>" class="img-responsive"><br>
+                        <a href="<?=$contentPicture?>" data-toggle="lightbox"  data-width="200">
+                            <img src="<?=$contentPicture?>" class="img-thumbnail"><br>
 
 
                     </div>
 
                 <?php } ?>
+                    <hr>
                 <div class="col-md-12 left-element">
 
                     <?php
@@ -171,17 +173,17 @@ function showContentAll ()
 
                 <?php if ($contentPicture != '0') { ?>
 
-
+                    <br>
                 <div class="row col-md-8 center-element">
 
-
-                    <img src="<?=$contentPicture?>" class="img-responsive"><br>
-
-
+                    <a href="<?=$contentPicture?>" data-toggle="lightbox"  data-width="200">
+                    <img src="<?=$contentPicture?>" class="img-thumbnail"><br>
+                    </a>
                 </div>
 
                 <?php } ?>
 
+                <hr>
                 <div class="col-md-12 left-element">
 
 
@@ -212,112 +214,6 @@ function showContentAll ()
         die();
     }
 }           // Zeigt alle Tweets an aus der DB
-
-function showContentAllKacheln ()
-{
-    try {
-        global $dsn, $dbuser, $dbpass;
-        $db = new PDO($dsn, $dbuser, $dbpass);
-        $sql = "SELECT * FROM content_txt INNER JOIN user ON content_txt.userID=user.userid ORDER BY content_txt.contentID DESC";         // Können sow.rtiert werden mit "ORDER BY contentDate DESC" usw. WHERE content_txt.userID in (21, 19)
-        $query = $db->prepare($sql);
-        $query->execute();
-
-        while ($zeile = $query->fetchObject()) {
-
-            $followerID = $zeile->userid;
-            $contentID = $zeile->contentID;
-            $username = $zeile->username;
-            $userID = $zeile->userid;
-            $profilePicture = $zeile->profilePicture;
-
-            $contentDate = $zeile->contentDate;
-            $contentTXT = $zeile->contentTXT;
-            $contentPicture = $zeile->contentPicture;
-            $contentSource = $zeile->contentSource;
-
-
-            ?>
-
-            <div class="well-own col-md-4 grid-item">
-                <div class="row">
-                    <div class="col-md-3 col-sm-3 col-xs-4">
-
-                        <a data-toggle='tooltip' title='Profil von <?=$username?> aufrufen' data-placement='top' href="profil.php?userid=<?=$userID?>"><img src="<?=profilePicture($userID);?>" class="img-responsive img-circle"></a>
-
-                        <h4>Welle von <a href='profil.php?userid=<?=$userID?>'><?=$username?></a></h4>
-
-                    </div>
-                    <div class="col-md-9 text-right">
-                        <?php followButtonAjaxNeu($_SESSION['userid'], $followerID, $contentID);?>
-                        <div class="spacer"></div>
-                        <h5><?=$contentDate?></h5>
-                        <div class="spacer"></div>
-                        <?php echo voteButton($zeile->contentID); ?>
-                        <div class="spacer"></div>
-                        Punkte: <?php echo contentPoints($zeile->contentID);?>
-
-
-
-
-                    </div>
-
-                </div>
-                <hr>
-                <div class="row">
-                    <div class="col-md-12">
-
-                        <?=$contentTXT?>
-
-
-                    </div>
-
-
-                </div>
-
-                <?php if ($contentPicture != '0') { ?>
-
-
-                    <div class="row col-md-8 center-element">
-
-
-                        <img src="<?=$contentPicture?>" class="img-responsive"><br>
-
-
-                    </div>
-
-                <?php } ?>
-
-                <div class="col-md-12 left-element">
-
-
-                    <?php
-
-                    if ($zeile->contentSource) {
-                        echo "Quelle: <a href='$zeile->contentSource'>$zeile->contentSource</a><br><br>";
-                    }
-                    ?>
-                    <div class="col-md-8 right-element">
-                        <?php
-                        echo "<a href='show.php?contentID=$zeile->contentID'><i class='fa fa-eye'></i> Anzeigen</a>";
-
-                        if ($_SESSION['userid'] == $zeile->userID) {
-                            echo "<a class='strich'>|</a> <a href='content_edit.php?contentID=$zeile->contentID'><i class='fa fa-edit'></i> Bearbeiten</a>";
-                            echo "<a class='strich'>|</a> <a href='delete_frage.php?contentID=$zeile->contentID'><i class='fa fa-remove'></i> Löschen</a><br>";
-                        }
-
-                        ?>
-                    </div>
-                </div>
-            </div>
-
-            <?php
-        }
-    } catch (PDOException $e) {
-        echo "Error!: Bitte wenden Sie sich an den Administrator!..." . $e;
-        die();
-    }
-}           // Zeigt alle Tweets an aus der DB
-
 
 function showContentSpecific ($festgelegteContentID)
 {
@@ -382,17 +278,18 @@ function showContentSpecific ($festgelegteContentID)
 
                 <?php if ($contentPicture != '0') { ?>
 
-
+                    <br>
                     <div class="row col-md-8 center-element">
 
 
-                        <img src="<?=$contentPicture?>" class="img-responsive"><br>
+                        <a href="<?=$contentPicture?>" data-toggle="lightbox"  data-width="200">
+                            <img src="<?=$contentPicture?>" class="img-thumbnail"><br>
 
 
                     </div>
 
                 <?php } ?>
-
+                <hr>
                 <div class="col-md-12 left-element">
 
 
@@ -485,13 +382,18 @@ function showContentFollower ($festgelegteUserID)
 
                 </div>
 
-                <div class="row col-md-8 center-element">
+                <?php if ($contentPicture != '0') { ?>
 
+                    <br>
+                    <div class="row col-md-8 center-element">
 
-                    <img src="<?=$contentPicture?>" class="img-responsive"><br>
+                        <a href="<?=$contentPicture?>" data-toggle="lightbox"  data-width="200">
+                            <img src="<?=$contentPicture?>" class="img-thumbnail"><br>
+                        </a>
+                    </div>
 
-
-                </div>
+                <?php } ?>
+                <hr>
                 <div class="col-md-12 left-element">
 
                     <?php
@@ -660,7 +562,6 @@ function profilePicture ($userid)
     }
 }           // Für Profilseite, generiert ProfilbildURL
 
-
 function deleteTweetPicturefromServer ($contentID)
 {
 
@@ -693,11 +594,57 @@ function deleteTweetPicturefromServer ($contentID)
         echo "Error!: Bitte wenden Sie sich an den Administrator!..." . $e;
         die();
     }
-}// Tweet-Bild löschen wenn
-
+}// Tweet-Bild löschen wenn Tweet gelöscht wird
 
 function showTooltipp($tooltipText){
     echo "data-toggle='tooltip' title='$tooltipText' data-placement='bottom'";
 
 }
 
+function countFollower ($userID) {
+
+    try {
+        global $dsn, $dbuser, $dbpass;
+        $db = new PDO($dsn, $dbuser, $dbpass);
+        $sql = "SELECT COUNT(user) AS follower FROM followerlist WHERE follower = :userID";
+        $query = $db->prepare($sql);
+        $query->bindParam(':userID', $userID);
+        $query->execute();
+
+        if ($zeile = $query->fetchObject()) {
+            $followerAnzahl = $zeile->follower;
+
+            return $followerAnzahl;
+        }
+    }
+
+    catch (PDOException $e) {
+        echo "Error!: Bitte wenden Sie sich an den Administrator!...".$e;
+        die();
+    }
+
+}           // Gibt die Summe der Follower eines Nutzers aus
+
+function countAbonements ($userID) {
+
+    try {
+        global $dsn, $dbuser, $dbpass;
+        $db = new PDO($dsn, $dbuser, $dbpass);
+        $sql = "SELECT COUNT(follower) AS abos FROM followerlist WHERE user = :userID";
+        $query = $db->prepare($sql);
+        $query->bindParam(':userID', $userID);
+        $query->execute();
+
+        if ($zeile = $query->fetchObject()) {
+            $aboAnzahl = $zeile->abos;
+
+            return $aboAnzahl;
+        }
+    }
+
+    catch (PDOException $e) {
+        echo "Error!: Bitte wenden Sie sich an den Administrator!...".$e;
+        die();
+    }
+
+}           // Gibt die Summe der Abbonements eines Nutzers aus
