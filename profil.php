@@ -53,7 +53,9 @@ include_once("userdata.php");
 ?>
                         <!-- Modal für Profilbild öffnen -->
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#uploadPicture">Bild hochladen <i class="fa fa-upload"></i></button><br><br>
+                        <input class="btn btn-primary" id="tweetVerfassenButton"  type="button" value="Neue Welle verfassen"/><div class="spacer"></div>
                     <a href="profil_edit.php"><button type="button" class="btn btn-success">Profil bearbeiten <i class="fa fa-edit"></i> </button></a>
+
 
                     <?php
                     }

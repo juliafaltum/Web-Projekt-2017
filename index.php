@@ -118,7 +118,7 @@ $festgelegteUserID = $_SESSION['userid'];
 
 
                 echo "<a href='profil.php?userid=$userID'<button class=\"btn btn-success\" type=\"button\"/>Mein Profil</button></a><div class=\"spacer\"></div>";
-                echo "<input class=\"btn btn-primary\" id=\"tweetVerfassenButton\"  type=\"button\" value=\"Neue Welle verfassen\"/><div class=\"spacer\"></div>"; // Button und einblenden von Neuen Tweet verfassen
+                echo "<input class=\"btn btn-primary\" id=\"tweetVerfassenButton\"  type=\"button\" value=\"Neue Welle verfassen\"/><div class=\"spacer\"></div>"; // eButton und einblenden von Neuen Tweet verfassen
                 echo "<a href='photoGallery.php'<button class=\"btn btn-info\" type=\"button\"/>Zur privaten Fotogalerie</button></a><div class=\"spacer\"></div>";
 
 
