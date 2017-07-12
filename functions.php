@@ -38,7 +38,7 @@ function showContentProfile ($userid)
                     <div class="col-md-9 text-right">
                         <?php followButtonAjaxNeu($_SESSION['userid'], $followerID, $contentID);?>
                         <div class="spacer"></div>
-                        <h5><?=$contentDate?></h5>
+                        <h5><?=tweetTimeDifference($contentDate)?></h5>
                         <div class="spacer"></div>
                         <?php echo voteButton($zeile->contentID); ?>
                         <div class="spacer"></div>
@@ -147,7 +147,7 @@ function showContentAll ()
                     <div class="col-md-9 text-right">
                         <?php followButtonAjaxNeu($_SESSION['userid'], $followerID, $contentID);?>
                         <div class="spacer"></div>
-                        <h5><?=$contentDate?></h5>
+                        <h5><?=tweetTimeDifference($contentDate)?></h5>
                         <div class="spacer"></div>
                         <?php echo voteButton($zeile->contentID); ?>
                         <div class="spacer"></div>
@@ -252,7 +252,7 @@ function showContentSpecific ($festgelegteContentID)
                     <div class="col-md-9 text-right">
                         <?php followButtonAjaxNeu($_SESSION['userid'], $followerID, $contentID);?>
                         <div class="spacer"></div>
-                        <h5><?=$contentDate?></h5>
+                        <h5><?=tweetTimeDifference($contentDate)?></h5>
                         <div class="spacer"></div>
                         <?php echo voteButton($zeile->contentID); ?>
                         <div class="spacer"></div>
@@ -360,7 +360,7 @@ function showContentFollower ($festgelegteUserID)
                     <div class="col-md-9 text-right">
                         <?php followButtonAjaxNeu($_SESSION['userid'], $followerID, $contentID);?>
                         <div class="spacer"></div>
-                        <h5><?=$contentDate?></h5>
+                        <h5><?=tweetTimeDifference($contentDate)?></h5>
                         <div class="spacer"></div>
                         <?php echo voteButton($zeile->contentID); ?>
                         <div class="spacer"></div>
@@ -426,7 +426,7 @@ function showContentFollower ($festgelegteUserID)
         echo "Error!: Bitte wenden Sie sich an den Administrator!..." . $e;
         die();
     }
-}               // Zeigt nur die Tweets der Leute an, denen gefolgt wird (TODO)
+}               // Zeigt nur die Tweets der Leute an, denen gefolgt wird
 
 function contentPoints ($contentID) {           // Punkte berechnen von Einträgen
 
@@ -650,3 +650,34 @@ function countAbonements ($userID) {
     }
 
 }           // Gibt die Summe der Abbonements eines Nutzers aus
+
+function tweetTimeDifference ($contentDate) {
+
+    // Quelle: http://php.net/manual/de/datetime.diff.php
+
+    $tweetDate = new DateTime($contentDate);              // Zeit des Tweets
+    $jetzt = new DateTime();                    // Datum und Zeit in $jetzt schreiben
+    $zeitUnterschied = $tweetDate->diff($jetzt)->format("%d Tagen %h Stunden und %i Minuten");
+
+    $minutenSeit = $tweetDate->diff($jetzt)->format("%i");
+    $stundenSeit = $tweetDate->diff($jetzt)->format("%h");
+    $tageSeit = $tweetDate->diff($jetzt)->format("%d");
+
+    if (empty($stundenSeit)){
+        echo "Vor $minutenSeit Minuten";
+    }
+
+    elseif ((isset($stundenSeit)) && (empty($tageSeit))) {
+        echo "Vor $stundenSeit Stunden $minutenSeit Minuten";
+    }
+
+    elseif ((isset($tageSeit)) && ($tageSeit < '5'))  {
+        echo "Vor $tageSeit Tagen und $stundenSeit Stunden";
+    }
+
+    elseif ((isset($tageSeit)) && ($tageSeit >'4'))  {
+        echo "Vor $tageSeit Tagen";
+    }
+
+
+}       // Gibt Zeitdifferenz der Wellen an

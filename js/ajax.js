@@ -1,6 +1,3 @@
-/**
- * Created by Christian on 27.06.2017.
- */
 
 function folgenJS (userID, followerID, contentID) {
     $.post('ajax/follow.php', {followerID:followerID}, function(data) {
@@ -29,7 +26,7 @@ function entfolgenJS (userID, followerID, contentID) {
 }
 
 
-// Folgen.php, Entfolgen.php waren zwei verschiedene PHP Dateien notwendig, da die verschiedenen Funktionen ausgelagert waren, könnten zusammegefügt werden TODO
+
 
 function voteJS (contentID, wertung) {
     $.post('rating_do.php', {contentID:contentID,wertung:wertung}, function(data) {

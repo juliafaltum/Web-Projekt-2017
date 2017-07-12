@@ -1,6 +1,7 @@
 <?php
-include_once('header.php');
 include_once ('session_check.php');
+include_once('header.php');
+
 
 $userID = $_SESSION['userid']
 

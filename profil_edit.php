@@ -1,5 +1,6 @@
-<?php include_once ("header.php");
-include_once("session_check.php"); ?>
+<?php include_once("session_check.php");
+include_once ("header.php"); ?>
+
 <!-- datepicker für die geburtsdatum alte library version, sonst wird die gesamte design verändert-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.1/js/bootstrap-datepicker.js"></script>
 

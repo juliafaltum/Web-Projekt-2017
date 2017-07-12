@@ -7,7 +7,7 @@ include_once("userdata.php");?>
 
 <script type="text/javascript" src="js/ajax.js"></script>
 
-<script src="js/bootstrap.js"></script>
+<script src="js/bootstrap.min.js"></script>
 
 <script src="js/ekko-lightbox.min.js"></script>
 

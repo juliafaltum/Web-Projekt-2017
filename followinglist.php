@@ -1,7 +1,8 @@
 <?php
+include_once ("session_check.php");
 include_once ("header.php");
 include_once ("userdata.php");
-include_once ("session_check.php");
+
 
 $festgelegteUserID = $_GET["userid"];
 

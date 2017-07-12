@@ -1,4 +1,5 @@
-<?php include_once ("header.php");?>
+<?php include_once("session_check.php");
+include_once ("header.php");?>
 
 <!DOCTYPE html> <!-- das ist HTML 5 -->
 <html>

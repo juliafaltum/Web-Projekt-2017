@@ -45,10 +45,10 @@ if ($emailVorhanden == 1) {             // Wenn Email in der DB vorhanden ist
         // Email absenden
 
             $empfaenger = $userEmail;
-            $betreff = 'Passwort test';
-            $nachricht = 'Du hast ein neues Passwort angefragt! Wenn du das nicht warst, kannst du uns unter test@test.de kontaktieren! Hier dein individueller Reset-Key: https://mars.iuk.hdm-stuttgart.de/~cm111/new_password.php?passwordKey='.$passwordResetKey;
-            $header = 'From: webmailtest@mars.iuk.hdm-stuttgart.de' . "\r\n" .
-                'Reply-To: webmailtest@mars.iuk.hdm-stuttgart.de' . "\r\n" .
+            $betreff = 'Neues Passwort angefordert, Ola';
+            $nachricht = "Du hast ein neues Passwort angefragt! Wenn du das nicht warst, kannst du uns unter team@ola.com kontaktieren! \r\nHier dein individueller Reset-Key: https://mars.iuk.hdm-stuttgart.de/~cm111/new_password.php?passwordKey=".$passwordResetKey;
+            $header = 'From: olaTeam@mars.iuk.hdm-stuttgart.de' . "\r\n" .
+                'Reply-To: olaTeam@mars.iuk.hdm-stuttgart.de' . "\r\n" .
                 'X-Mailer: PHP/' . phpversion();
 
          mail($empfaenger, $betreff, $nachricht, $header);
@@ -58,10 +58,13 @@ if ($emailVorhanden == 1) {             // Wenn Email in der DB vorhanden ist
 
 
 
+
 }
 
+$meldung = "Wenn Sie bei uns einen Account registriert haben, bekommen Sie in wenigen Minuten eine Email an die angegebene Adresse: $email";
 
-echo "Wenn Sie einen Account registriert haben bei uns bekommen Sie in wenigen Minuten eine Email an die angegebene Adresse: $email";
+header("Location: index.php?notification=resetPassword&meldung=$meldung");
+
 
 
 

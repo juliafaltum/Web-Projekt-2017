@@ -1,4 +1,4 @@
-<?php include_once ("header.php");
+<?php include_once ("res.php");
 
 // Nutzer wird erstellt mit vorhandenen Daten aus Formular, Fehlermeldung bei fehlenden Angaben
 

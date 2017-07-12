@@ -1,5 +1,6 @@
-<?php include_once ("header.php");?>
 <?php include_once("session_check.php"); ?>
+<?php include_once ("header.php");?>
+
 
     <html>
     <head>
@@ -72,7 +73,7 @@ include_once("userdata.php");
                     </div>
 
                     <div class="row">
-                        <div class="col-md-4">
+                        <div class="personal-header col-md-4">
                             Name: <?=$zeile->fullname;?><br>
                             Geburtsdatum: <?=$Birthdate?><br><br>
                         </div>
@@ -83,7 +84,7 @@ include_once("userdata.php");
                             <br><br>
                         </div>
 
-                        <div class="col-md-4 text-right">
+                        <div class="personal-header col-md-4 text-right">
                             <?=followButtonAjaxNeu($_SESSION['userid'], $geholteuserID, 1);?>
                             <?php
 

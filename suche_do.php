@@ -1,7 +1,5 @@
-<?php include_once ("header.php");?>
-<?php
-include_once("session_check.php");
-?>
+<?php include_once("session_check.php");
+include_once ("header.php"); ?>
 
 <div class='col-md-6 center-element'>
     <?php

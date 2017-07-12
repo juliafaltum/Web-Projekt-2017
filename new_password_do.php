@@ -26,7 +26,7 @@ if (!empty($Kontrollepassword) && !empty($passwordResetKey)) {      // Wenn Nich
         $db = null;
 
 
-        echo "Password erfolgreich geändert!";
+        header("Location: index.php?notification=newPasswordSuccess");
 
         $keylöschen = 1;        // Siehe unten geht es weiter
 

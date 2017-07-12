@@ -15,7 +15,7 @@ if (!empty($fullname) && !empty($email)) {
             "UPDATE user SET fullname = :fullname, email = :email, Birthdate = :Birthdate WHERE userid = :userid");
         $query->execute (array("fullname" => $fullname, "email" => $email, "userid" => $userid, "Birthdate" => $Birthdate));
         $db = null;
-        header('Location: profil.php?notification=profileEdit'); //ToDo Wohin soll weitergeleitet werden
+        header('Location: profil.php?notification=profileEdit');
     } catch (PDOException $e) {
         echo "Error: Bitten wenden Sie sich an den Administrator!";
         die();

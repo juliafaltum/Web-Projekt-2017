@@ -106,13 +106,14 @@ $festgelegteUserID = $_SESSION['userid'];
         ?>
 
         <div class="row">
-            <div class="col-md-2">
+            <div class="col-md-12">
+            <div class="personal-header col-md-2">
 
                 <?php
                 $username = $_SESSION['username'];
                 $userID = $_SESSION['userid'];
                 $profilePicture = profilePicture($userID);
-                echo "<a href='profil.php?userid=$userID'><img src='$profilePicture' alt='Profilbild' height='150px' class='img-circle'></a>";
+                echo "<a href='profil.php?userid=$userID'><img src='$profilePicture' alt='Profilbild' height='140px' class='img-circle'></a>";
                 echo "<h3>Herzlich Willkommen $username!</h3>";
 
 
@@ -154,10 +155,12 @@ $festgelegteUserID = $_SESSION['userid'];
             </div>
 
         </div>
+            </div>
+
 
 
 <?php }?>
-
+    </div>
 <br>
 </body>
 </html>

@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Christian
- * Date: 27.06.2017
- * Time: 22:06
- */
 
 
 include_once("../userdata.php");
@@ -13,7 +7,7 @@ include_once("../session_check.php");
 $festgelegteUserID = $_SESSION['userid'];
 $GetParameterUserID = $_POST['followerID'];
 
-if ($festgelegteUserID != $GetParameterUserID) {       // überprüfen ob man selbst Autor des Tweets ist, wenn ja ab zur else unten
+if ($festgelegteUserID != $GetParameterUserID) {
 
     global $dsn, $dbuser, $dbpass;
     include("../userdata.php");
