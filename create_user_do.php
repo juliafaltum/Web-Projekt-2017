@@ -8,8 +8,8 @@ $userid = $_SESSION ['userid'];
 $username = htmlspecialchars($_POST["username"], ENT_QUOTES, "UTF-8");
 $fullname = htmlspecialchars($_POST["fullname"], ENT_QUOTES, "UTF-8");
 $email = htmlspecialchars($_POST["email"], ENT_QUOTES, "UTF-8");
-$Birthdate =$_POST['datepicker1'];
-$gender = htmlspecialchars($_POST["gender"], ENT_QUOTES, "UFT-8");
+$Birthdate = date("Y-m-d", strtotime($_POST["birthdate"]));         // Quelle: https://stackoverflow.com/questions/20132834/take-date-from-html5-form-and-post-to-mysql
+$gender = $_POST["gender"];
 
 $NOHASHpassword = htmlspecialchars($_POST["password"], ENT_QUOTES, "UTF-8");
 $password = password_hash($NOHASHpassword, PASSWORD_DEFAULT);

@@ -66,7 +66,7 @@ $festgelegteUserID = $_SESSION['userid'];
                 <div class="input-group">
                     <span class= "input-group-addon" id="basic-addon1">Geburtsdatum:</span>
                     <div class='input-group date' id='datepicker1'  class="form-control">
-                        <input type='text' class="form-control"/>
+                        <input type='text' class="form-control" name="birthdate"/>
                         <span class="input-group-addon">
                         <span class="fa fa-calendar"></span>
                     </div>
