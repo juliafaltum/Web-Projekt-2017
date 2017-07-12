@@ -8,7 +8,7 @@
 </head>
 <body>
 <div class="col-md-3 left-element"></div>
-<div class="col-md-6 center-element">
+<div class="col-md-12 center-element">
     <h1>Neuer Benutzer</h1>
     <br>
     <form action="create_user_do.php" method="post" enctype="multipart/form-data">

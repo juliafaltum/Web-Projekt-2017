@@ -16,6 +16,11 @@ include_once("userdata.php");
 
     $geholteuserID = $_GET['userid'];
 
+    if (empty($geholteuserID = $_GET['userid'])) {
+
+        $geholteuserID = $_SESSION['userid'];
+    }
+
     try {
         global $dsn, $dbuser, $dbpass;
         $db = new PDO($dsn, $dbuser, $dbpass);
@@ -30,21 +35,32 @@ include_once("userdata.php");
 
         while ($zeile = $query->fetchObject()) {
 
+        $Birthdate = date("d-m-Y", strtotime($zeile->Birthdate));       // Konvertiere in Europäisches Zeitformat
+
             if (!$i) { ?>
                 <div class="container">
-                <div class="row equalheight">
-                <div class="col-md-3 equal">
+                <div class="row">
+                <div class="col-md-3">
 
                     <?php
                     echo "<br>";
                     echo "<br>";
-                    echo "<img src='$profilePictureURL' alt='Profilbild' class='img-responsive' width='700px' height='700px'>";
+                    echo "<img src='$profilePictureURL' alt='Profilbild' class='img-responsive'>";
                     echo "<br>";
+
+
+                    if ($geholteuserID == $_SESSION['userid']) {
+?>
+                        <!-- Modal für Profilbild öffnen -->
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#uploadPicture">Bild hochladen <i class="fa fa-upload"></i></button><br><br>
+                    <a href="profil_edit.php"><button type="button" class="btn btn-success">Profil bearbeiten <i class="fa fa-edit"></i> </button></a>
+
+                    <?php
+                    }
 
                     ?>
 
-                    <!-- Trigger the modal with a button -->
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Bild hochladen</button>
+
 
                 </div>
                 <div class="col-md-8 equal">
@@ -55,49 +71,58 @@ include_once("userdata.php");
                         ?>
                     </div>
 
-                    <?php
-                    followButtonAjaxNeu($_SESSION['userid'], $geholteuserID, 1);
-                    echo "<br>";
-                    echo "<a href=\"followinglist.php?userid=$zeile->userid'\">Abonnements anzeigen</a>";
-                    echo " <br>";
-                    echo "<a href=\"followerlist.php?userid=$zeile->userid'\">Abonnenten anzeigen</a>";
-                    echo " <br>";
-                    echo " <br>";
+                    <div class="row">
+                        <div class="col-md-4">
+                            Name: <?=$zeile->fullname;?><br>
+                            Geburtsdatum: <?=$Birthdate?><br>
+                        </div>
+                        <div class="col-md-4 text-center">
+                            <a href='followinglist.php?userid=<?=$zeile->userid?>'>Abonnements anzeigen</a> <span class='badge'><?=countAbonements($geholteuserID);?></span>
+                            <br>
+                            <a href='followerlist.php?userid=<?=$zeile->userid?>'>Abonnenten anzeigen</a> <span class='badge'><?=countFollower($geholteuserID)?></span>
+                        </div>
 
+                        <div class="col-md-4 text-right">
+                            <?=followButtonAjaxNeu($_SESSION['userid'], $geholteuserID, 1);?>
+                        </div>
+                    <br>
+                    <br>
+                    <br>
 
-                    if ($_SESSION['userid'] == $zeile->userID and !$i) {
-                        echo "<a href=\"profil_edit.php\">Profil bearbeiten</a><br><br>";
-                    }
+                        <?php
+
                     $i = true;
 
                      showContentProfile($geholteuserID);
 
                             ?>
-
+                    </div>
                     <!-- Modal, function for the button "upload picture "-->
-                    <div id="myModal" class="modal fade" role="dialog">
+                    <div id="uploadPicture" class="modal fade" role="dialog">
                         <div class="modal-dialog">
 
                             <!-- Modal content-->
                             <div class="modal-content">
-                                <div class="modal-header"></div>
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                <div class="modal-header">Neues Profilbild hochladen!</div>
+
                                 <div class="modal-body">
                                     <p><form action="profilbild_upload_do.php" method="post" enctype="multipart/form-data">
                                         Bild auswählen:
                                         <input type="file" name="fileToUpload" id="fileToUpload">
-                                        <input type="submit" value="Bild hochladen" name="submit">
+
                                     </p>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-success" value="Bild hochladen" name="submit">Bild hochladen</button>
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Schließen</button>
                                 </div>
                             </div>
 
 
 
                         </div>
-                    <div class="col-md-1 equal"></div>
-                </div>
+                     </div>
                 </div>
 
 

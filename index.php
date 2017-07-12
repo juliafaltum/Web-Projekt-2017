@@ -1,5 +1,17 @@
-<?php include_once ("header.php");?>
+<?php include_once ("header.php");
+
+$festgelegteUserID = $_SESSION['userid'];
+
+?>
+
+<!-- datepicker für die geburtsdatum alte library version, sonst wird die gesamte design verändert-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.1/js/bootstrap-datepicker.js"></script>
+<!-- Quelle : https://cdnjs.com/libraries/bootstrap-datepicker -->
+
+
+
 <script src="js/passwordcheck.js" data-no-instant></script> <!-- Passwort überprüfen mit Javascript, dazu braucht man das oben eingebundene JQuery-->
+
 
 
 <!DOCTYPE html>
@@ -8,7 +20,6 @@
     <meta charset="utf-8">
 </head>
 <body>
-
 
 
 <div class="container">
@@ -20,8 +31,7 @@
         if(!isset($_SESSION['userid'])) {
             ?>
 
-        <div class="col-md-1 left-element"></div>
-        <div class="col-md-10 center-element">
+        <div class="col-md-12 center-element">
 
             <div class="col-md-6 left-element">
                 <br>
@@ -34,7 +44,7 @@
             <div class="col-md-6 right-element">
             <h2>Jetzt registrieren!</h2>
             <br>
-            <form action="create_user_do.php" method="post" enctype="multipart/form-data">
+            <form id="register" action="create_user_do.php" method="post" enctype="multipart/form-data">
                 <div class="input-group">
                     <span class="input-group-addon" id="basic-addon1">Benutzername:</span><input type="text" class="form-control" placeholder="Benutzername" name="username" aria-describedby="basic-addon1">
                 </div>
@@ -44,12 +54,27 @@
                 </div>
                 <br>
                 <div class="input-group">
-                    <span for="sel1" class= "input-group-addon" id="basic-addon1">Geschlecht:</span>
-                    <select class="form-control" id="sel1"
-                    <option>Männlich</option>
-                    <option>Weiblich</option><option>Männlich</option><option>sonstiges</option>
+                    <span class= "input-group-addon" id="basic-addon1" >Geschlecht:</span>
+                    <select form="register" class="form-control" id="sel1" name="gender"<br>
+                    <option value="1">Männlich</option>
+                    <option value="2">Weiblich</option>
+                    <option value="3">sonstiges</option>
                     </select>
                 </div>
+                <br>
+                <div class="input-group">
+                    <span class= "input-group-addon" id="basic-addon1">Geburtsdatum:</span>
+                    <div class='input-group date' id='datepicker1'  class="form-control">
+                        <input type='text' class="form-control" name="birthdate"/>
+                        <span class="input-group-addon">
+                        <span class="fa fa-calendar"></span>
+                    </div>
+                </div>
+                <script type="text/javascript">
+                            $(function () {
+                                $('#datepicker1').datepicker();
+                            });
+                        </script>
                 <br>
                 <div class="input-group">
                     <span class="input-group-addon" id="basic-addon1">E-Mail:</span><input type="text" class="form-control" placeholder="E-Mail" name="email" aria-describedby="basic-addon1">
@@ -74,51 +99,68 @@
                 <br>
             </div>
 
-
-        </div>
+    </div>
             <?php
         }
+        else {
         ?>
-        <div class="col-md-12">
-        <div class="col-md-2">
 
-            <?php
+        <div class="row">
+            <div class="col-md-2">
+                <h1>Persönliche Startseite</h1>
 
-            session_start();
-            if(!isset($_SESSION['userid'])) {
-
-            }  // Ausloggen nur anzeigen wenn Nutzer eingeloggt ist, Einloggen und Registrieren nur wenn Nutzer ausgeloggt
-
-            else {
+                <?php
                 $username = $_SESSION['username'];
-                echo "<h1>Hallo $username</h1>";
-                echo "<br>";
+                $userID = $_SESSION['userid'];
+                $profilePicture = profilePicture($userID);
+                echo "<a href='profil.php?userid=$userID'><img src='$profilePicture' alt='Profilbild' height='130px' class='img-circle'></a>";
+                echo "<h3>Willkommen zurück $username!</h3>";
 
 
+                echo "<a href='profil.php?userid=$userID'<button class=\"btn btn-success\" type=\"button\"/>Mein Profil</button></a><div class=\"spacer\"></div>";
                 echo "<input class=\"btn btn-primary\" id=\"tweetVerfassenButton\"  type=\"button\" value=\"Neue Welle verfassen\"/><div class=\"spacer\"></div>"; // Button und einblenden von Neuen Tweet verfassen
                 echo "<a href='photoGallery.php'<button class=\"btn btn-info\" type=\"button\"/>Zur privaten Fotogalerie</button></a><div class=\"spacer\"></div>";
-            }
 
 
-            // Anzeigen von allen vorhandenen Tweets aus der Datenbank
 
-            ?>
+                // Anzeigen von allen vorhandenen Tweets aus der Datenbank
+
+                ?>
+            </div>
+
+            <div class="col-md-7 center-element">
+                <div class="well-own" id="tweetformular" style="display: none;"><?php include_once ('create_form.php');?></div>
+
+                <?php
+
+                $db = new PDO($dsn, $dbuser, $dbpass);
+                $sql = "SELECT * FROM followerlist INNER JOIN user ON followerlist.follower=user.userid WHERE followerlist.user = :festgelegteUserID";       // UserID = 19 zeigt alles von Nutzer 19 an
+                $query = $db->prepare($sql);
+                $query->bindParam(':festgelegteUserID', $festgelegteUserID);
+                $query->execute();
+
+                while ($zeile = $query->fetchObject()) {
+                    showContentFollower($zeile->userid);
+                    $folgtPersonen = 1;
+
+                }
+
+                if (empty($folgtPersonen)) {
+
+                    echo "<h2>Du folgst noch keiner Person! <br><br> Entdecke <a href='discover.php'>hier die neusten Wellen!</a>";
+
+                }
+
+                ?>
+
+
+
+            </div>
+
         </div>
 
-        <div class="col-md-8 center-element">
-            <div class="well-own" id="tweetformular" style="display: none;"><?php include_once ('create_form.php');?></div>
 
-<?=showContentAll();?>
-
-
-
-        </div>
-
-    </div>
-        <div class="col-md-1 right-element"></div>
-
-</div>
-</div>
+<?php }?>
 
 <br>
 </body>

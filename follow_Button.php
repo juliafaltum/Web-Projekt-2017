@@ -22,7 +22,7 @@ $folgt = 1;
 }
 
 if ($folgt == 1) {
-echo "<div id='unfollowbutton$contentID'><a href='#'><img height='50px' src='img/unfollowbutton.jpg'></a></div>";
+echo "<div id='unfollowbutton$contentID'><a href='#'><img height='50px' src='img/unfollow_Button.png'></a></div>";
     ?>
 
 <script type="text/javascript">
@@ -36,7 +36,7 @@ echo "<div id='unfollowbutton$contentID'><a href='#'><img height='50px' src='img
 
 } else {
 
-    echo "<div id='followbutton$contentID'><a href='#'><img height='50px' src='img/followbutton.jpg'></a></div>";
+    echo "<div id='followbutton$contentID'><a href='#'><img height='50px' src='img/follow_Button.png'></a></div>";
     ?>
 
     <script type="text/javascript">

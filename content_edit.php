@@ -1,7 +1,4 @@
 <?php include_once ("header.php");?>
-<?php
-include_once("session_check.php");
-?>
 
 <!DOCTYPE html> <!-- das ist HTML 5 -->
 <html>
@@ -11,35 +8,45 @@ include_once("session_check.php");
 <body>
 
 <?php
+
+$contentID = $_GET["contentID"];
+
 try {
     include_once("userdata.php");
-    $contentID = (int)$_GET["contentID"];
     $db = new PDO($dsn, $dbuser, $dbpass);
     $sql = "SELECT * FROM content_txt WHERE contentID=$contentID";
     $query = $db->prepare($sql);
     $query->execute();
-    if (($zeile = $query->fetchObject()) && ($_SESSION['userid']==$zeile->userID)) { // Abgleichen der UserID mit der Session --> Kann nur von jeweiliger Person verändert werden
-        echo "<div class='col-md-3 left-element'></div>";
-        echo "<div class='col-md-6 center-element'>";
-        echo "<form action='content_edit_do.php' method='post'>";
-        echo "<input type='hidden' name='contentID' value='$zeile->contentID' />";
-        echo "<label for='input3'>Text der Welle:</label>";
-        echo "<textarea id='input3' class='form-control' name='contentTXT' size='80' maxlength='500' rows='3' aria-describedby='basic-addon1'>";
-        echo "$zeile->contentTXT";
-        echo "</textarea><br>";
-        echo "<label for='wellebild'>Bild:</label><br>";
-        echo "<input type='text' name='contentPicture' value='$zeile->contentPicture' style='width: 300px' /><br>";
-        echo "<input id='wellebild' type='file' name='fileToUpload' id='fileToUpload' value='$zeile->contentPicture'>";
-        echo "<br>";
-        echo "<label for='wellequelle'>Quelle:</label><br>";
-        echo "<input style='width: 300px' id='wellequelle' type='text' name='contentSource' value='$zeile->contentSource'/><br><br>";
-        echo "<div style=\"text-align: right\"><input class='btn btn-primary' type='submit' value='Welle bearbeiten'></div>";
-        echo "</form>";
-        echo "</div>";
+    if (($zeile = $query->fetchObject()) && ($_SESSION['userid']==$zeile->userID)) {
+        ?>
+<div class='col-md-6 center-element'>
+        <form action="content_edit_do.php" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="contentID" value="<?=$zeile->contentID;?>" />
+        <div class="form-group">
+            <label for="input3">Text der Welle:</label>
+            <textarea  id="input3"  class="form-control" name="contentTXT" size="80" maxlength="500" rows="3" aria-describedby="basic-addon1"><?=$zeile->contentTXT;?></textarea>
+        </div>
+            <?php if ($zeile->contentPicture != '0') {
+                echo "Aktuelles Bild: <br><img height ='200px' src ='$zeile->contentPicture'><br>";
+                }?>
+
+
+
+            <label for="wellebild">Neues Bild:</label>
+            <input type="hidden" name="fileToUploadwennLeer" value="<?=$zeile->contentPicture;?>" />
+            <input type="file" name="fileToUpload" id="fileToUpload">
+            <br>
+            <label for="wellequelle">Quelle:</label><br>
+            <input value="<?=$zeile->contentSource;?>" style="width: 300px" id="wellequelle" type="text" name="contentSource" /><br><br>
+
+            <div style="text-align: right"><a href="index.php" class="btn btn-danger">Abbrechen</a>&emsp;<input class="btn btn-primary" type="submit" value="Absenden" /></div>
+        </form>
+</div>
+<?php
+
     } else {
         echo "Datensatz nicht gefunden oder du bist nicht der Autor!";
     }
-    echo "<div class='col-md-3 right-element'></div>";
     $db = null;
 } catch (PDOException $e) {
     echo "Error!: Bitten wenden Sie sich an den Administrator...";

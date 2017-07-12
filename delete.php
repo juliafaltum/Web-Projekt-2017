@@ -22,6 +22,7 @@ try {
     $db->prepare($sql)->execute();
     $db = null;
 
+    header('Location: profil.php?notification=tweetDeleted');
 
 
 } catch (PDOException $e) {
@@ -29,4 +30,3 @@ try {
     die();
 }
 
-header('Location: index.php');

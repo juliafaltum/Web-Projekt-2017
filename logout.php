@@ -18,5 +18,5 @@ if (ini_get("session.use_cookies")) { // siehe PHP Manual http://php.net/manual/
 
 
 session_destroy();
-header('Location: index.php');
+header('Location: index.php?notification=successLogout');
 ?>

@@ -7,7 +7,7 @@
 <body>
 <h1>Neue Welle</h1>
 
-<form action="create_do.php" method="post" enctype="multipart/form-data">
+<form action="create_form_do.php" method="post" enctype="multipart/form-data">
 <div class="form-group">
     <label for="input3">Text der Welle:</label>
     <textarea id="input3" class="form-control" name="contentTXT" size="80" maxlength="500" rows="3" aria-describedby="basic-addon1"></textarea>

@@ -1,12 +1,22 @@
-<?php include_once ("header.php");?>
-<?php include_once("session_check.php"); ?>
+<?php include_once ("header.php");
+include_once("session_check.php"); ?>
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-5 center-element text-center">
+            <h1>Höchsten Wellen</h1><br>
+        </div>
+
+
+    </div>
+
+    <div class="row">
+
+
+        <div class="col-md-8 center-element">
 
 <?php
-
-echo "<div class='col-md-3 left-element'></div>";
-echo "<div class='col-md-6 center-element'>";
-
-    echo "Die Wellen mit den besten Bewertungen";
 
 try {
     global $dsn, $dbuser, $dbpass;
@@ -31,11 +41,16 @@ try {
     echo "Error!: Bitte wenden Sie sich an den Administrator!..." . $e;
     die();
 }
-         // Zeigt die am besten bewertetsten Tweets aus der DB
+
+
+?>
 
 
 
 
+        </div>
 
-echo "</div>";
-echo "<div class='col-md-3 right-element'></div>";
+    </div>
+
+
+</div>

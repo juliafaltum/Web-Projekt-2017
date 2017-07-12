@@ -25,12 +25,19 @@ function showContentProfile ($userid)
 
             ?>
 
-            <div class="well-own col-md-12">
+
+                <div class="well-own col-md-12">
                 <div class="row">
-                    <div class="col-md-5 col-xs-5">
+                    <div class="col-md-3 col-sm-3 col-xs-4">
+
+                        <a data-toggle='tooltip' title='Profil von <?=$username?> aufrufen' data-placement='top' href="profil.php?userid=<?=$userID?>"><img src="<?=profilePicture($userID);?>" class="img-responsive img-circle"></a>
+
+                        <h4>Welle von <a href='profil.php?userid=<?=$userID?>'><?=$username?></a></h4>
 
                     </div>
-                    <div class="col-md-7 text-right">
+                    <div class="col-md-9 text-right">
+                        <?php followButtonAjaxNeu($_SESSION['userid'], $followerID, $contentID);?>
+                        <div class="spacer"></div>
                         <h5><?=$contentDate?></h5>
                         <div class="spacer"></div>
                         <?php echo voteButton($zeile->contentID); ?>
@@ -43,7 +50,10 @@ function showContentProfile ($userid)
                     </div>
 
                 </div>
-                <hr>
+
+
+
+                    <hr>
                 <div class="row">
                     <div class="col-md-12">
 
@@ -57,16 +67,18 @@ function showContentProfile ($userid)
 
                 <?php if ($contentPicture != '0') { ?>
 
-
+                    <br>
                     <div class="row col-md-8 center-element">
 
 
-                        <img src="<?=$contentPicture?>" class="img-responsive"><br>
+                        <a href="<?=$contentPicture?>" data-toggle="lightbox"  data-width="200">
+                            <img src="<?=$contentPicture?>" class="img-thumbnail"><br>
 
 
                     </div>
 
                 <?php } ?>
+                    <hr>
                 <div class="col-md-12 left-element">
 
                     <?php
@@ -127,7 +139,7 @@ function showContentAll ()
                 <div class="row">
                     <div class="col-md-3 col-sm-3 col-xs-4">
 
-                        <a data-toggle='tooltip' title='Profil von <?=$username?> aufrufen' data-placement='top' href="profil.php?userid=<?=$userID?>"><img src="<?=$profilePicture?>" class="img-responsive img-circle"></a>
+                        <a data-toggle='tooltip' title='Profil von <?=$username?> aufrufen' data-placement='top' href="profil.php?userid=<?=$userID?>"><img src="<?=profilePicture($userID);?>" class="img-responsive img-circle"></a>
 
                         <h4>Welle von <a href='profil.php?userid=<?=$userID?>'><?=$username?></a></h4>
 
@@ -161,17 +173,17 @@ function showContentAll ()
 
                 <?php if ($contentPicture != '0') { ?>
 
-
+                    <br>
                 <div class="row col-md-8 center-element">
 
-
-                    <img src="<?=$contentPicture?>" class="img-responsive"><br>
-
-
+                    <a href="<?=$contentPicture?>" data-toggle="lightbox"  data-width="200">
+                    <img src="<?=$contentPicture?>" class="img-thumbnail"><br>
+                    </a>
                 </div>
 
                 <?php } ?>
 
+                <hr>
                 <div class="col-md-12 left-element">
 
 
@@ -232,7 +244,7 @@ function showContentSpecific ($festgelegteContentID)
                 <div class="row">
                     <div class="col-md-3 col-sm-3 col-xs-4">
 
-                        <a data-toggle='tooltip' title='Profil von <?=$username?> aufrufen' data-placement='top' href="profil.php?userid=<?=$userID?>"><img src="<?=$profilePicture?>" class="img-responsive img-circle"></a>
+                        <a data-toggle='tooltip' title='Profil von <?=$username?> aufrufen' data-placement='top' href="profil.php?userid=<?=$userID?>"><img src="<?=profilePicture($userID);?>" class="img-responsive img-circle"></a>
 
                         <h4>Welle von <a href='profil.php?userid=<?=$userID?>'><?=$username?></a></h4>
 
@@ -266,17 +278,18 @@ function showContentSpecific ($festgelegteContentID)
 
                 <?php if ($contentPicture != '0') { ?>
 
-
+                    <br>
                     <div class="row col-md-8 center-element">
 
 
-                        <img src="<?=$contentPicture?>" class="img-responsive"><br>
+                        <a href="<?=$contentPicture?>" data-toggle="lightbox"  data-width="200">
+                            <img src="<?=$contentPicture?>" class="img-thumbnail"><br>
 
 
                     </div>
 
                 <?php } ?>
-
+                <hr>
                 <div class="col-md-12 left-element">
 
 
@@ -337,7 +350,7 @@ function showContentFollower ($festgelegteUserID)
                 <div class="row">
                     <div class="col-md-3 col-sm-3 col-xs-4">
 
-                        <a data-toggle='tooltip' title='Profil von <?=$username?> aufrufen' data-placement='top' href="profil.php?userid=<?=$userID?>"><img class="img-responsive img-circle" src="<?=$profilePicture?>"></a>
+                        <a data-toggle='tooltip' title='Profil von <?=$username?> aufrufen' data-placement='top' href="profil.php?userid=<?=$userID?>"><img class="img-responsive img-circle" src="<?=profilePicture($userID);?>"></a>
 
                         <h4>Welle von <a href='profil.php?userid=<?=$userID?>'><?=$username?></a></h4>
 
@@ -369,13 +382,18 @@ function showContentFollower ($festgelegteUserID)
 
                 </div>
 
-                <div class="row col-md-8 center-element">
+                <?php if ($contentPicture != '0') { ?>
 
+                    <br>
+                    <div class="row col-md-8 center-element">
 
-                    <img src="<?=$contentPicture?>" class="img-responsive"><br>
+                        <a href="<?=$contentPicture?>" data-toggle="lightbox"  data-width="200">
+                            <img src="<?=$contentPicture?>" class="img-thumbnail"><br>
+                        </a>
+                    </div>
 
-
-                </div>
+                <?php } ?>
+                <hr>
                 <div class="col-md-12 left-element">
 
                     <?php
@@ -500,11 +518,11 @@ function followButtonAjaxNeu ($user, $follower, $contentID) {       // Follow-Bu
         }
 
         if ($folgt == 1) {
-            echo "<div class='Folgenbutton$follower'><a data-toggle='tooltip' title='Entfolgen' data-placement='bottom' href='#!Folgen$follower' onclick='entfolgenJS($user, $follower, $contentID)'><img height='50px' src='img/unfollowbutton.jpg'></a></div>";
+            echo "<div class='Folgenbutton$follower'><a data-toggle='tooltip' title='Entfolgen' data-placement='bottom' href='#!Folgen$follower' onclick='entfolgenJS($user, $follower, $contentID)'><img height='46px' src='img/unfollow_Button.png'></a></div>";
 
 
         } else {
-            echo "<div class='Folgenbutton$follower'><a data-toggle='tooltip' title='Folgen' data-placement='bottom' href='#!Entfolgen$follower' onclick='folgenJS($user, $follower, $contentID)'><img height='50px' src='img/followbutton.jpg'></a></div>";
+            echo "<div class='Folgenbutton$follower'><a data-toggle='tooltip' title='Folgen' data-placement='bottom' href='#!Entfolgen$follower' onclick='folgenJS($user, $follower, $contentID)'><img height='46px' src='img/follow_Button.png'></a></div>";
         }
 
     }
@@ -544,7 +562,6 @@ function profilePicture ($userid)
     }
 }           // Für Profilseite, generiert ProfilbildURL
 
-
 function deleteTweetPicturefromServer ($contentID)
 {
 
@@ -577,10 +594,57 @@ function deleteTweetPicturefromServer ($contentID)
         echo "Error!: Bitte wenden Sie sich an den Administrator!..." . $e;
         die();
     }
-}// Tweet-Bild löschen wenn
-
+}// Tweet-Bild löschen wenn Tweet gelöscht wird
 
 function showTooltipp($tooltipText){
     echo "data-toggle='tooltip' title='$tooltipText' data-placement='bottom'";
 
 }
+
+function countFollower ($userID) {
+
+    try {
+        global $dsn, $dbuser, $dbpass;
+        $db = new PDO($dsn, $dbuser, $dbpass);
+        $sql = "SELECT COUNT(user) AS follower FROM followerlist WHERE follower = :userID";
+        $query = $db->prepare($sql);
+        $query->bindParam(':userID', $userID);
+        $query->execute();
+
+        if ($zeile = $query->fetchObject()) {
+            $followerAnzahl = $zeile->follower;
+
+            return $followerAnzahl;
+        }
+    }
+
+    catch (PDOException $e) {
+        echo "Error!: Bitte wenden Sie sich an den Administrator!...".$e;
+        die();
+    }
+
+}           // Gibt die Summe der Follower eines Nutzers aus
+
+function countAbonements ($userID) {
+
+    try {
+        global $dsn, $dbuser, $dbpass;
+        $db = new PDO($dsn, $dbuser, $dbpass);
+        $sql = "SELECT COUNT(follower) AS abos FROM followerlist WHERE user = :userID";
+        $query = $db->prepare($sql);
+        $query->bindParam(':userID', $userID);
+        $query->execute();
+
+        if ($zeile = $query->fetchObject()) {
+            $aboAnzahl = $zeile->abos;
+
+            return $aboAnzahl;
+        }
+    }
+
+    catch (PDOException $e) {
+        echo "Error!: Bitte wenden Sie sich an den Administrator!...".$e;
+        die();
+    }
+
+}           // Gibt die Summe der Abbonements eines Nutzers aus

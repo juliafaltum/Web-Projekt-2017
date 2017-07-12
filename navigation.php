@@ -13,7 +13,7 @@ include_once('header.php');
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="personal_start.php">
+            <a class="navbar-brand" href="index.php">
                 <img data-toggle="tooltip" title="Persönliche Startseite" data-placement="bottom" src="img/Logo_navbar.png" alt="ola" >
             </a>
         </div>
@@ -21,7 +21,7 @@ include_once('header.php');
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li><a href="index.php" data-toggle="tooltip" title="Alle Wellen ansehen" data-placement="bottom" >Entdecken</a></li>
+                <li><a href="discover.php" data-toggle="tooltip" title="Alle Wellen ansehen" data-placement="bottom" >Entdecken</a></li>
                 <li><a data-toggle="tooltip" title="Besten Wellen ansehen" data-placement="bottom" href="hoechstewellen.php">Höchste Wellen</a></li>
             </ul>
             <form method= "post" action="suche_do.php" class="navbar-form navbar-left hidden-sm-down">
@@ -69,7 +69,75 @@ if(!isset($_SESSION['userid'])) {
             </div>
 <?php                             }
 ?>
-        </div><!-- /.navbar-collapse -->
+        </div>
 
-    </div><!-- /.container-fluid -->
+    </div>
 </nav>
+
+
+
+    <?php if(isset($_GET['notification'])) {
+
+    echo "<div class=\"col-md-4 center-element\">";
+    $notificationType = $_GET['notification'];
+
+
+    switch ($notificationType) {
+
+        case 'profileEdit':
+
+            ?>
+            <div class="alert alert-success alert-dismissable fade in">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Erfolg!</strong> Deine Profildaten wurden editiert!
+            </div>
+            <?php
+            break;
+
+        case 'successLogout':
+
+            ?>
+            <div class="alert alert-success alert-dismissable fade in">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <strong>Erfolg!</strong> Du hast dich ausgeloggt!
+            </div>
+            <?php
+            break;
+
+        case 'profilePictureUpdate':
+
+            ?>
+            <div class="alert alert-success alert-dismissable fade in">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <strong>Erfolg!</strong> Du hast dein Profilbild aktualisiert!
+            </div>
+            <?php
+            break;
+
+        case 'tweetEdited':
+
+            ?>
+            <div class="alert alert-success alert-dismissable fade in">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <strong>Erfolg!</strong> Du hast den Tweet aktualisiert!
+            </div>
+            <?php
+            break;
+
+        case 'tweetDeleted':
+
+            ?>
+            <div class="alert alert-success alert-dismissable fade in">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <strong>Erfolg!</strong> Dein Tweet wurde gelöscht!
+            </div>
+            <?php
+            break;
+
+    }
+
+    echo "</div>";
+}
+
+
+
