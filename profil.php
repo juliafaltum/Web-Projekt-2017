@@ -64,7 +64,7 @@ include_once("userdata.php");
 
                 </div>
                 <div class="col-md-8 equal">
-
+                    <div class="well-own" id="tweetformular" style="display: none;"><?php include_once ('create_form.php');?></div>
                     <div class="page-header">
                         <?php
                         echo "<div class=\"panel-title\"><h2>Profilseite von $zeile->username</h2></div>";
@@ -94,6 +94,7 @@ include_once("userdata.php");
                                 ?>
                             <br><br>
                         </div>
+
                     <br>
                     <br>
                     <br>
