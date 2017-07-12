@@ -5,7 +5,7 @@ include_once("session_check.php"); ?>
 
     <div class="row">
         <div class="col-md-5 center-element text-center">
-            <h1>Höchsten Wellen</h1><br>
+            <h2>Höchsten Wellen</h2><br>
         </div>
 
 

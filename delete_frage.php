@@ -8,13 +8,13 @@
 </head>
 
 <body>
+<div class='col-md-6 center-element'>
 <?php
 
-
 $contentID = (int)$_GET["contentID"];
-echo "Willst du deinen Tweet mit der ID: $contentID wirklich löschen?<br>";
-echo "<a href='delete.php?contentID=$contentID'>Ja</a><br>";
-echo "<a href='index.php'>Nein</a>";
+echo "<h3>Willst du deinen Tweet wirklich löschen?</h3><br><br>";
+
+echo "<div style='text-align: left'><a href='delete.php?contentID=$contentID' class='btn btn-danger'>Löschen</a>&emsp;<a href='content_show.php?contentID=$contentID' class='btn btn-primary' type='submit'>Abbrechen</a></div>";
 ?>
 
 </body>

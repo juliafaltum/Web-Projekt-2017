@@ -53,9 +53,7 @@ include_once("userdata.php");
 ?>
                         <!-- Modal für Profilbild öffnen -->
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#uploadPicture">Bild hochladen <i class="fa fa-upload"></i></button><br><br>
-                        <input class="btn btn-primary" id="tweetVerfassenButton"  type="button" value="Neue Welle verfassen"/><div class="spacer"></div>
                     <a href="profil_edit.php"><button type="button" class="btn btn-success">Profil bearbeiten <i class="fa fa-edit"></i> </button></a>
-
 
                     <?php
                     }
@@ -76,16 +74,25 @@ include_once("userdata.php");
                     <div class="row">
                         <div class="col-md-4">
                             Name: <?=$zeile->fullname;?><br>
-                            Geburtsdatum: <?=$Birthdate?><br>
+                            Geburtsdatum: <?=$Birthdate?><br><br>
                         </div>
                         <div class="col-md-4 text-center">
                             <a href='followinglist.php?userid=<?=$zeile->userid?>'>Abonnements anzeigen</a> <span class='badge'><?=countAbonements($geholteuserID);?></span>
                             <br>
                             <a href='followerlist.php?userid=<?=$zeile->userid?>'>Abonnenten anzeigen</a> <span class='badge'><?=countFollower($geholteuserID)?></span>
+                            <br><br>
                         </div>
 
                         <div class="col-md-4 text-right">
                             <?=followButtonAjaxNeu($_SESSION['userid'], $geholteuserID, 1);?>
+                            <?php
+
+                            if($_SESSION['userid'] == $geholteuserID) {
+
+                                echo "<input class='btn btn-primary' id = 'tweetVerfassenButton'  type = 'button' value = 'Neue Welle verfassen' /><br><br>";
+                                }
+                                ?>
+                            <br><br>
                         </div>
                     <br>
                     <br>

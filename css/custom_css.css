@@ -98,6 +98,13 @@ body {
     color: lightgrey;
 }
 
+.dropdown-menu > .active > a,
+.dropdown-menu > .active > a:hover,
+.dropdown-menu > .active > a:focus {
+    color: #262626;
+    background-color: white;
+}
+
 .fa-user {
     margin-right: 8px;
 }
@@ -158,5 +165,3 @@ body {
         color: lightgrey;
     }
 }
-
-

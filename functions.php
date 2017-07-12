@@ -89,7 +89,7 @@ function showContentProfile ($userid)
                     ?>
                     <div class="col-md-8 right-element">
                         <?php
-                    echo "<a style='text-align: right' href='show.php?contentID=$zeile->contentID'><i class='fa fa-eye'></i> Anzeigen</a>";
+                    echo "<a style='text-align: right' href='content_show.php?contentID=$zeile->contentID'><i class='fa fa-eye'></i> Anzeigen</a>";
 
 
                     if ($_SESSION['userid'] == $zeile->userID) {
@@ -195,7 +195,7 @@ function showContentAll ()
                     ?>
                     <div class="col-md-8 right-element">
                         <?php
-                    echo "<a href='show.php?contentID=$zeile->contentID'><i class='fa fa-eye'></i> Anzeigen</a>";
+                    echo "<a href='content_show.php?contentID=$zeile->contentID'><i class='fa fa-eye'></i> Anzeigen</a>";
 
                     if ($_SESSION['userid'] == $zeile->userID) {
                         echo "<a class='strich'>|</a> <a href='content_edit.php?contentID=$zeile->contentID'><i class='fa fa-edit'></i> Bearbeiten</a>";
@@ -301,7 +301,9 @@ function showContentSpecific ($festgelegteContentID)
                     ?>
                     <div class="col-md-8 right-element">
                         <?php
-                        echo "<a href='show.php?contentID=$zeile->contentID'><i class='fa fa-eye'></i> Anzeigen</a>";
+                        if (empty($hideAnzeigen)) {
+                            echo "<a href='content_show.php?contentID=$zeile->contentID'><i class='fa fa-eye'></i> Anzeigen</a>";
+                        }
 
                         if ($_SESSION['userid'] == $zeile->userID) {
                             echo "<a class='strich'>|</a> <a href='content_edit.php?contentID=$zeile->contentID'><i class='fa fa-edit'></i> Bearbeiten</a>";
@@ -405,7 +407,7 @@ function showContentFollower ($festgelegteUserID)
                     ?>
                     <div class="col-md-8 right-element">
                         <?php
-                    echo "<a href='show.php?contentID=$zeile->contentID'><i class='fa fa-eye'></i> Anzeigen</a>";
+                    echo "<a href='content_show.php?contentID=$zeile->contentID'><i class='fa fa-eye'></i> Anzeigen</a>";
 
 
                     if ($_SESSION['userid'] == $zeile->userID) {

@@ -1,5 +1,6 @@
 <?php
 include_once('header.php');
+include_once('userdata.php');
 
 ?>
 
@@ -52,8 +53,13 @@ if(!isset($_SESSION['userid'])) {
             <div class="navbar-right" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li class="dropdown navbar-right">
-                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                           aria-expanded="false"><i class="fa fa-user" aria-hidden="true"></i> Profil<span class="caret"></span></a>
+
+                        <?php
+                        $userID = $_SESSION['userid'];
+                        $profilePicture = profilePicture($userID);
+                        echo "<a class='dropdown-toggle' data-toggle='dropdown' role='button' aria-haspopup='true'
+                           aria-expanded='false'><img src='$profilePicture' data-placement='bottom' alt='Profilbild' height='26px' width='26px' class='img-circle'>&ensp;Profil<span class='caret'></span></a>";
+                        ?>
                         <ul class="dropdown-menu">
                             <?php
                             $userid = $_SESSION['userid'];
@@ -89,7 +95,7 @@ if(!isset($_SESSION['userid'])) {
             ?>
             <div class="alert alert-success alert-dismissable fade in">
             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-            <strong>Erfolg!</strong> Deine Profildaten wurden editiert!
+            <strong>Deine Profildaten wurden erfolgreich editiert!</strong>
             </div>
             <?php
             break;
@@ -99,7 +105,7 @@ if(!isset($_SESSION['userid'])) {
             ?>
             <div class="alert alert-success alert-dismissable fade in">
                 <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                <strong>Erfolg!</strong> Du hast dich ausgeloggt!
+                <strong>Du hast dich erfolgreich ausgeloggt!</strong>
             </div>
             <?php
             break;
@@ -109,7 +115,7 @@ if(!isset($_SESSION['userid'])) {
             ?>
             <div class="alert alert-success alert-dismissable fade in">
                 <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                <strong>Erfolg!</strong> Du hast dein Profilbild aktualisiert!
+                <strong>Du hast dein Profilbild erfolgreich aktualisiert!</strong>
             </div>
             <?php
             break;
@@ -119,7 +125,7 @@ if(!isset($_SESSION['userid'])) {
             ?>
             <div class="alert alert-success alert-dismissable fade in">
                 <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                <strong>Erfolg!</strong> Du hast den Tweet aktualisiert!
+                <strong>Du hast den Tweet erfolgreich aktualisiert!</strong>
             </div>
             <?php
             break;
@@ -129,7 +135,7 @@ if(!isset($_SESSION['userid'])) {
             ?>
             <div class="alert alert-success alert-dismissable fade in">
                 <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                <strong>Erfolg!</strong> Dein Tweet wurde gelöscht!
+                <strong>Dein Tweet wurde erfolgreich gelöscht!</strong>
             </div>
             <?php
             break;

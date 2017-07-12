@@ -8,7 +8,7 @@ include_once("session_check.php"); ?>
 
     <div class="row">
         <div class="col-md-5 center-element text-center">
-        <h1>Alle Wellen der Community!</h1><br>
+        <h2>Alle Wellen der Community!</h2><br>
     </div>
 
 

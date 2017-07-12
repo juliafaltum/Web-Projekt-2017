@@ -85,7 +85,7 @@ $festgelegteUserID = $_SESSION['userid'];
                 </div>
                 <br>
                 <div class="input-group">
-                    <span class="input-group-addon" >Passwort wiederholen:</span><input id="txtConfirmPassword" type="password" class="form-control" placeholder="Passwort" onChange="checkPasswordMatch();" name="password2" aria-describedby="basic-addon1">
+                    <span class="input-group-addon">Passwort wiederholen:</span><input id="txtConfirmPassword" type="password" class="form-control" placeholder="Passwort" name="password2" onChange="checkPasswordMatch();" aria-describedby="basic-addon1">
                 </div>
                 <br>
                 <div class="input-group">
@@ -107,23 +107,19 @@ $festgelegteUserID = $_SESSION['userid'];
 
         <div class="row">
             <div class="col-md-2">
-                <h1>Persönliche Startseite</h1>
 
                 <?php
                 $username = $_SESSION['username'];
                 $userID = $_SESSION['userid'];
                 $profilePicture = profilePicture($userID);
-                echo "<a href='profil.php?userid=$userID'><img src='$profilePicture' alt='Profilbild' height='130px' class='img-circle'></a>";
-                echo "<h3>Willkommen zurück $username!</h3>";
+                echo "<a href='profil.php?userid=$userID'><img src='$profilePicture' alt='Profilbild' height='150px' class='img-circle'></a>";
+                echo "<h3>Herzlich Willkommen $username!</h3>";
 
 
                 echo "<a href='profil.php?userid=$userID'<button class=\"btn btn-success\" type=\"button\"/>Mein Profil</button></a><div class=\"spacer\"></div>";
                 echo "<input class=\"btn btn-primary\" id=\"tweetVerfassenButton\"  type=\"button\" value=\"Neue Welle verfassen\"/><div class=\"spacer\"></div>"; // eButton und einblenden von Neuen Tweet verfassen
                 echo "<a href='photoGallery.php'<button class=\"btn btn-info\" type=\"button\"/>Zur privaten Fotogalerie</button></a><div class=\"spacer\"></div>";
 
-
-
-                // Anzeigen von allen vorhandenen Tweets aus der Datenbank
 
                 ?>
             </div>
@@ -147,7 +143,7 @@ $festgelegteUserID = $_SESSION['userid'];
 
                 if (empty($folgtPersonen)) {
 
-                    echo "<h2>Du folgst noch keiner Person! <br><br> Entdecke <a href='discover.php'>hier die neusten Wellen!</a>";
+                    echo "<br><h4>Du folgst noch keiner Person! </h4><h3>Entdecke <a href='discover.php'>hier die neusten Wellen!</a></h3>";
 
                 }
 
