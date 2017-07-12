@@ -19,7 +19,7 @@
     <label for="wellequelle">Quelle:</label><br>
     <input style="width: 300px" id="wellequelle" type="text" name="contentSource" /><br><br>
 
-    <div style="text-align: right"><a href="personal_start.php" class="btn btn-danger">Abbrechen</a>&emsp;<input class="btn btn-primary" type="submit" value="Absenden" /></div>
+    <div style="text-align: right"><a href="index.php" class="btn btn-danger">Abbrechen</a>&emsp;<input class="btn btn-primary" type="submit" value="Absenden" /></div>
 </form>
 </body>
 </html>
